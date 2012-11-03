@@ -1,0 +1,10 @@
+C:\Documents and Settings\marcin\Ustawienia lokalne\Dane aplikacji\Temporary Projects\TripsService\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\marcin\Ustawienia lokalne\Dane aplikacji\Temporary Projects\TripsService\obj\x86\Debug\TripsService.Properties.Resources.resources
+C:\Documents and Settings\marcin\Ustawienia lokalne\Dane aplikacji\Temporary Projects\TripsService\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\marcin\Ustawienia lokalne\Dane aplikacji\Temporary Projects\TripsService\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\marcin\Ustawienia lokalne\Dane aplikacji\Temporary Projects\TripsService\bin\Debug\TripsService.exe
+C:\Documents and Settings\marcin\Ustawienia lokalne\Dane aplikacji\Temporary Projects\TripsService\bin\Debug\TripsService.pdb
+C:\Documents and Settings\marcin\Ustawienia lokalne\Dane aplikacji\Temporary Projects\TripsService\obj\x86\Debug\TripsService.exe
+C:\Documents and Settings\marcin\Ustawienia lokalne\Dane aplikacji\Temporary Projects\TripsService\obj\x86\Debug\TripsService.pdb
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\obj\x86\Debug\TripsService.exe
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\obj\x86\Debug\TripsService.pdb
