@@ -1,4 +1,6 @@
 using System;
+using PhotoGalleryLibrary;
+
 namespace TripsService {
 	public class FileManager : IManager  {
 		private FileManager() {

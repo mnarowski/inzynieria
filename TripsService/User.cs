@@ -1,5 +1,7 @@
 using System;
 using System.Runtime.Serialization;
+using PhotoGalleryLibrary;
+
 namespace TripsService {
 	public class User : ISerializable{
 		private String name;

@@ -46,8 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Album.cs" />
-    <Compile Include="AlbumManager.cs" />
     <Compile Include="Attraction.cs" />
     <Compile Include="AttractionType.cs" />
     <Compile Include="AuthAdapter.cs" />
@@ -59,13 +57,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="IAlbumManager.cs" />
     <Compile Include="IManager.cs" />
     <Compile Include="IPart.cs" />
     <Compile Include="IQuery.cs" />
     <Compile Include="IQueryAdapter.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Photo.cs" />
     <Compile Include="Privillage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +90,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PhotoGalleryLibrary\PhotoGalleryLibrary.csproj">
+      <Project>{DC47C14C-6E2D-4F7A-BA7C-F606A2154ED2}</Project>
+      <Name>PhotoGalleryLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
