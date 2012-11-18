@@ -20,8 +20,6 @@ namespace TripsService {
 			throw new System.Exception("Not implemented");
 		}
 
-		private User[] user;
-
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {

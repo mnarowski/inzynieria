@@ -97,6 +97,14 @@
       <Name>PhotoGalleryLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppFiles\Database\" />
+    <Folder Include="AppFiles\GUI\Backgrounds\" />
+    <Folder Include="AppFiles\GUI\Images\" />
+    <Folder Include="AppFiles\Resources\" />
+    <Folder Include="AppFiles\Temporary\" />
+    <Folder Include="AppFiles\User\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
