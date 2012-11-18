@@ -1,13 +1,37 @@
 using System;
 using System.Runtime.Serialization;
 namespace TripsService {
+    /// <summary>
+    /// Przechowuje informacje o lokalizacji
+    /// </summary>
 	public class Location  : ISerializable{
+        /// <summary>
+        /// Nazwa
+        /// </summary>
 		private String name;
+        /// <summary>
+        /// Miast
+        /// </summary>
 		private String city;
+        /// <summary>
+        /// D³ugoœæ geograficzna
+        /// </summary>
 		private float longitude;
+        /// <summary>
+        /// Szerokoœæ geograficzna
+        /// </summary>
 		private float latitude;
+        /// <summary>
+        /// Kraj
+        /// </summary>
 		private String country;
+        /// <summary>
+        /// Ulica
+        /// </summary>
 		private String street;
+        /// <summary>
+        /// Poziom ponad morzem
+        /// </summary>
 		private float aMSL;
 
 		public String GetName() {

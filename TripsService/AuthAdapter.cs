@@ -26,7 +26,7 @@ namespace TripsService {
         /// <summary>
         /// Pobranie zalogowanego u¿ytkownika
         /// </summary>
-        /// <returns>Zalogowany u¿ytkownik</returns>
+        /// <returns></returns>
         public User getIdentity() {
             return this.identity;
         }
