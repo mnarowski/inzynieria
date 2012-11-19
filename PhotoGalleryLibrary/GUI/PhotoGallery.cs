@@ -154,7 +154,7 @@ namespace PhotoGalleryLibrary.GUI
             this.pictureNotes.Visible = false;
             this.txtAuthor.Visible = false;
             this.txtDate.Visible = false;
-            this.MainPicture.Image = photoIco.PhotoObject.Image;
+            this.MainPicture.Image = photoIco.PhotoObject.ImageObject;
             this.pictureNotes.Visible = true;
             this.txtAuthor.Text = photoIco.PhotoObject.Author;
             this.txtTitle.Text = photoIco.PhotoObject.Title;

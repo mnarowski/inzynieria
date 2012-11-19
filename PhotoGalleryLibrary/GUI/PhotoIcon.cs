@@ -34,9 +34,9 @@ namespace PhotoGalleryLibrary.GUI
 
                 if (image != null)
                 {
-                    if (image.Image != null)
+                    if (image.ImageObject != null)
                     {
-                        this.pictureBox1.Image = image.Image;
+                        this.pictureBox1.Image = image.ImageObject;
                     }
                 }
             }
