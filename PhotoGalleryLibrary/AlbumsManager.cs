@@ -9,7 +9,7 @@ namespace PhotoGalleryLibrary
     [Serializable]
     public class AlbumsManager: IAlbumsManagement, IDisposable, ISerializable 
     {
-        List<Album> listAlbums = null;  
+        private List<Album> listAlbums = null;  
 
         #region Properties
 
@@ -19,11 +19,18 @@ namespace PhotoGalleryLibrary
 
         #region Constructors
 
+        /// <summary>
+        /// No-arguments constructor 
+        /// </summary>
         public AlbumsManager()
         {
             this.listAlbums = new List<Album>();
         }
 
+        /// <summary>
+        /// Construcor
+        /// </summary>
+        /// <param name="albums">Albums object to add to the albums collection</param>
         public AlbumsManager(params Album [] albums): this()
         {
             throw new NotImplementedException();
@@ -33,6 +40,10 @@ namespace PhotoGalleryLibrary
 
         #region Functions 
 
+        /// <summary>
+        /// Method to add album
+        /// </summary>
+        /// <param name="album">Album object to add to the album's collection</param>
         public void AddAlbum(Album album)
         {
             if (this.Albums == null)
@@ -43,9 +54,13 @@ namespace PhotoGalleryLibrary
             this.Albums.Add(album);
         }
 
+        /// <summary>
+        /// Method to add albums
+        /// </summary>
+        /// <param name="albums">Albums object to add to the album's collection</param>
         public void AddAlbums(params Album[] albums)
         {
-            if (this.Albums == null)
+            if (this.Albums == null)    
             {
                 this.Albums = new List<Album>();
             }
@@ -56,6 +71,10 @@ namespace PhotoGalleryLibrary
             }
         }
 
+        /// <summary>
+        /// Method to delete album
+        /// </summary>
+        /// <param name="album">Album object to delete from album's collection</param>
         public void DeleteAlbum(Album album)
         {
             if (this.Albums != null)
@@ -64,6 +83,10 @@ namespace PhotoGalleryLibrary
             }
         }
 
+        /// <summary>
+        /// Method to delete albums 
+        /// </summary>
+        /// <param name="albums">Album objects to delete from album's collection</param>
         public void DeleteAlbums(params Album [] albums)
         {
             if (this.Albums != null)
@@ -75,6 +98,9 @@ namespace PhotoGalleryLibrary
             }
         }
 
+        /// <summary>
+        /// Method to delete all albums from album's collection
+        /// </summary>
         public void DeleteAllAlbums()
         {
             if (this.Albums != null)
@@ -98,11 +124,11 @@ namespace PhotoGalleryLibrary
             this.listAlbums = null;
         }
 
-        #endregion
-
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }

@@ -10,15 +10,18 @@ namespace PhotoGalleryLibrary
     [Serializable]
     public class Album: IPhotosManagement, IDisposable, ISerializable
     {
-        List<Photo> listPhotos;
-        Image imgMainImage;
-        string strTitle;
-        string strDescribe;
-        DateTime dtDateAdded;
-        string strAuthor;
+        private List<Photo> listPhotos;
+        private Image imgMainImage;
+        private string strTitle;
+        private string strDescribe;
+        private DateTime dtDateAdded;
+        private string strAuthor;
 
         #region Constructors
 
+        /// <summary>
+        /// No-arguments constructor
+        /// </summary>
         private Album()
         {
             this.listPhotos = new List<Photo>();
@@ -28,18 +31,33 @@ namespace PhotoGalleryLibrary
             this.strAuthor = string.Empty;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="title">Album's title</param>
         public Album(string title)
             : this()
         {
             this.strTitle = title;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="title">Albums's title</param>
+        /// <param name="describe">Album's describe</param>
         public Album(string title, string describe)
             : this(title)
         {
             this.strDescribe = describe;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="title">Album's title</param>
+        /// <param name="describe">Album's describe</param>
+        /// <param name="author">Album's author</param>
         public Album(string title, string describe, string author)
             : this(title, describe)
         {
@@ -50,10 +68,10 @@ namespace PhotoGalleryLibrary
 
         #region Properties
 
-        public List<Photo> Photos { get { return this.listPhotos; } }
+        public List<Photo> Photos { get { return this.listPhotos; } } //readonly
         public string Title { get { return this.strTitle; } set { this.strTitle = value; } }
         public string Describe { get { return this.strDescribe; } set { this.strDescribe = value; } }
-        public DateTime DateAdded { get { return this.dtDateAdded; } }
+        public DateTime DateAdded { get { return this.dtDateAdded; } }  //readonly
         public string Author { get { return this.strAuthor; } set { this.strAuthor = value; } }
         public Image MainImage { get { return this.imgMainImage; } set { this.imgMainImage = value; } }
 
@@ -61,26 +79,45 @@ namespace PhotoGalleryLibrary
 
         #region Functions
 
+        /// <summary>
+        /// Method to add the photo to album
+        /// </summary>
+        /// <param name="item">Photo object to add</param>
         public void AddPhoto(Photo item)
         {
             this.listPhotos.Add(item);
         }
 
+        /// <summary>
+        /// Method to delete the photo
+        /// </summary>
+        /// <param name="item">Photo object to delete</param>
         public void DeletePhoto(Photo item)
         {
             this.listPhotos.Remove(item);
         }
 
+        /// <summary>
+        /// Method to add photos 
+        /// </summary>
+        /// <param name="items">Photo objects to add</param>
         public void AddPhotos(params Photo[] items)
         {
             this.listPhotos.AddRange(items);
         }
 
+        /// <summary>
+        /// Method to delete photos 
+        /// </summary>
+        /// <param name="items">Photo objects to delete</param>
         public void DeletePhotos(params Photo[] items)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Method to delete all photos
+        /// </summary>
         public void DeleteAllPhotos()
         {
             throw new NotImplementedException();
@@ -90,6 +127,10 @@ namespace PhotoGalleryLibrary
 
         #region Additional functions
 
+        /// <summary>
+        /// Method ToString from class Object
+        /// </summary>
+        /// <returns>Album's title</returns>
         public override string ToString()
         {
             return this.Title;
@@ -104,11 +145,11 @@ namespace PhotoGalleryLibrary
             this.strAuthor = null;
         }
 
-        #endregion
-
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }

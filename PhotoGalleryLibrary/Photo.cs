@@ -10,11 +10,11 @@ namespace PhotoGalleryLibrary
     [Serializable]
     public class Photo: IDisposable, ISerializable
     {
-        Image imgPhoto;
-        string strTitle;
-        string strDescribe;
-        DateTime dtDateAdded;
-        string strAuthor;
+        private Image imgPhoto;
+        private string strTitle;
+        private string strDescribe;
+        private DateTime dtDateAdded;
+        private string strAuthor;
 
         #region Constructors
 
@@ -42,7 +42,7 @@ namespace PhotoGalleryLibrary
         /// <summary>
         /// Constructor load photo from Image object
         /// </summary>
-        /// <param name="Photo"></param>
+        /// <param name="Photo">Image object to load</param>
         public Photo(Image Photo)
             : this()
         {
@@ -63,6 +63,10 @@ namespace PhotoGalleryLibrary
 
         #region Additional Functions
 
+        /// <summary>
+        /// Method from class Object
+        /// </summary>
+        /// <returns>Photo's title</returns>
         public override string ToString()
         {
             return this.Title;
@@ -76,11 +80,11 @@ namespace PhotoGalleryLibrary
             strAuthor = null;
         }
 
-        #endregion
-
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }
