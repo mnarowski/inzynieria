@@ -33,7 +33,10 @@ namespace PhotoGalleryLibrary
         /// <param name="albums">Albums object to add to the albums collection</param>
         public AlbumsManager(params Album [] albums): this()
         {
-            throw new NotImplementedException();
+            foreach (Album item in albums)
+            {
+                this.Albums.Add(item);
+            }
         }
 
         #endregion

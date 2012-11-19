@@ -80,12 +80,17 @@ namespace PhotoGalleryLibrary
         #region Functions
 
         /// <summary>
-        /// Method to add the photo to album
+        /// Method to add the photo to the album
         /// </summary>
         /// <param name="item">Photo object to add</param>
         public void AddPhoto(Photo item)
         {
-            this.listPhotos.Add(item);
+            if (this.Photos == null)
+            {
+                this.listPhotos = new List<Photo>();
+            }
+
+            this.Photos.Add(item);
         }
 
         /// <summary>
@@ -94,7 +99,10 @@ namespace PhotoGalleryLibrary
         /// <param name="item">Photo object to delete</param>
         public void DeletePhoto(Photo item)
         {
-            this.listPhotos.Remove(item);
+            if (this.Photos != null)
+            {
+                this.Photos.Remove(item);
+            }
         }
 
         /// <summary>
@@ -103,7 +111,12 @@ namespace PhotoGalleryLibrary
         /// <param name="items">Photo objects to add</param>
         public void AddPhotos(params Photo[] items)
         {
-            this.listPhotos.AddRange(items);
+            if (Photos == null)
+            {
+                this.listPhotos = new List<Photo>();
+            }
+
+            this.Photos.AddRange(items);
         }
 
         /// <summary>
@@ -112,7 +125,13 @@ namespace PhotoGalleryLibrary
         /// <param name="items">Photo objects to delete</param>
         public void DeletePhotos(params Photo[] items)
         {
-            throw new NotImplementedException();
+            if (this.Photos != null)
+            {
+                foreach (Photo item in items)
+                {
+                    this.Photos.Remove(item);
+                }
+            }
         }
 
         /// <summary>
@@ -120,7 +139,10 @@ namespace PhotoGalleryLibrary
         /// </summary>
         public void DeleteAllPhotos()
         {
-            throw new NotImplementedException();
+            if (this.Photos != null)
+            {
+                this.Photos.Clear();
+            }
         }
 
         #endregion
