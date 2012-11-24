@@ -49,6 +49,7 @@
     <Compile Include="Attraction.cs" />
     <Compile Include="AttractionType.cs" />
     <Compile Include="AuthAdapter.cs" />
+    <Compile Include="ClassSimple.cs" />
     <Compile Include="FileAdapter.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Form1.cs">
