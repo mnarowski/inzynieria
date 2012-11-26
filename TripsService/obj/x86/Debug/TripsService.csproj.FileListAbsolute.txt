@@ -18,3 +18,5 @@ C:\Users\Damian\Documents\GitHub\inzynieria\TripsService\obj\x86\Debug\GenerateR
 C:\Users\Damian\Documents\GitHub\inzynieria\TripsService\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Damian\Documents\GitHub\inzynieria\TripsService\bin\Debug\PhotoGalleryLibrary.dll
 C:\Users\Damian\Documents\GitHub\inzynieria\TripsService\bin\Debug\PhotoGalleryLibrary.pdb
+C:\Documents and Settings\marcin\Pulpit\inzynier2\TripsService\obj\x86\Debug\TripsService.exe
+C:\Documents and Settings\marcin\Pulpit\inzynier2\TripsService\obj\x86\Debug\TripsService.pdb
