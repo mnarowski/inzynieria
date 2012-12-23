@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace PhotoGalleryLibrary
 {
     [Serializable]
-    public class AlbumsManager: IAlbumsManagement, IDisposable, ISerializable 
+    public class AlbumsManager: IAlbumsManagement, IDisposable
     {
         private List<Album> listAlbums = null;  
 
@@ -125,11 +125,6 @@ namespace PhotoGalleryLibrary
         {
             this.listAlbums.Clear();
             this.listAlbums = null;
-        }
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion

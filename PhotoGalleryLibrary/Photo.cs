@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace PhotoGalleryLibrary
 {
     [Serializable]
-    public class Photo: IDisposable, ISerializable
+    public class Photo: IDisposable
     {
         private Image imgPhoto;
         private string strTitle;
@@ -210,11 +210,6 @@ namespace PhotoGalleryLibrary
             strTitle = null;
             strDescribe = null;
             strAuthor = null;
-        }
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion

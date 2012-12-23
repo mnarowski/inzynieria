@@ -20,3 +20,4 @@ C:\Users\Damian\Documents\GitHub\inzynieria\TripsService\bin\Debug\PhotoGalleryL
 C:\Users\Damian\Documents\GitHub\inzynieria\TripsService\bin\Debug\PhotoGalleryLibrary.pdb
 C:\Documents and Settings\marcin\Pulpit\inzynier2\TripsService\obj\x86\Debug\TripsService.exe
 C:\Documents and Settings\marcin\Pulpit\inzynier2\TripsService\obj\x86\Debug\TripsService.pdb
+C:\Users\Damian\Documents\GitHub\inzynieria\TripsService\obj\x86\Debug\TripsService.Form1.resources
