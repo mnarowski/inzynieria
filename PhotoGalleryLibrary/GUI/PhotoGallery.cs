@@ -210,5 +210,11 @@ namespace PhotoGalleryLibrary.GUI
                 return ico;
             }
         }
+
+        private void linkAddAlbum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmAlbumAdd frmAD = new frmAlbumAdd(this);
+            frmAD.Show();
+        }
     }
 }
