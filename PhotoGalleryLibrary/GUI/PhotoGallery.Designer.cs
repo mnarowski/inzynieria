@@ -30,15 +30,15 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelAlbums = new System.Windows.Forms.Panel();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.MainPicture = new System.Windows.Forms.PictureBox();
-            this.panelPhotos = new System.Windows.Forms.Panel();
             this.linkAddAlbum = new System.Windows.Forms.LinkLabel();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.linkAddPhoto = new System.Windows.Forms.LinkLabel();
             this.txtDate = new PhotoGalleryLibrary.GUI.TranparenLabel();
             this.txtAuthor = new PhotoGalleryLibrary.GUI.TranparenLabel();
             this.pictureNotes = new PhotoGalleryLibrary.GUI.TranparentPictureBox();
-            this.linkAddPhoto = new System.Windows.Forms.LinkLabel();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.MainPicture = new System.Windows.Forms.PictureBox();
+            this.panelPhotos = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -48,8 +48,8 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MainPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureNotes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -82,6 +82,18 @@
             this.panelAlbums.Size = new System.Drawing.Size(251, 510);
             this.panelAlbums.TabIndex = 0;
             // 
+            // linkAddAlbum
+            // 
+            this.linkAddAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkAddAlbum.AutoSize = true;
+            this.linkAddAlbum.Location = new System.Drawing.Point(180, 490);
+            this.linkAddAlbum.Name = "linkAddAlbum";
+            this.linkAddAlbum.Size = new System.Drawing.Size(66, 13);
+            this.linkAddAlbum.TabIndex = 0;
+            this.linkAddAlbum.TabStop = true;
+            this.linkAddAlbum.Text = "Dodaj album";
+            this.linkAddAlbum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAddAlbum_LinkClicked);
+            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -106,56 +118,16 @@
             this.splitContainer2.SplitterDistance = 409;
             this.splitContainer2.TabIndex = 0;
             // 
-            // txtTitle
+            // linkAddPhoto
             // 
-            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitle.BackColor = System.Drawing.Color.White;
-            this.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtTitle.Location = new System.Drawing.Point(0, 383);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.ReadOnly = true;
-            this.txtTitle.Size = new System.Drawing.Size(601, 19);
-            this.txtTitle.TabIndex = 1;
-            this.txtTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // MainPicture
-            // 
-            this.MainPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.MainPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.MainPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MainPicture.Location = new System.Drawing.Point(0, 0);
-            this.MainPicture.Name = "MainPicture";
-            this.MainPicture.Size = new System.Drawing.Size(681, 371);
-            this.MainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.MainPicture.TabIndex = 0;
-            this.MainPicture.TabStop = false;
-            // 
-            // panelPhotos
-            // 
-            this.panelPhotos.AutoScroll = true;
-            this.panelPhotos.BackColor = System.Drawing.Color.White;
-            this.panelPhotos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelPhotos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPhotos.Location = new System.Drawing.Point(0, 0);
-            this.panelPhotos.Name = "panelPhotos";
-            this.panelPhotos.Size = new System.Drawing.Size(681, 97);
-            this.panelPhotos.TabIndex = 0;
-            // 
-            // linkAddAlbum
-            // 
-            this.linkAddAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkAddAlbum.AutoSize = true;
-            this.linkAddAlbum.Location = new System.Drawing.Point(180, 490);
-            this.linkAddAlbum.Name = "linkAddAlbum";
-            this.linkAddAlbum.Size = new System.Drawing.Size(66, 13);
-            this.linkAddAlbum.TabIndex = 0;
-            this.linkAddAlbum.TabStop = true;
-            this.linkAddAlbum.Text = "Dodaj album";
-            this.linkAddAlbum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAddAlbum_LinkClicked);
+            this.linkAddPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkAddPhoto.AutoSize = true;
+            this.linkAddPhoto.Location = new System.Drawing.Point(607, 389);
+            this.linkAddPhoto.Name = "linkAddPhoto";
+            this.linkAddPhoto.Size = new System.Drawing.Size(71, 13);
+            this.linkAddPhoto.TabIndex = 1;
+            this.linkAddPhoto.TabStop = true;
+            this.linkAddPhoto.Text = "Dodaj zdjecie";
             // 
             // txtDate
             // 
@@ -192,16 +164,45 @@
             this.pictureNotes.TabStop = false;
             this.pictureNotes.Visible = false;
             // 
-            // linkAddPhoto
+            // txtTitle
             // 
-            this.linkAddPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkAddPhoto.AutoSize = true;
-            this.linkAddPhoto.Location = new System.Drawing.Point(607, 389);
-            this.linkAddPhoto.Name = "linkAddPhoto";
-            this.linkAddPhoto.Size = new System.Drawing.Size(71, 13);
-            this.linkAddPhoto.TabIndex = 1;
-            this.linkAddPhoto.TabStop = true;
-            this.linkAddPhoto.Text = "Dodaj zdjecie";
+            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTitle.BackColor = System.Drawing.Color.White;
+            this.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtTitle.Location = new System.Drawing.Point(0, 383);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.ReadOnly = true;
+            this.txtTitle.Size = new System.Drawing.Size(601, 19);
+            this.txtTitle.TabIndex = 1;
+            this.txtTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // MainPicture
+            // 
+            this.MainPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.MainPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MainPicture.Location = new System.Drawing.Point(0, 0);
+            this.MainPicture.Name = "MainPicture";
+            this.MainPicture.Size = new System.Drawing.Size(681, 371);
+            this.MainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MainPicture.TabIndex = 0;
+            this.MainPicture.TabStop = false;
+            this.MainPicture.DoubleClick += new System.EventHandler(this.MainPicture_DoubleClick);
+            // 
+            // panelPhotos
+            // 
+            this.panelPhotos.AutoScroll = true;
+            this.panelPhotos.BackColor = System.Drawing.Color.White;
+            this.panelPhotos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPhotos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPhotos.Location = new System.Drawing.Point(0, 0);
+            this.panelPhotos.Name = "panelPhotos";
+            this.panelPhotos.Size = new System.Drawing.Size(681, 97);
+            this.panelPhotos.TabIndex = 0;
             // 
             // PhotoGallery
             // 
@@ -224,8 +225,8 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MainPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureNotes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainPicture)).EndInit();
             this.ResumeLayout(false);
 
         }

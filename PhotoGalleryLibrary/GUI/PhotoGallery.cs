@@ -216,5 +216,11 @@ namespace PhotoGalleryLibrary.GUI
             frmAlbumAdd frmAD = new frmAlbumAdd(this);
             frmAD.Show();
         }
+
+        private void MainPicture_DoubleClick(object sender, EventArgs e)
+        {
+            frmPhotoFullScreen frmPFS = new frmPhotoFullScreen(this.MainPicture.Image);
+            frmPFS.Show();
+        }
     }
 }

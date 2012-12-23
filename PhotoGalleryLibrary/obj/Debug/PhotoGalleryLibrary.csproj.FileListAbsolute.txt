@@ -25,3 +25,4 @@ C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\Genera
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.dll
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.pdb
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.frmAlbumAdd.resources
+C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.frmPhotoFullScreen.resources
