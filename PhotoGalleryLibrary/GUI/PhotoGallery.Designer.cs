@@ -187,7 +187,7 @@
             this.MainPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MainPicture.Location = new System.Drawing.Point(0, 0);
             this.MainPicture.Name = "MainPicture";
-            this.MainPicture.Size = new System.Drawing.Size(681, 371);
+            this.MainPicture.Size = new System.Drawing.Size(682, 377);
             this.MainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MainPicture.TabIndex = 0;
             this.MainPicture.TabStop = false;

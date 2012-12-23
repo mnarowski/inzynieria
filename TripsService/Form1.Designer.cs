@@ -36,18 +36,19 @@
             // 
             this.photoGallery1.BackColor = System.Drawing.Color.White;
             this.photoGallery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.photoGallery1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.photoGallery1.GalleryObject = ((PhotoGalleryLibrary.AlbumsManager)(resources.GetObject("photoGallery1.GalleryObject")));
-            this.photoGallery1.Location = new System.Drawing.Point(13, 31);
+            this.photoGallery1.Location = new System.Drawing.Point(0, 0);
             this.photoGallery1.MinimumSize = new System.Drawing.Size(760, 400);
             this.photoGallery1.Name = "photoGallery1";
-            this.photoGallery1.Size = new System.Drawing.Size(760, 400);
+            this.photoGallery1.Size = new System.Drawing.Size(809, 459);
             this.photoGallery1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 433);
+            this.ClientSize = new System.Drawing.Size(809, 459);
             this.Controls.Add(this.photoGallery1);
             this.Name = "Form1";
             this.Text = "Form1";
