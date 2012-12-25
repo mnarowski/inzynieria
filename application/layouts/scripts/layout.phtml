@@ -1,1 +1,20 @@
-<?php echo $this->layout()->content; ?>
+<?php echo $this->doctype();?>
+<html>
+    <head>
+        
+        <?php echo $this->headMeta();?>
+        <?php echo $this->headLink();?>
+        <?php echo $this->headScript();?>
+    </head>
+    <body>
+    <header>
+    </header>
+        <nav><?php echo $this->render('_common/menu/top.phtml')?></nav>
+        <section id="main">
+            <?php echo $this->layout()->content; ?>
+        </section>
+        <menu id="menu-left"></menu>
+            <?php $this->render('_common/menu/left.phtml');?>
+        <footer></footer>
+        </body>
+</html>
