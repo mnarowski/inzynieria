@@ -49,24 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Album.cs" />
-    <Compile Include="frmAlbumAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAlbumAdd.Designer.cs">
-      <DependentUpon>frmAlbumAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAlbumEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAlbumEdit.Designer.cs">
-      <DependentUpon>frmAlbumEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmPhotoFullScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPhotoFullScreen.Designer.cs">
-      <DependentUpon>frmPhotoFullScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\AlbumIcon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,15 +86,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmAlbumAdd.resx">
-      <DependentUpon>frmAlbumAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAlbumEdit.resx">
-      <DependentUpon>frmAlbumEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPhotoFullScreen.resx">
-      <DependentUpon>frmPhotoFullScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\AlbumIcon.resx">
       <DependentUpon>AlbumIcon.cs</DependentUpon>
     </EmbeddedResource>

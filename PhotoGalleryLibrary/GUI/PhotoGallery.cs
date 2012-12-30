@@ -210,17 +210,5 @@ namespace PhotoGalleryLibrary.GUI
                 return ico;
             }
         }
-
-        private void linkAddAlbum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            frmAlbumAdd frmAD = new frmAlbumAdd(this);
-            frmAD.Show();
-        }
-
-        private void MainPicture_DoubleClick(object sender, EventArgs e)
-        {
-            frmPhotoFullScreen frmPFS = new frmPhotoFullScreen(this.MainPicture.Image);
-            frmPFS.Show();
-        }
     }
 }
