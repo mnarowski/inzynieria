@@ -20,3 +20,17 @@ C:\Users\Damian\Documents\GitHub\inzynieria\TripsService\bin\Debug\PhotoGalleryL
 C:\Users\Damian\Documents\GitHub\inzynieria\TripsService\bin\Debug\PhotoGalleryLibrary.pdb
 C:\Documents and Settings\marcin\Pulpit\inzynier2\TripsService\obj\x86\Debug\TripsService.exe
 C:\Documents and Settings\marcin\Pulpit\inzynier2\TripsService\obj\x86\Debug\TripsService.pdb
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\bin\Debug\TripsService.exe
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\bin\Debug\TripsService.pdb
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\bin\Debug\Iesi.Collections.dll
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\bin\Debug\NHibernate.dll
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\bin\Debug\PhotoGalleryLibrary.dll
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\bin\Debug\PhotoGalleryLibrary.pdb
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\bin\Debug\Iesi.Collections.pdb
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\bin\Debug\Iesi.Collections.xml
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\bin\Debug\NHibernate.pdb
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\bin\Debug\NHibernate.xml
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\obj\x86\Debug\TripsService.Properties.Resources.resources
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\TripsService\obj\x86\Debug\GenerateResource.write.1.tlog
