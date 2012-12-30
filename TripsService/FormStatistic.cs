@@ -19,7 +19,8 @@ namespace TripsService
         {
             this.Close();
             FormResults Form = new FormResults();
-            FormResults.show();
+            //Co to za smiec?
+            //FormResults.show();
         }
     }
 }
