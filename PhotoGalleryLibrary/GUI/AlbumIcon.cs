@@ -100,11 +100,5 @@ namespace PhotoGalleryLibrary.GUI
         {
             AlbumClick(this, e);
         }
-
-        private void linkEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            frmAlbumEdit frmAE = new frmAlbumEdit(this.album);
-            frmAE.Show();
-        }
     }
 }

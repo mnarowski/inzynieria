@@ -15,6 +15,8 @@ C:\Users\sgolebiewski.EU\Desktop\FMA Manager\PhotoGalleryLibrary\PhotoGalleryLib
 C:\Users\sgolebiewski.EU\Desktop\FMA Manager\PhotoGalleryLibrary\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.GUI.PhotoIcon.resources
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\bin\Debug\PhotoGalleryLibrary.dll
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\bin\Debug\PhotoGalleryLibrary.pdb
+C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.pdb
+C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\bin\Debug\WPFToolkit.pdb
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.GUI.AlbumIcon.resources
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.GUI.PhotoGallery.resources
@@ -24,6 +26,3 @@ C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\Genera
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.dll
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.pdb
-C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.frmAlbumAdd.resources
-C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.frmPhotoFullScreen.resources
-C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.frmAlbumEdit.resources

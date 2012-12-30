@@ -28,38 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.photoGallery1 = new PhotoGalleryLibrary.GUI.PhotoGallery();
-            this.SuspendLayout();
-            // 
-            // photoGallery1
-            // 
-            this.photoGallery1.BackColor = System.Drawing.Color.White;
-            this.photoGallery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.photoGallery1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.photoGallery1.GalleryObject = ((PhotoGalleryLibrary.AlbumsManager)(resources.GetObject("photoGallery1.GalleryObject")));
-            this.photoGallery1.Location = new System.Drawing.Point(0, 0);
-            this.photoGallery1.MinimumSize = new System.Drawing.Size(760, 400);
-            this.photoGallery1.Name = "photoGallery1";
-            this.photoGallery1.Size = new System.Drawing.Size(809, 459);
-            this.photoGallery1.TabIndex = 0;
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 459);
-            this.Controls.Add(this.photoGallery1);
-            this.Name = "Form1";
             this.Text = "Form1";
-            this.ResumeLayout(false);
-
         }
 
         #endregion
-
-        private PhotoGalleryLibrary.GUI.PhotoGallery photoGallery1;
-
     }
 }
 
