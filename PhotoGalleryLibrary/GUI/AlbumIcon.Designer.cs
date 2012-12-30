@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlbumIcon));
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.pictureMain = new System.Windows.Forms.PictureBox();
+            this.linkEdit = new System.Windows.Forms.LinkLabel();
             this.pictureSelected = new PhotoGalleryLibrary.GUI.TranparentPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSelected)).BeginInit();
@@ -42,11 +43,11 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTitle.BackColor = System.Drawing.Color.White;
             this.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTitle.Font = new System.Drawing.Font("SketchFlow Print", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtTitle.Location = new System.Drawing.Point(-1, 162);
+            this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtTitle.Location = new System.Drawing.Point(-1, 163);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.ReadOnly = true;
-            this.txtTitle.Size = new System.Drawing.Size(226, 16);
+            this.txtTitle.Size = new System.Drawing.Size(226, 14);
             this.txtTitle.TabIndex = 0;
             this.txtTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTitle.Click += new System.EventHandler(this.txtTitle_Click);
@@ -66,6 +67,18 @@
             this.pictureMain.TabStop = false;
             this.pictureMain.Click += new System.EventHandler(this.pictureMain_Click);
             // 
+            // linkEdit
+            // 
+            this.linkEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkEdit.AutoSize = true;
+            this.linkEdit.Location = new System.Drawing.Point(186, 168);
+            this.linkEdit.Name = "linkEdit";
+            this.linkEdit.Size = new System.Drawing.Size(36, 13);
+            this.linkEdit.TabIndex = 3;
+            this.linkEdit.TabStop = true;
+            this.linkEdit.Text = "Edytuj";
+            this.linkEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkEdit_LinkClicked);
+            // 
             // pictureSelected
             // 
             this.pictureSelected.Image = global::PhotoGalleryLibrary.Properties.Resources.Map_Marker_Push_Pin_1_Left_Pink_icon;
@@ -81,6 +94,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.linkEdit);
             this.Controls.Add(this.pictureSelected);
             this.Controls.Add(this.pictureMain);
             this.Controls.Add(this.txtTitle);
@@ -100,5 +114,6 @@
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.PictureBox pictureMain;
         private TranparentPictureBox pictureSelected;
+        private System.Windows.Forms.LinkLabel linkEdit;
     }
 }

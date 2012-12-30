@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace PhotoGalleryLibrary
 {
     [Serializable]
-    public class Album: IPhotosManagement, IDisposable, ISerializable
+    public class Album: IPhotosManagement, IDisposable
     {
         private List<Photo> listPhotos;
         private Image imgMainImage;
@@ -165,11 +165,6 @@ namespace PhotoGalleryLibrary
             this.strTitle = null;
             this.strDescribe = null;
             this.strAuthor = null;
-        }
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion
