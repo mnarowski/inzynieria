@@ -26,3 +26,16 @@ C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\Genera
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.dll
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.pdb
+E:\repo\PhotoGalleryLibrary\bin\Debug\PhotoGalleryLibrary.dll
+E:\repo\PhotoGalleryLibrary\bin\Debug\PhotoGalleryLibrary.pdb
+E:\repo\PhotoGalleryLibrary\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.pdb
+E:\repo\PhotoGalleryLibrary\bin\Debug\WPFToolkit.pdb
+E:\repo\PhotoGalleryLibrary\obj\Debug\ResolveAssemblyReference.cache
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.GUI.AlbumIcon.resources
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.GUI.PhotoGallery.resources
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.GUI.PhotoIcon.resources
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.Properties.Resources.resources
+E:\repo\PhotoGalleryLibrary\obj\Debug\GenerateResource.read.1.tlog
+E:\repo\PhotoGalleryLibrary\obj\Debug\GenerateResource.write.1.tlog
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.dll
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.pdb
