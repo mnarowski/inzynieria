@@ -18,3 +18,14 @@ C:\Users\sgolebiewski.EU\Desktop\FMA Manager\PhotoGalleryLibrary\PhotoGalleryLib
 C:\Users\sgolebiewski.EU\Desktop\FMA Manager\PhotoGalleryLibrary\PhotoGalleryLibrary\obj\Release\PhotoGalleryLibrary.GUI.AlbumIcon.resources
 C:\Users\sgolebiewski.EU\Desktop\FMA Manager\PhotoGalleryLibrary\PhotoGalleryLibrary\obj\Release\PhotoGalleryLibrary.Properties.Resources.resources
 C:\Users\sgolebiewski.EU\Desktop\FMA Manager\PhotoGalleryLibrary\PhotoGalleryLibrary\obj\Release\PhotoGalleryLibrary.GUI.PhotoIcon.resources
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\bin\Release\PhotoGalleryLibrary.dll
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\bin\Release\PhotoGalleryLibrary.pdb
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Release\PhotoGalleryLibrary.GUI.AlbumIcon.resources
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Release\PhotoGalleryLibrary.GUI.PhotoGallery.resources
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Release\PhotoGalleryLibrary.GUI.PhotoIcon.resources
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Release\PhotoGalleryLibrary.Properties.Resources.resources
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Release\GenerateResource.read.1.tlog
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Release\GenerateResource.write.1.tlog
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Release\PhotoGalleryLibrary.dll
+C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Release\PhotoGalleryLibrary.pdb
