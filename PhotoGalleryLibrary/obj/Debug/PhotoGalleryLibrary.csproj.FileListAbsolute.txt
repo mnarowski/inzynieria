@@ -26,6 +26,7 @@ C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\Genera
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.dll
 C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.pdb
+<<<<<<< HEAD
 C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\bin\Debug\PhotoGalleryLibrary.dll
 C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\bin\Debug\PhotoGalleryLibrary.pdb
 C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.pdb
@@ -39,3 +40,18 @@ C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibr
 C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Debug\GenerateResource.write.1.tlog
 C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.dll
 C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.pdb
+=======
+E:\repo\PhotoGalleryLibrary\bin\Debug\PhotoGalleryLibrary.dll
+E:\repo\PhotoGalleryLibrary\bin\Debug\PhotoGalleryLibrary.pdb
+E:\repo\PhotoGalleryLibrary\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.pdb
+E:\repo\PhotoGalleryLibrary\bin\Debug\WPFToolkit.pdb
+E:\repo\PhotoGalleryLibrary\obj\Debug\ResolveAssemblyReference.cache
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.GUI.AlbumIcon.resources
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.GUI.PhotoGallery.resources
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.GUI.PhotoIcon.resources
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.Properties.Resources.resources
+E:\repo\PhotoGalleryLibrary\obj\Debug\GenerateResource.read.1.tlog
+E:\repo\PhotoGalleryLibrary\obj\Debug\GenerateResource.write.1.tlog
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.dll
+E:\repo\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.pdb
+>>>>>>> 55f2f56acb1d541a142f666a3ad91ac3d1ac2086

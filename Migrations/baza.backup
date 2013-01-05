@@ -1,0 +1,731 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.2.2
+-- Dumped by pg_dump version 9.2.2
+-- Started on 2012-12-30 21:22:37
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+DROP DATABASE inzynieria;
+--
+-- TOC entry 2012 (class 1262 OID 24590)
+-- Name: inzynieria; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE inzynieria WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'Polish_Poland.1250' LC_CTYPE = 'Polish_Poland.1250';
+
+
+ALTER DATABASE inzynieria OWNER TO postgres;
+
+\connect inzynieria
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 5 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO postgres;
+
+--
+-- TOC entry 2013 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
+--
+-- TOC entry 184 (class 3079 OID 11727)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2015 (class 0 OID 0)
+-- Dependencies: 184
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- TOC entry 527 (class 1247 OID 24592)
+-- Name: Sex; Type: TYPE; Schema: public; Owner: postgres
+--
+
+CREATE TYPE "Sex" AS ENUM (
+    'Female',
+    'Male'
+);
+
+
+ALTER TYPE public."Sex" OWNER TO postgres;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 179 (class 1259 OID 24653)
+-- Name: Attraction; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "Attraction" (
+    "ID_ATTRACTION" integer NOT NULL,
+    "Latitude" real NOT NULL,
+    "Longitude" real NOT NULL,
+    "Name" character varying(64) NOT NULL,
+    "AttractionType" integer NOT NULL
+);
+
+
+ALTER TABLE public."Attraction" OWNER TO postgres;
+
+--
+-- TOC entry 177 (class 1259 OID 24645)
+-- Name: AttractionType; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "AttractionType" (
+    "ID_ATT_TYPE" integer NOT NULL,
+    "AttractionType" character varying(64) NOT NULL
+);
+
+
+ALTER TABLE public."AttractionType" OWNER TO postgres;
+
+--
+-- TOC entry 176 (class 1259 OID 24643)
+-- Name: AttractionType_ID_ATT_TYPE_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE "AttractionType_ID_ATT_TYPE_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."AttractionType_ID_ATT_TYPE_seq" OWNER TO postgres;
+
+--
+-- TOC entry 2016 (class 0 OID 0)
+-- Dependencies: 176
+-- Name: AttractionType_ID_ATT_TYPE_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE "AttractionType_ID_ATT_TYPE_seq" OWNED BY "AttractionType"."ID_ATT_TYPE";
+
+
+--
+-- TOC entry 178 (class 1259 OID 24651)
+-- Name: Attraction_ID_ATTRACTION_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE "Attraction_ID_ATTRACTION_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Attraction_ID_ATTRACTION_seq" OWNER TO postgres;
+
+--
+-- TOC entry 2017 (class 0 OID 0)
+-- Dependencies: 178
+-- Name: Attraction_ID_ATTRACTION_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE "Attraction_ID_ATTRACTION_seq" OWNED BY "Attraction"."ID_ATTRACTION";
+
+
+--
+-- TOC entry 181 (class 1259 OID 24666)
+-- Name: Location; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "Location" (
+    "ID_LOCATION" integer NOT NULL,
+    "Name" character varying(64) NOT NULL,
+    "City" character varying(64),
+    "Latitude" real,
+    "Longitude" real,
+    "Country" character varying(64),
+    "Street" character varying(255),
+    "AMSL" real DEFAULT 0.0 NOT NULL
+);
+
+
+ALTER TABLE public."Location" OWNER TO postgres;
+
+--
+-- TOC entry 180 (class 1259 OID 24664)
+-- Name: Location_ID_LOCATION_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE "Location_ID_LOCATION_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Location_ID_LOCATION_seq" OWNER TO postgres;
+
+--
+-- TOC entry 2018 (class 0 OID 0)
+-- Dependencies: 180
+-- Name: Location_ID_LOCATION_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE "Location_ID_LOCATION_seq" OWNED BY "Location"."ID_LOCATION";
+
+
+--
+-- TOC entry 175 (class 1259 OID 24634)
+-- Name: Photo; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "Photo" (
+    "ID_PHOTO" integer NOT NULL,
+    "Name" character varying(64) NOT NULL,
+    "fileLocation" text NOT NULL,
+    "dateCreated" date NOT NULL,
+    "Description" character varying(255)
+);
+
+
+ALTER TABLE public."Photo" OWNER TO postgres;
+
+--
+-- TOC entry 174 (class 1259 OID 24632)
+-- Name: Photos_ID_PHOTO_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE "Photos_ID_PHOTO_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Photos_ID_PHOTO_seq" OWNER TO postgres;
+
+--
+-- TOC entry 2019 (class 0 OID 0)
+-- Dependencies: 174
+-- Name: Photos_ID_PHOTO_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE "Photos_ID_PHOTO_seq" OWNED BY "Photo"."ID_PHOTO";
+
+
+--
+-- TOC entry 171 (class 1259 OID 24607)
+-- Name: Privillage; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "Privillage" (
+    "ID_RES" integer NOT NULL,
+    "Resource" character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public."Privillage" OWNER TO postgres;
+
+--
+-- TOC entry 170 (class 1259 OID 24605)
+-- Name: Privillage_ID_RES_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE "Privillage_ID_RES_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Privillage_ID_RES_seq" OWNER TO postgres;
+
+--
+-- TOC entry 2020 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: Privillage_ID_RES_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE "Privillage_ID_RES_seq" OWNED BY "Privillage"."ID_RES";
+
+
+--
+-- TOC entry 183 (class 1259 OID 24675)
+-- Name: Trip; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "Trip" (
+    "ID_TRIP" bigint NOT NULL,
+    "Localisation" integer NOT NULL,
+    "Name" character varying(64) NOT NULL,
+    "Organiser" integer NOT NULL,
+    "Length" real,
+    "Transports" character varying(255)[],
+    "Attractions" integer[],
+    "UsersNumber" integer,
+    "Price" double precision,
+    "Description" text
+);
+
+
+ALTER TABLE public."Trip" OWNER TO postgres;
+
+--
+-- TOC entry 182 (class 1259 OID 24673)
+-- Name: Trip_ID_TRIP_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE "Trip_ID_TRIP_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Trip_ID_TRIP_seq" OWNER TO postgres;
+
+--
+-- TOC entry 2021 (class 0 OID 0)
+-- Dependencies: 182
+-- Name: Trip_ID_TRIP_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE "Trip_ID_TRIP_seq" OWNED BY "Trip"."ID_TRIP";
+
+
+--
+-- TOC entry 169 (class 1259 OID 24599)
+-- Name: User; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "User" (
+    "ID_USER" integer NOT NULL,
+    "Name" character varying(64) NOT NULL,
+    "SureName" character varying(64) NOT NULL,
+    "DateOfBirth" date NOT NULL,
+    "UserRole" character varying(64),
+    "Sex" "Sex" NOT NULL
+);
+
+
+ALTER TABLE public."User" OWNER TO postgres;
+
+--
+-- TOC entry 173 (class 1259 OID 24623)
+-- Name: UserRole; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "UserRole" (
+    "Name" character varying(255) NOT NULL,
+    "ID_USERROLE" integer NOT NULL,
+    "IdNumber" bigint,
+    "Privillages" integer[]
+);
+
+
+ALTER TABLE public."UserRole" OWNER TO postgres;
+
+--
+-- TOC entry 172 (class 1259 OID 24621)
+-- Name: UserRole_ID_USERROLE_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE "UserRole_ID_USERROLE_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."UserRole_ID_USERROLE_seq" OWNER TO postgres;
+
+--
+-- TOC entry 2022 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: UserRole_ID_USERROLE_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE "UserRole_ID_USERROLE_seq" OWNED BY "UserRole"."ID_USERROLE";
+
+
+--
+-- TOC entry 168 (class 1259 OID 24597)
+-- Name: User_ID_USER_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE "User_ID_USER_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."User_ID_USER_seq" OWNER TO postgres;
+
+--
+-- TOC entry 2023 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: User_ID_USER_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE "User_ID_USER_seq" OWNED BY "User"."ID_USER";
+
+
+--
+-- TOC entry 1969 (class 2604 OID 24656)
+-- Name: ID_ATTRACTION; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "Attraction" ALTER COLUMN "ID_ATTRACTION" SET DEFAULT nextval('"Attraction_ID_ATTRACTION_seq"'::regclass);
+
+
+--
+-- TOC entry 1968 (class 2604 OID 24648)
+-- Name: ID_ATT_TYPE; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "AttractionType" ALTER COLUMN "ID_ATT_TYPE" SET DEFAULT nextval('"AttractionType_ID_ATT_TYPE_seq"'::regclass);
+
+
+--
+-- TOC entry 1970 (class 2604 OID 24669)
+-- Name: ID_LOCATION; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "Location" ALTER COLUMN "ID_LOCATION" SET DEFAULT nextval('"Location_ID_LOCATION_seq"'::regclass);
+
+
+--
+-- TOC entry 1967 (class 2604 OID 24637)
+-- Name: ID_PHOTO; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "Photo" ALTER COLUMN "ID_PHOTO" SET DEFAULT nextval('"Photos_ID_PHOTO_seq"'::regclass);
+
+
+--
+-- TOC entry 1965 (class 2604 OID 24610)
+-- Name: ID_RES; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "Privillage" ALTER COLUMN "ID_RES" SET DEFAULT nextval('"Privillage_ID_RES_seq"'::regclass);
+
+
+--
+-- TOC entry 1972 (class 2604 OID 24678)
+-- Name: ID_TRIP; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "Trip" ALTER COLUMN "ID_TRIP" SET DEFAULT nextval('"Trip_ID_TRIP_seq"'::regclass);
+
+
+--
+-- TOC entry 1964 (class 2604 OID 24602)
+-- Name: ID_USER; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "User" ALTER COLUMN "ID_USER" SET DEFAULT nextval('"User_ID_USER_seq"'::regclass);
+
+
+--
+-- TOC entry 1966 (class 2604 OID 24626)
+-- Name: ID_USERROLE; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "UserRole" ALTER COLUMN "ID_USERROLE" SET DEFAULT nextval('"UserRole_ID_USERROLE_seq"'::regclass);
+
+
+--
+-- TOC entry 2003 (class 0 OID 24653)
+-- Dependencies: 179
+-- Data for Name: Attraction; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2001 (class 0 OID 24645)
+-- Dependencies: 177
+-- Data for Name: AttractionType; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2024 (class 0 OID 0)
+-- Dependencies: 176
+-- Name: AttractionType_ID_ATT_TYPE_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"AttractionType_ID_ATT_TYPE_seq"', 1, false);
+
+
+--
+-- TOC entry 2025 (class 0 OID 0)
+-- Dependencies: 178
+-- Name: Attraction_ID_ATTRACTION_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"Attraction_ID_ATTRACTION_seq"', 1, false);
+
+
+--
+-- TOC entry 2005 (class 0 OID 24666)
+-- Dependencies: 181
+-- Data for Name: Location; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2026 (class 0 OID 0)
+-- Dependencies: 180
+-- Name: Location_ID_LOCATION_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"Location_ID_LOCATION_seq"', 1, false);
+
+
+--
+-- TOC entry 1999 (class 0 OID 24634)
+-- Dependencies: 175
+-- Data for Name: Photo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2027 (class 0 OID 0)
+-- Dependencies: 174
+-- Name: Photos_ID_PHOTO_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"Photos_ID_PHOTO_seq"', 1, false);
+
+
+--
+-- TOC entry 1995 (class 0 OID 24607)
+-- Dependencies: 171
+-- Data for Name: Privillage; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2028 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: Privillage_ID_RES_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"Privillage_ID_RES_seq"', 1, false);
+
+
+--
+-- TOC entry 2007 (class 0 OID 24675)
+-- Dependencies: 183
+-- Data for Name: Trip; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2029 (class 0 OID 0)
+-- Dependencies: 182
+-- Name: Trip_ID_TRIP_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"Trip_ID_TRIP_seq"', 1, false);
+
+
+--
+-- TOC entry 1993 (class 0 OID 24599)
+-- Dependencies: 169
+-- Data for Name: User; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO "User" ("ID_USER", "Name", "SureName", "DateOfBirth", "UserRole", "Sex") VALUES (1, 'Adam', 'Adamski', '1990-10-10', NULL, 'Male');
+INSERT INTO "User" ("ID_USER", "Name", "SureName", "DateOfBirth", "UserRole", "Sex") VALUES (2, 'Bernard', 'Frankowski', '1988-11-28', NULL, 'Male');
+INSERT INTO "User" ("ID_USER", "Name", "SureName", "DateOfBirth", "UserRole", "Sex") VALUES (3, 'Cecylia', 'Mech', '1945-03-03', NULL, 'Female');
+INSERT INTO "User" ("ID_USER", "Name", "SureName", "DateOfBirth", "UserRole", "Sex") VALUES (4, 'Roman', 'Abramowicz', '1972-05-22', NULL, 'Male');
+
+
+--
+-- TOC entry 1997 (class 0 OID 24623)
+-- Dependencies: 173
+-- Data for Name: UserRole; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2030 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: UserRole_ID_USERROLE_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"UserRole_ID_USERROLE_seq"', 1, false);
+
+
+--
+-- TOC entry 2031 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: User_ID_USER_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"User_ID_USER_seq"', 4, true);
+
+
+--
+-- TOC entry 1984 (class 2606 OID 24658)
+-- Name: PK_ID_ATTRACTION; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "Attraction"
+    ADD CONSTRAINT "PK_ID_ATTRACTION" PRIMARY KEY ("ID_ATTRACTION");
+
+
+--
+-- TOC entry 1982 (class 2606 OID 24650)
+-- Name: PK_ID_ATT_TYPE; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "AttractionType"
+    ADD CONSTRAINT "PK_ID_ATT_TYPE" PRIMARY KEY ("ID_ATT_TYPE");
+
+
+--
+-- TOC entry 1986 (class 2606 OID 24672)
+-- Name: PK_ID_LOCATION; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "Location"
+    ADD CONSTRAINT "PK_ID_LOCATION" PRIMARY KEY ("ID_LOCATION");
+
+
+--
+-- TOC entry 1980 (class 2606 OID 24642)
+-- Name: PK_ID_PHOTO; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "Photo"
+    ADD CONSTRAINT "PK_ID_PHOTO" PRIMARY KEY ("ID_PHOTO");
+
+
+--
+-- TOC entry 1976 (class 2606 OID 24612)
+-- Name: PK_ID_RES; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "Privillage"
+    ADD CONSTRAINT "PK_ID_RES" PRIMARY KEY ("ID_RES");
+
+
+--
+-- TOC entry 1988 (class 2606 OID 24683)
+-- Name: PK_ID_TRIP; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "Trip"
+    ADD CONSTRAINT "PK_ID_TRIP" PRIMARY KEY ("ID_TRIP");
+
+
+--
+-- TOC entry 1974 (class 2606 OID 24604)
+-- Name: PK_ID_USER; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "User"
+    ADD CONSTRAINT "PK_ID_USER" PRIMARY KEY ("ID_USER");
+
+
+--
+-- TOC entry 1978 (class 2606 OID 24631)
+-- Name: PK_ID_USERROLE; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "UserRole"
+    ADD CONSTRAINT "PK_ID_USERROLE" PRIMARY KEY ("ID_USERROLE");
+
+
+--
+-- TOC entry 1989 (class 2606 OID 24659)
+-- Name: FK_ATTRACTIONTYPE; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "Attraction"
+    ADD CONSTRAINT "FK_ATTRACTIONTYPE" FOREIGN KEY ("AttractionType") REFERENCES "AttractionType"("ID_ATT_TYPE");
+
+
+--
+-- TOC entry 1990 (class 2606 OID 24684)
+-- Name: FK_LOCALISATION_LOCATION; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "Trip"
+    ADD CONSTRAINT "FK_LOCALISATION_LOCATION" FOREIGN KEY ("Localisation") REFERENCES "Location"("ID_LOCATION");
+
+
+--
+-- TOC entry 1991 (class 2606 OID 24689)
+-- Name: FK_ORGANISER_USER; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "Trip"
+    ADD CONSTRAINT "FK_ORGANISER_USER" FOREIGN KEY ("Organiser") REFERENCES "User"("ID_USER");
+
+
+--
+-- TOC entry 2014 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2012-12-30 21:22:37
+
+--
+-- PostgreSQL database dump complete
+--
+
