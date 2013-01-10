@@ -7,12 +7,14 @@ namespace TripsService.AppFiles.Database
 {
     class DbService
     {
-        
+        /// <summary>
+        /// DbService.getAll<User>();
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
 
             public static ICollection<T> GetAll<T>()
             {
-
-
 
                 using (NHibernate.ISession session = SessionFactory.GetNewSession())
                 {

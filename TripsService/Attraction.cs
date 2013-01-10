@@ -64,7 +64,7 @@ namespace TripsService {
         /// Pobieramy typ atrakcji
         /// </summary>
         /// <returns>Typ atrakcji</returns>
-		public AttractionType GetType() {
+		public new AttractionType GetType() {
 			return this.type;
 		}
         /// <summary>

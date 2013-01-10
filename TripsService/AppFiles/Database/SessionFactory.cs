@@ -25,8 +25,8 @@ namespace TripsService.AppFiles.Database
 
             NHibernate.Cfg.Configuration config = new NHibernate.Cfg.Configuration();
 
-            config.AddFile("db.cfg.xml");//adds all the embedded resources .hbm.xml
-            config.AddFile("models.xml");
+            config.AddFile(".\\AppFiles\\Database\\db.cfg.xml");//adds all the embedded resources .hbm.xml
+            config.AddFile(".\\AppFiles\\Database\\models.xml");
             sFactory = config.BuildSessionFactory();
 
         }

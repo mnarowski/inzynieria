@@ -4,11 +4,19 @@ using PhotoGalleryLibrary;
 
 namespace TripsService {
 	public class User : ISerializable{
+        private int id;
 		private String name;
 		private String sureName;
 		private DateTime dateOfBirth;
 		private UserRole role;
 		private SexEnum sex;
+
+        public virtual int vid { set { id = value; } get { return id; } }
+        public virtual String vname { set { name = value; } get { return name; } }
+        public virtual String vSureName { set { sureName = value; } get { return sureName; } }
+        public virtual DateTime vDateOfBirth { set { dateOfBirth = value; } get { return dateOfBirth; } }
+        public virtual UserRole vRole { set { role = value; } get { return role; } }
+        public virtual SexEnum vsex { set { sex = value; } get { return sex; } }
 
 		public String GetName() {
 			return this.name;

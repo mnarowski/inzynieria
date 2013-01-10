@@ -2,6 +2,7 @@ using System;
 using System.Runtime.Serialization;
 namespace TripsService {
 	public class Trip : ISerializable{
+        private int id;
 		private Location localisation;
 		private String name;
 		private User organizer;
@@ -11,6 +12,16 @@ namespace TripsService {
 		private int usersNumber;
 		private double price;
 		private String description;
+
+
+        public virtual int vid {get{return id;} set{id = value;}}
+        public virtual String vname { set{name = value;}
+            get{return name;}}
+        public virtual User vorganizer { set { organizer = value; } get { return organizer; } }
+        public virtual float vlength { set { length = value; } get { return length; } }
+        public virtual int vUsersNumber { set { usersNumber = value; } get { return usersNumber; } }
+        public virtual double vprice { set { price = value; } get { return price; } }
+        public virtual String vdescription { set { description = value; } get { return description; } }
 
 		public Location GetLocalisation() {
 			return this.localisation;

@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <!--Przykładowa konfiguracja dla klasy-->
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="TestNHibernate" namespace="TestNHibernate.Domain">
-  <class name="TestNHibernate.Province, TestNHibernate" lazy="true" table="Provinces">
-    <id name="ProvinceID">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="TripsService" namespace="TestNHibernate.Domain">
+  <class name="Trip" lazy="true" table="Trip">
+    <id name="ID_TRIP">
       <generator class="identity"/>
     </id>
     <property name="Name" not-null="true" />
     <property name="Population" not-null="true" />
+    <property name="vname"/>
   </class>
+  
 </hibernate-mapping>

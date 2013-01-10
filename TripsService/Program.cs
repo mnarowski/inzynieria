@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using TripsService.AppFiles.Database;
 
 namespace TripsService
 {
@@ -13,9 +14,14 @@ namespace TripsService
         [STAThread]
         static void Main()
         {
+            //Konfiguracja połączenia nhibernate'a
+            //DbService.Add<User>(new User());
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            SoundManager player = (SoundManager) SoundManager.GetInstance();
+            player.Play("C:\\costam");
         }
     }
 }

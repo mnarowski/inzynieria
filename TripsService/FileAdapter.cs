@@ -5,7 +5,7 @@ namespace TripsService {
     /// Klasa do przeszukiwania bazy danych w plikach
     /// </summary>
     /// <typeparam name="T">Typ wyszukiwany</typeparam>
-	public class FileAdapter<T> : IQueryAdapter  {
+	public class FileAdapter<T>  {
         /// <summary>
         /// Wyszukane wyniki
         /// </summary>
@@ -74,44 +74,8 @@ namespace TripsService {
 			this.dataBaseLocation = dataBaseLocation;
 		}
 
-        /// <summary>
-        /// Limit wyszukiwania
-        /// </summary>
-        /// <param name="count">Ograniczenie</param>
-        /// <returns>Adapter zapytañ</returns>
-		public IQueryAdapter Limit(int count) {
-			throw new System.Exception("Not implemented");
-		}
-        /// <summary>
-        /// Wyszukujemy pojedyñczy wynik
-        /// </summary>
-        /// <typeparam name="T">Wyszukiwany typ</typeparam>
-        /// <param name="query">Zapytanie</param>
-        /// <returns>Znaleziony obiekt</returns>
-		public T FindOne<T>(IQuery query) {
-			throw new System.Exception("Not implemented");
-		}
-        /// <summary>
-        /// Dodajemy zapytanie do wyszukiwanego
-        /// </summary>
-        /// <param name="query">Zapytanie do dodania</param>
-		public void AddQuery(IQuery query) {
-			throw new System.Exception("Not implemented");
-		}
+        
 
-        /// <summary>
-        /// Wykonujemy wyszukiwanie i zwracamy wyniki
-        /// </summary>
-        /// <typeparam name="T">Typ wyszukiwanych danych</typeparam>
-        /// <returns>Iterowalne wyniki</returns>
-		public IEnumerable<T> ExecuteQuery<T>() {
-			throw new System.Exception("Not implemented");
-		}
-
-		/// <returns>IEnumerableT</returns>
-		public IEnumerable<T> ExecuteQuery<T>(IQuery query) {
-			throw new System.Exception("Not implemented");
-		}
 
 	}
 
