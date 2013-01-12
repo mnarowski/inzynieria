@@ -10,6 +10,8 @@ namespace TripsService {
 		private DateTime dateOfBirth;
 		private UserRole role;
 		private SexEnum sex;
+        private String login;
+        private String password;
 
         public virtual int vid { set { id = value; } get { return id; } }
         public virtual String vname { set { name = value; } get { return name; } }
@@ -17,11 +19,13 @@ namespace TripsService {
         public virtual DateTime vDateOfBirth { set { dateOfBirth = value; } get { return dateOfBirth; } }
         public virtual UserRole vRole { set { role = value; } get { return role; } }
         public virtual SexEnum vsex { set { sex = value; } get { return sex; } }
+        public virtual String vlogin { set { login = value; } get { return login; } }
+        public virtual String vpassword { set { password = value; } get { return password; } }
 
-		public String GetName() {
+		public virtual String GetName() {
 			return this.name;
 		}
-		public void SetName(String name) {
+		public virtual void SetName(String name) {
 			this.name = name;
 		}
 		public String GetSureName() {
@@ -55,11 +59,11 @@ namespace TripsService {
 			this.sex = sex;
 		}
 
-		private Album[] albums;
-		private UserRole userRole;
-		private SexEnum sexEnum;
+		//private Album[] albums;
+		//private UserRole userRole;
+		//private SexEnum sexEnum;
 
-		private Trip[] trips;
+		///private Trip[] trips;
 
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)

@@ -25,8 +25,10 @@ namespace TripsService.AppFiles.Database
 
             NHibernate.Cfg.Configuration config = new NHibernate.Cfg.Configuration();
 
-            config.AddFile(".\\AppFiles\\Database\\db.cfg.xml");//adds all the embedded resources .hbm.xml
-            config.AddFile(".\\AppFiles\\Database\\models.xml");
+            config.SetProperty(NHibernate.Cfg.Environment.Dialect, "NHibernate.Dialect.PostgreSQL82Dialect");
+            config.SetProperty(NHibernate.Cfg.Environment.ConnectionProvider, "NHibernate.Driver.NpgsqlDriver");
+            config.SetProperty(NHibernate.Cfg.Environment.ConnectionString, "Server=localhost;Database=inzynieria;User ID=inzynieria;Password=inzynieria;");
+            config.AddXmlFile(".\\AppFiles\\Database\\models.xml");
             sFactory = config.BuildSessionFactory();
 
         }

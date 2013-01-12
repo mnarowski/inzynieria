@@ -96,6 +96,9 @@
     <Compile Include="Trip.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserRole.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResults.resx">
       <DependentUpon>FormResults.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -154,13 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppFiles\Database\Empty.txt" />
-    <EmbeddedResource Include="AppFiles\Database\db.cfg.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="AppFiles\Database\models.xml">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <Content Include="AppFiles\GUI\Backgrounds\Empty.txt" />
     <Content Include="AppFiles\GUI\Images\Empty.txt" />

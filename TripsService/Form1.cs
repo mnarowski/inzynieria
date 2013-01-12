@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TripsService.AppFiles.Database;
 
 namespace TripsService
 {
@@ -14,6 +15,19 @@ namespace TripsService
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            User user = null;
+            //DbService.GetAll<User>().Where("name = ")
+            NHibernate.ISession session = SessionFactory.GetNewSession();
+            session.CreateQuery("User");
+            
+            AuthAdapter adapter = AuthAdapter.GetInstance();
+            
+            adapter.WriteIdentity(user);
+
         }
     }
 }

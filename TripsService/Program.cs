@@ -15,7 +15,7 @@ namespace TripsService
         static void Main()
         {
             //Konfiguracja połączenia nhibernate'a
-            //DbService.Add<User>(new User());
+            DbService.Add<User>(new User());
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
