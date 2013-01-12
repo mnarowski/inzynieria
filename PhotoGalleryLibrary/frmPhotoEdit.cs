@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace PhotoGalleryLibrary
 {
-    public partial class frmAddPhoto : Form
+    public partial class frmPhotoEdit : Form
     {
-        public frmAddPhoto()
+        public frmPhotoEdit()
         {
             InitializeComponent();
         }

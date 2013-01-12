@@ -1,6 +1,6 @@
 ﻿namespace PhotoGalleryLibrary
 {
-    partial class frmAddPhoto
+    partial class frmPhotoAdd
     {
         /// <summary>
         /// Required designer variable.
