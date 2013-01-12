@@ -49,6 +49,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Album.cs" />
+    <Compile Include="frmAlbumAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlbumAdd.Designer.cs">
+      <DependentUpon>frmAlbumAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPhotoFullScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhotoFullScreen.Designer.cs">
+      <DependentUpon>frmPhotoFullScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\AlbumIcon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -73,8 +85,8 @@
     <Compile Include="GUI\TranparentPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Interfaces\IPhotosManagement.cs" />
-    <Compile Include="Interfaces\IAlbumsManagement.cs" />
+    <Compile Include="Resources\Interfaces\IPhotosManagement.cs" />
+    <Compile Include="Resources\Interfaces\IAlbumsManagement.cs" />
     <Compile Include="Exceptions\NonSelectedAlbumException.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="AlbumsManager.cs" />
@@ -86,6 +98,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAlbumAdd.resx">
+      <DependentUpon>frmAlbumAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhotoFullScreen.resx">
+      <DependentUpon>frmPhotoFullScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\AlbumIcon.resx">
       <DependentUpon>AlbumIcon.cs</DependentUpon>
     </EmbeddedResource>

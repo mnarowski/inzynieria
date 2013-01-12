@@ -14,7 +14,7 @@ namespace PhotoGalleryLibrary.GUI
     {
         const int PhotosInWindowCount = 4;
         const int leftMargin = 5;
-        const int topMargin = 5;
+        const int topMargin = 30;
         const int scrollBarWidth = 25;
         readonly int widthAlbumObject = 0;
         readonly int heightAlbumObject = 0;
@@ -68,7 +68,7 @@ namespace PhotoGalleryLibrary.GUI
             }
         }
 
-        private void RefreshAlbumsView()
+        public void RefreshAlbumsView()
         {
             foreach (Control ctrl in this.panelAlbums.Controls)
             {
@@ -151,11 +151,9 @@ namespace PhotoGalleryLibrary.GUI
         void photo_Click(object sender, EventArgs e)
         {
             PhotoIcon photoIco = ((PhotoIcon)sender);
-            this.pictureNotes.Visible = false;
             this.txtAuthor.Visible = false;
             this.txtDate.Visible = false;
             this.MainPicture.Image = photoIco.PhotoObject.ImageObject;
-            this.pictureNotes.Visible = true;
             this.txtAuthor.Text = photoIco.PhotoObject.Author;
             this.txtTitle.Text = photoIco.PhotoObject.Title;
             this.txtAuthor.Visible = true;
@@ -209,6 +207,18 @@ namespace PhotoGalleryLibrary.GUI
 
                 return ico;
             }
+        }
+
+        private void MainPicture_DoubleClick(object sender, EventArgs e)
+        {
+            frmPhotoFullScreen fullScreen = new frmPhotoFullScreen(this.MainPicture.Image);
+            fullScreen.Show();
+        }
+
+        private void btnNewAlbum_Click(object sender, EventArgs e)
+        {
+            frmAlbumAdd newAlbum = new frmAlbumAdd(this);
+            newAlbum.Show();
         }
     }
 }
