@@ -49,6 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Album.cs" />
+    <Compile Include="frmAddPhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddPhoto.Designer.cs">
+      <DependentUpon>frmAddPhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAlbumAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAddPhoto.resx">
+      <DependentUpon>frmAddPhoto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAlbumAdd.resx">
       <DependentUpon>frmAlbumAdd.cs</DependentUpon>
     </EmbeddedResource>
