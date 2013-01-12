@@ -1,0 +1,18 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of BookPromotion
+ *
+ * @author marcin
+ */
+class Application_Model_Table_BookPromotion extends Zend_Db_Table {
+    
+    protected $_name = 'Książki_Promocje';
+    protected $_schema = 'dbo';
+    protected $_rowClass = 'Model_BookPromotion';
+}
