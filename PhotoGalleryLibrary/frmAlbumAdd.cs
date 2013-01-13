@@ -31,18 +31,25 @@ namespace PhotoGalleryLibrary
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Album newAlbum = new Album(this.txtTitle.Text, this.txtDescription.Text, this.txtAuthor.Text);
-            newAlbum.MainImage = this.pbMainPhoto.Image;
+            if (this.txtTitle.Text != string.Empty)
+            {
+                Album newAlbum = new Album(this.txtTitle.Text, this.txtDescription.Text, this.txtAuthor.Text);
+                newAlbum.MainImage = this.pbMainPhoto.Image;
 
-            Photo newPhoto = new Photo(this.pbMainPhoto.Image);
+                Photo newPhoto = new Photo(this.pbMainPhoto.Image);
 
-            newAlbum.AddPhoto(newPhoto);
+                newAlbum.AddPhoto(newPhoto);
 
-            parentGallery.GalleryObject.AddAlbum(newAlbum);
-            parentGallery.GalleryObject = this.parentGallery.GalleryObject;
-            parentGallery.RefreshAlbumsView();
+                parentGallery.GalleryObject.AddAlbum(newAlbum);
+                parentGallery.GalleryObject = this.parentGallery.GalleryObject;
+                parentGallery.RefreshAlbumsView();
 
-            this.Close();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Podaj tytuł albumu!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void linkAddChange_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
