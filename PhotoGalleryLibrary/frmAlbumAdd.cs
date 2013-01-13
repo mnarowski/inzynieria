@@ -41,7 +41,6 @@ namespace PhotoGalleryLibrary
                 newAlbum.AddPhoto(newPhoto);
 
                 parentGallery.GalleryObject.AddAlbum(newAlbum);
-                parentGallery.GalleryObject = this.parentGallery.GalleryObject;
                 parentGallery.RefreshAlbumsView();
 
                 this.Close();

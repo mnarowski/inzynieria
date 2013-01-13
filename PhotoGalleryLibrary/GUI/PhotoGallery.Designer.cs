@@ -30,25 +30,26 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelAlbums = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnAddAlbum = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.linkNewPhoto = new System.Windows.Forms.LinkLabel();
+            this.txtDate = new PhotoGalleryLibrary.GUI.TranparenLabel();
+            this.txtAuthor = new PhotoGalleryLibrary.GUI.TranparenLabel();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.MainPicture = new System.Windows.Forms.PictureBox();
             this.panelPhotos = new System.Windows.Forms.Panel();
-            this.txtDate = new PhotoGalleryLibrary.GUI.TranparenLabel();
-            this.txtAuthor = new PhotoGalleryLibrary.GUI.TranparenLabel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btnAddAlbum = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panelAlbums.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainPicture)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -65,8 +66,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(959, 601);
-            this.splitContainer1.SplitterDistance = 258;
+            this.splitContainer1.Size = new System.Drawing.Size(692, 434);
+            this.splitContainer1.SplitterDistance = 165;
             this.splitContainer1.TabIndex = 0;
             // 
             // panelAlbums
@@ -78,8 +79,25 @@
             this.panelAlbums.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAlbums.Location = new System.Drawing.Point(0, 0);
             this.panelAlbums.Name = "panelAlbums";
-            this.panelAlbums.Size = new System.Drawing.Size(258, 601);
+            this.panelAlbums.Size = new System.Drawing.Size(165, 434);
             this.panelAlbums.TabIndex = 0;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddAlbum});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(163, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // btnAddAlbum
+            // 
+            this.btnAddAlbum.Name = "btnAddAlbum";
+            this.btnAddAlbum.Size = new System.Drawing.Size(87, 20);
+            this.btnAddAlbum.Text = "Dodaj album";
+            this.btnAddAlbum.Click += new System.EventHandler(this.btnAddAlbum_Click);
             // 
             // splitContainer2
             // 
@@ -91,6 +109,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.BackColor = System.Drawing.Color.White;
+            this.splitContainer2.Panel1.Controls.Add(this.linkNewPhoto);
             this.splitContainer2.Panel1.Controls.Add(this.txtDate);
             this.splitContainer2.Panel1.Controls.Add(this.txtAuthor);
             this.splitContainer2.Panel1.Controls.Add(this.txtTitle);
@@ -99,9 +118,43 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panelPhotos);
-            this.splitContainer2.Size = new System.Drawing.Size(697, 601);
-            this.splitContainer2.SplitterDistance = 482;
+            this.splitContainer2.Size = new System.Drawing.Size(523, 434);
+            this.splitContainer2.SplitterDistance = 347;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // linkNewPhoto
+            // 
+            this.linkNewPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkNewPhoto.AutoSize = true;
+            this.linkNewPhoto.Location = new System.Drawing.Point(449, 328);
+            this.linkNewPhoto.Name = "linkNewPhoto";
+            this.linkNewPhoto.Size = new System.Drawing.Size(71, 13);
+            this.linkNewPhoto.TabIndex = 9;
+            this.linkNewPhoto.TabStop = true;
+            this.linkNewPhoto.Text = "Nowe zdjęcie";
+            this.linkNewPhoto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkNewPhoto_LinkClicked);
+            // 
+            // txtDate
+            // 
+            this.txtDate.AutoSize = true;
+            this.txtDate.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtDate.Location = new System.Drawing.Point(453, 303);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(67, 11);
+            this.txtDate.TabIndex = 8;
+            this.txtDate.Text = "tranparenLabel1";
+            this.txtDate.Visible = false;
+            // 
+            // txtAuthor
+            // 
+            this.txtAuthor.AutoSize = true;
+            this.txtAuthor.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtAuthor.Location = new System.Drawing.Point(3, 303);
+            this.txtAuthor.Name = "txtAuthor";
+            this.txtAuthor.Size = new System.Drawing.Size(67, 11);
+            this.txtAuthor.TabIndex = 7;
+            this.txtAuthor.Text = "tranparenLabel1";
+            this.txtAuthor.Visible = false;
             // 
             // txtTitle
             // 
@@ -110,10 +163,10 @@
             this.txtTitle.BackColor = System.Drawing.Color.White;
             this.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtTitle.Location = new System.Drawing.Point(0, 456);
+            this.txtTitle.Location = new System.Drawing.Point(0, 325);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.ReadOnly = true;
-            this.txtTitle.Size = new System.Drawing.Size(697, 19);
+            this.txtTitle.Size = new System.Drawing.Size(446, 19);
             this.txtTitle.TabIndex = 1;
             this.txtTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -126,7 +179,7 @@
             this.MainPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MainPicture.Location = new System.Drawing.Point(0, 0);
             this.MainPicture.Name = "MainPicture";
-            this.MainPicture.Size = new System.Drawing.Size(697, 444);
+            this.MainPicture.Size = new System.Drawing.Size(524, 319);
             this.MainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MainPicture.TabIndex = 0;
             this.MainPicture.TabStop = false;
@@ -140,47 +193,8 @@
             this.panelPhotos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPhotos.Location = new System.Drawing.Point(0, 0);
             this.panelPhotos.Name = "panelPhotos";
-            this.panelPhotos.Size = new System.Drawing.Size(697, 115);
+            this.panelPhotos.Size = new System.Drawing.Size(523, 83);
             this.panelPhotos.TabIndex = 0;
-            // 
-            // txtDate
-            // 
-            this.txtDate.AutoSize = true;
-            this.txtDate.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtDate.Location = new System.Drawing.Point(610, 462);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(84, 13);
-            this.txtDate.TabIndex = 8;
-            this.txtDate.Text = "tranparenLabel1";
-            this.txtDate.Visible = false;
-            // 
-            // txtAuthor
-            // 
-            this.txtAuthor.AutoSize = true;
-            this.txtAuthor.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtAuthor.Location = new System.Drawing.Point(-3, 457);
-            this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(84, 13);
-            this.txtAuthor.TabIndex = 7;
-            this.txtAuthor.Text = "tranparenLabel1";
-            this.txtAuthor.Visible = false;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAddAlbum});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(256, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // btnAddAlbum
-            // 
-            this.btnAddAlbum.Name = "btnAddAlbum";
-            this.btnAddAlbum.Size = new System.Drawing.Size(87, 20);
-            this.btnAddAlbum.Text = "Dodaj album";
-            this.btnAddAlbum.Click += new System.EventHandler(this.btnAddAlbum_Click);
             // 
             // PhotoGallery
             // 
@@ -189,23 +203,23 @@
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.splitContainer1);
-            this.MinimumSize = new System.Drawing.Size(960, 600);
+            this.MinimumSize = new System.Drawing.Size(460, 300);
             this.Name = "PhotoGallery";
-            this.Size = new System.Drawing.Size(959, 601);
+            this.Size = new System.Drawing.Size(692, 434);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panelAlbums.ResumeLayout(false);
             this.panelAlbums.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainPicture)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -222,5 +236,6 @@
         private TranparenLabel txtAuthor;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnAddAlbum;
+        private System.Windows.Forms.LinkLabel linkNewPhoto;
     }
 }

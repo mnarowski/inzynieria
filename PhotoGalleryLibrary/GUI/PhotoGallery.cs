@@ -116,6 +116,32 @@ namespace PhotoGalleryLibrary.GUI
             LoadPhotos(((AlbumIcon)sender).AlbumObject);
         }
 
+        public AlbumIcon GetSelectedAlbumIcon()
+        {
+            AlbumIcon ico = null;
+
+            foreach (Control ctrl in this.panelAlbums.Controls)
+            {
+                if (ctrl is AlbumIcon)
+                {
+                    ico = (AlbumIcon)ctrl;
+                    break;
+                }
+            }
+
+            return ico;
+        }
+
+        public void RefreshPhotosView()
+        {
+            AlbumIcon selectedAlbumIcon = GetSelectedAlbumIcon();
+
+            if (selectedAlbumIcon != null)
+            {
+                LoadPhotos(selectedAlbumIcon.AlbumObject);
+            }
+        }
+
         private void LoadPhotos(Album album)
         {
             List<Photo> photosToLoad = album.Photos;
@@ -219,6 +245,12 @@ namespace PhotoGalleryLibrary.GUI
         {
             frmAlbumAdd newAlbum = new frmAlbumAdd(this);
             newAlbum.Show();
+        }
+
+        private void linkNewPhoto_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmPhotoAdd newPhoto = new frmPhotoAdd(this);
+            newPhoto.Show();
         }
     }
 }
