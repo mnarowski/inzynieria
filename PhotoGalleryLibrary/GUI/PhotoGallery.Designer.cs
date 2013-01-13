@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhotoGallery));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelAlbums = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.MainPicture = new System.Windows.Forms.PictureBox();
             this.panelPhotos = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnNewAlbum = new System.Windows.Forms.ToolStripButton();
             this.txtDate = new PhotoGalleryLibrary.GUI.TranparenLabel();
             this.txtAuthor = new PhotoGalleryLibrary.GUI.TranparenLabel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnAddAlbum = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -49,7 +48,7 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainPicture)).BeginInit();
-            this.toolStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -75,7 +74,7 @@
             this.panelAlbums.AutoScroll = true;
             this.panelAlbums.BackColor = System.Drawing.Color.White;
             this.panelAlbums.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelAlbums.Controls.Add(this.toolStrip1);
+            this.panelAlbums.Controls.Add(this.menuStrip1);
             this.panelAlbums.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAlbums.Location = new System.Drawing.Point(0, 0);
             this.panelAlbums.Name = "panelAlbums";
@@ -144,26 +143,6 @@
             this.panelPhotos.Size = new System.Drawing.Size(697, 115);
             this.panelPhotos.TabIndex = 0;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNewAlbum});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(256, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btnNewAlbum
-            // 
-            this.btnNewAlbum.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnNewAlbum.Image = ((System.Drawing.Image)(resources.GetObject("btnNewAlbum.Image")));
-            this.btnNewAlbum.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNewAlbum.Name = "btnNewAlbum";
-            this.btnNewAlbum.Size = new System.Drawing.Size(70, 22);
-            this.btnNewAlbum.Text = "Dodaj album";
-            this.btnNewAlbum.Click += new System.EventHandler(this.btnNewAlbum_Click);
-            // 
             // txtDate
             // 
             this.txtDate.AutoSize = true;
@@ -185,6 +164,23 @@
             this.txtAuthor.TabIndex = 7;
             this.txtAuthor.Text = "tranparenLabel1";
             this.txtAuthor.Visible = false;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddAlbum});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(256, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // btnAddAlbum
+            // 
+            this.btnAddAlbum.Name = "btnAddAlbum";
+            this.btnAddAlbum.Size = new System.Drawing.Size(87, 20);
+            this.btnAddAlbum.Text = "Dodaj album";
+            this.btnAddAlbum.Click += new System.EventHandler(this.btnAddAlbum_Click);
             // 
             // PhotoGallery
             // 
@@ -208,8 +204,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainPicture)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -224,7 +220,7 @@
         private System.Windows.Forms.TextBox txtTitle;
         private TranparenLabel txtDate;
         private TranparenLabel txtAuthor;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnNewAlbum;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem btnAddAlbum;
     }
 }

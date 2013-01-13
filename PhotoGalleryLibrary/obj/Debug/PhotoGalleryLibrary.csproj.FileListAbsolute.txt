@@ -27,3 +27,6 @@ C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibr
 C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Debug\GenerateResource.write.1.tlog
 C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.dll
 C:\Documents and Settings\marcin\Pulpit\inzynieria\TripsService\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.pdb
+C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.frmPhotoAdd.resources
+C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.frmAlbumEdit.resources
+C:\Users\Damian\Documents\GitHub\inzynieria\PhotoGalleryLibrary\obj\Debug\PhotoGalleryLibrary.frmPhotoEdit.resources

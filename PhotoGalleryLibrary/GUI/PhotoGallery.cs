@@ -14,7 +14,7 @@ namespace PhotoGalleryLibrary.GUI
     {
         const int PhotosInWindowCount = 4;
         const int leftMargin = 5;
-        const int topMargin = 30;
+        const int topMargin = 5;
         const int scrollBarWidth = 25;
         readonly int widthAlbumObject = 0;
         readonly int heightAlbumObject = 0;
@@ -82,7 +82,7 @@ namespace PhotoGalleryLibrary.GUI
             {
                 if (this.GalleryObjectSource.Albums != null)
                 {
-                    int nextLocation = topMargin;
+                    int nextLocation = topMargin + menuStrip1.Height;
 
                     foreach (Album alb in this.GalleryObjectSource.Albums)
                     {
@@ -215,7 +215,7 @@ namespace PhotoGalleryLibrary.GUI
             fullScreen.Show();
         }
 
-        private void btnNewAlbum_Click(object sender, EventArgs e)
+        private void btnAddAlbum_Click(object sender, EventArgs e)
         {
             frmAlbumAdd newAlbum = new frmAlbumAdd(this);
             newAlbum.Show();
