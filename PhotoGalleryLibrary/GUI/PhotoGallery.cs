@@ -14,7 +14,7 @@ namespace PhotoGalleryLibrary.GUI
     {
         const int PhotosInWindowCount = 4;
         const int leftMargin = 5;
-        const int topMargin = 30;
+        const int topMargin = 5;
         const int scrollBarWidth = 25;
         readonly int widthAlbumObject = 0;
         readonly int heightAlbumObject = 0;
@@ -82,7 +82,7 @@ namespace PhotoGalleryLibrary.GUI
             {
                 if (this.GalleryObjectSource.Albums != null)
                 {
-                    int nextLocation = topMargin;
+                    int nextLocation = topMargin + menuStrip1.Height;
 
                     foreach (Album alb in this.GalleryObjectSource.Albums)
                     {
@@ -114,6 +114,32 @@ namespace PhotoGalleryLibrary.GUI
             ((AlbumIcon)sender).Selected = true;
 
             LoadPhotos(((AlbumIcon)sender).AlbumObject);
+        }
+
+        public AlbumIcon GetSelectedAlbumIcon()
+        {
+            AlbumIcon ico = null;
+
+            foreach (Control ctrl in this.panelAlbums.Controls)
+            {
+                if (ctrl is AlbumIcon)
+                {
+                    ico = (AlbumIcon)ctrl;
+                    break;
+                }
+            }
+
+            return ico;
+        }
+
+        public void RefreshPhotosView()
+        {
+            AlbumIcon selectedAlbumIcon = GetSelectedAlbumIcon();
+
+            if (selectedAlbumIcon != null)
+            {
+                LoadPhotos(selectedAlbumIcon.AlbumObject);
+            }
         }
 
         private void LoadPhotos(Album album)
@@ -215,10 +241,16 @@ namespace PhotoGalleryLibrary.GUI
             fullScreen.Show();
         }
 
-        private void btnNewAlbum_Click(object sender, EventArgs e)
+        private void btnAddAlbum_Click(object sender, EventArgs e)
         {
             frmAlbumAdd newAlbum = new frmAlbumAdd(this);
             newAlbum.Show();
+        }
+
+        private void linkNewPhoto_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmPhotoAdd newPhoto = new frmPhotoAdd(this);
+            newPhoto.Show();
         }
     }
 }
