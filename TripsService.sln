@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripsService", "TripsService\TripsService.csproj", "{6F1C46F8-01F8-4790-AB2E-6959584A8B69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoGalleryLibrary", "..\inzynieria2\PhotoGalleryLibrary\PhotoGalleryLibrary.csproj", "{DC47C14C-6E2D-4F7A-BA7C-F606A2154ED2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoGalleryLibrary", "PhotoGalleryLibrary\PhotoGalleryLibrary.csproj", "{DC47C14C-6E2D-4F7A-BA7C-F606A2154ED2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
