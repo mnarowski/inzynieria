@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using PhotoGalleryLibrary;
 
 namespace TripsService {
-	public class User : ISerializable{
+	public class User{
         private int id;
 		private String name;
 		private String sureName;
@@ -28,48 +28,37 @@ namespace TripsService {
 		public virtual void SetName(String name) {
 			this.name = name;
 		}
-		public String GetSureName() {
+		public virtual String GetSureName() {
 			return this.sureName;
 		}
-		public void SetSureName(String sureName) {
+		public virtual void SetSureName(String sureName) {
 			this.sureName = sureName;
 		}
-		public DateTime GetDateOfBirth() {
+		public virtual DateTime GetDateOfBirth() {
 			return this.dateOfBirth;
 		}
-		public void SetDateOfBirth(DateTime dateOfBirt) {
+		public virtual void SetDateOfBirth(DateTime dateOfBirt) {
 			this.dateOfBirth = dateOfBirt;
 		}
-		public UserRole GetRole() {
+		public virtual UserRole GetRole() {
 			return this.role;
 		}
-		public void SetRole(UserRole role) {
+		public virtual void SetRole(UserRole role) {
 			this.role = role;
 		}
-		public bool IsAdult() {
+		public virtual bool IsAdult() {
 			throw new System.Exception("Not implemented");
 		}
-		public int GetAge() {
+		public virtual int GetAge() {
 			throw new System.Exception("Not implemented");
 		}
-		public SexEnum GetSex() {
+		public virtual SexEnum GetSex() {
 			return this.sex;
 		}
-		public void SetSex(SexEnum sex) {
+		public virtual void SetSex(SexEnum sex) {
 			this.sex = sex;
 		}
 
-		//private Album[] albums;
-		//private UserRole userRole;
-		//private SexEnum sexEnum;
-
-		///private Trip[] trips;
-
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }

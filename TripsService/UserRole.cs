@@ -1,39 +1,38 @@
 using System;
 using System.Runtime.Serialization;
 namespace TripsService {
-	public class UserRole : ISerializable{
+	public class UserRole{
 		private String name;
 		private int idNumber;
 		private Privillage[] privillages;
 
-		public String GetName() {
+        public virtual int vid { set { idNumber = value; } get { return idNumber; } }
+        public virtual String vname { set { name = value; } get { return name; } }
+
+
+		public  virtual String GetName() {
 			return this.name;
 		}
-		public void SetName(String name) {
+		public virtual void SetName(String name) {
 			this.name = name;
 		}
-		public int GetIdNumber() {
+		public virtual int GetIdNumber() {
 			return this.idNumber;
 		}
-		public void SetIdNumber(int idNumber) {
+		public virtual void SetIdNumber(int idNumber) {
 			this.idNumber = idNumber;
 		}
-		public Privillage[] GetPrivillages() {
+		public virtual Privillage[] GetPrivillages() {
 			return this.privillages;
 		}
-		public void SetPrivillages(Privillage[] privillages) {
+		public virtual void SetPrivillages(Privillage[] privillages) {
 			this.privillages = privillages;
 		}
-		public bool HasAccess(object resource_Privillage) {
+		public virtual bool HasAccess(object resource_Privillage) {
 			throw new System.Exception("Not implemented");
 		}
 
 
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }

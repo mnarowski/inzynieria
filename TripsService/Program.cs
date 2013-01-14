@@ -15,7 +15,13 @@ namespace TripsService
         static void Main()
         {
             //Konfiguracja połączenia nhibernate'a
-            DbService.Add<User>(new User());
+            User u = new User();
+            u.vlogin = "root";
+            u.vpassword = "root";
+            u.vsex = SexEnum.Male;
+            u.vSureName = "";
+            u.vname = "system";
+            DbService.Add<User>(u);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -40,8 +40,17 @@
     <Reference Include="log4net">
       <HintPath>..\..\..\..\..\..\NHibernate-3.3.2.GA-bin\Tests\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\..\..\..\..\npsql\Mono.Security.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\..\..\..\..\..\NHibernate-3.3.2.GA-bin\Required_Bins\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.DomainModel">
+      <HintPath>..\..\..\..\..\..\NHibernate-3.3.2.GA-bin\Tests\NHibernate.DomainModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\..\..\..\npsql\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

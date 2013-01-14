@@ -1,11 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <!--Przykładowa konfiguracja dla klasy-->
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="TripsService" namespace="TripsService">
-  <!--<class name="Trip" lazy="true" table="Trip">
-    <id name="vid" column="ID_TRIP">
-      <generator class="identity"/>
+  <class name="UserRole" lazy="true" table="userrole" >
+    <id name="vid" column="id_userrole">
+      <generator class="sequence">
+        <param name="sequence">"userrole_id_userrole_seq"</param>
+      </generator>
     </id>
     <property name="vname" column="Name" not-null="true" />
-  </class>-->
+  </class>
+  
+  <class name="User" lazy="true" table="user" schema="public">
+    <id name="vid" column="id_user">
+      <generator class="sequence">
+        <param name="sequence">"user_id_user_seq"</param>
+      </generator>
+    </id>
+    <property name="vname" column="name" />
+    <property name="vSureName" column="surename"/>
+    <property name="vDateOfBirth" column="dateofbirth" type="DateTime"/>
+    <!--<property name="vRole" column="UserRole"/>-->
+    <property name="vsex" column="sex"/>
+    <property name="vlogin" column="login"/>
+    <property name="vpassword" column="password"/>
+  </class>
   
 </hibernate-mapping>
