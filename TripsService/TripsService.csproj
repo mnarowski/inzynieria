@@ -140,12 +140,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhotoGalleryLibrary\PhotoGalleryLibrary.csproj">
-      <Project>{DC47C14C-6E2D-4F7A-BA7C-F606A2154ED2}</Project>
-      <Name>PhotoGalleryLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="AxWMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
       <VersionMajor>1</VersionMajor>
