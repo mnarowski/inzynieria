@@ -51,6 +51,7 @@
             this.linkAddChange.TabIndex = 22;
             this.linkAddChange.TabStop = true;
             this.linkAddChange.Text = "Dodaj/zmień";
+            this.linkAddChange.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAddChange_LinkClicked);
             // 
             // btnCancel
             // 
@@ -60,6 +61,7 @@
             this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -69,6 +71,7 @@
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Zapisz";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label5
             // 

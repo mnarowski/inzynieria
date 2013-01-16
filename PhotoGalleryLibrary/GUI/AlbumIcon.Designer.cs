@@ -50,6 +50,7 @@
             this.txtTitle.TabIndex = 0;
             this.txtTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTitle.Click += new System.EventHandler(this.txtTitle_Click);
+            
             // 
             // pictureMain
             // 
@@ -65,6 +66,7 @@
             this.pictureMain.TabIndex = 1;
             this.pictureMain.TabStop = false;
             this.pictureMain.Click += new System.EventHandler(this.pictureMain_Click);
+            
             // 
             // pictureSelected
             // 
@@ -89,6 +91,7 @@
             this.Name = "AlbumIcon";
             this.Size = new System.Drawing.Size(178, 139);
             this.Click += new System.EventHandler(this.AlbumIcon_Click);
+            
             ((System.ComponentModel.ISupportInitialize)(this.pictureMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSelected)).EndInit();
             this.ResumeLayout(false);

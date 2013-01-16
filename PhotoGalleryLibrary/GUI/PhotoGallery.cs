@@ -14,12 +14,12 @@ namespace PhotoGalleryLibrary.GUI
     {
         const int PhotosInWindowCount = 4;
         const int leftMargin = 5;
-        const int topMargin = 10;
+        const int topMargin = 5;
         const int scrollBarWidth = 25;
-        readonly int widthAlbumObject = 0;
-        readonly int heightAlbumObject = 0;
-        readonly int widthPhotoObject = 0;
-        readonly int heightPhotoObject = 0;
+        int widthAlbumObject = 0;
+        int heightAlbumObject = 0;
+        int widthPhotoObject = 0;
+        int heightPhotoObject = 0;
 
         AlbumsManager GalleryObjectSource;
 
@@ -50,7 +50,7 @@ namespace PhotoGalleryLibrary.GUI
 
             //Photo Object Create
             heightPhotoObject = this.panelPhotos.Height - topMargin - scrollBarWidth;
-            widthPhotoObject = (16 * heightPhotoObject) / 9;
+            widthPhotoObject = (6 * heightPhotoObject) / 4;
 
             GalleryObjectSource = new AlbumsManager();
         }
@@ -84,7 +84,7 @@ namespace PhotoGalleryLibrary.GUI
             {
                 if (this.GalleryObjectSource.Albums != null)
                 {
-                    int nextLocation = topMargin + menuStrip1.Height;
+                    int nextLocation = topMargin;
 
                     foreach (Album alb in this.GalleryObjectSource.Albums)
                     {
@@ -93,11 +93,12 @@ namespace PhotoGalleryLibrary.GUI
                         albico.Location = new Point(leftMargin, nextLocation);
                         albico.Visible = true;
                         albico.AlbumClick += new AlbumIcon.AlbumIconClick(AlbumIcon_Click);
+                        albico.ContextMenuStrip = this.cmAlbum;
                         albico.AlbumObject = alb;
 
                         this.panelAlbums.Controls.Add(albico);
 
-                        nextLocation += heightAlbumObject + topMargin;
+                        nextLocation += heightAlbumObject + topMargin * 2;
                     }
                 }
             }
@@ -145,8 +146,6 @@ namespace PhotoGalleryLibrary.GUI
 
         private void LoadPhotos(Album album)
         {
-            List<Photo> photosToLoad = album.Photos;
-
             //remove all PhotoIcon objects
             foreach (Control ctrl in this.panelPhotos.Controls)
             {
@@ -156,24 +155,32 @@ namespace PhotoGalleryLibrary.GUI
                 }
             }
 
-            this.panelPhotos.AutoScrollPosition = new Point(0, 0);
+            this.MainPicture.Image = null;
 
-            int nextPhotoLocation = leftMargin;
-
-            //create new PhotoIcon objects with photos from selected Album
-
-            foreach (Photo pht in photosToLoad)
+            if (album != null)
             {
-                PhotoIcon photo= new PhotoIcon();
-                photo.Size = new Size(widthPhotoObject, heightPhotoObject);
-                photo.Location = new Point(nextPhotoLocation, topMargin);
-                photo.Visible = true;
-                photo.PhotoObject = pht;
-                photo.PhotoClick += new PhotoIcon.PhotoIconClick(photo_Click);
+                List<Photo> photosToLoad = album.Photos;
 
-                this.panelPhotos.Controls.Add(photo);
+                this.panelPhotos.AutoScrollPosition = new Point(0, 0);
 
-                nextPhotoLocation += widthPhotoObject + leftMargin;
+                int nextPhotoLocation = leftMargin;
+
+                //create new PhotoIcon objects with photos from selected Album
+
+                foreach (Photo pht in photosToLoad)
+                {
+                    PhotoIcon photo = new PhotoIcon();
+                    photo.Size = new Size(widthPhotoObject, heightPhotoObject);
+                    photo.Location = new Point(nextPhotoLocation, topMargin);
+                    photo.Visible = true;
+                    photo.PhotoObject = pht;
+                    photo.PhotoClick += new PhotoIcon.PhotoIconClick(photo_Click);
+                    photo.ContextMenuStrip = this.cmPhoto;
+
+                    this.panelPhotos.Controls.Add(photo);
+
+                    nextPhotoLocation += widthPhotoObject + leftMargin;
+                }
             }
         }
 
@@ -254,6 +261,86 @@ namespace PhotoGalleryLibrary.GUI
         {
             frmPhotoAdd newPhoto = new frmPhotoAdd(this);
             newPhoto.Show();
+        }
+
+        private void linkNewAlbum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmAlbumAdd newAlbum = new frmAlbumAdd(this);
+            newAlbum.Show();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) 
+        {
+            ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip albumMenu = menuItem.Owner as ContextMenuStrip;
+
+                if (albumMenu != null)
+                {
+                    Control controlSelected = albumMenu.SourceControl;
+
+                    if (controlSelected is AlbumIcon)
+                    {
+                        Album albumToDelete = ((AlbumIcon)controlSelected).AlbumObject;
+
+                        if (MessageBox.Show(string.Concat("Czy na pewno chcesz usunąć album \"", albumToDelete.Title, "\"?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            this.GalleryObject.DeleteAlbum(albumToDelete);
+                            RefreshAlbumsView();
+                            LoadPhotos(null);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip albumMenu = menuItem.Owner as ContextMenuStrip;
+
+                if (albumMenu != null)
+                {
+                    Control controlSelected = albumMenu.SourceControl;
+
+                    if (controlSelected is PhotoIcon)
+                    {
+                        Photo photoToDelete = ((PhotoIcon)controlSelected).PhotoObject;
+
+                        if (MessageBox.Show(string.Concat("Czy na pewno chcesz usunąć zdjęcie \"", photoToDelete.Title, "\"?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            AlbumIcon selectedAlbumIco = GetSelectedAlbumIcon();
+                            selectedAlbumIco.AlbumObject.DeletePhoto(photoToDelete);
+                            LoadPhotos(selectedAlbumIco.AlbumObject);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip albumMenu = menuItem.Owner as ContextMenuStrip;
+
+                if (albumMenu != null)
+                {
+                    Control controlSelected = albumMenu.SourceControl;
+
+                    if (controlSelected is AlbumIcon)
+                    {
+                        Album albumToEdit = ((AlbumIcon)controlSelected).AlbumObject;
+
+                        frmAlbumEdit al = new frmAlbumEdit(albumToEdit, this);
+                        al.Show();
+                    }
+                }
+            }
         }
     }
 }
