@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 namespace TripsService {
-	public class Privillage : ISerializable {
+	public class Privillage{
 		private String resource;
 
         public Privillage(String resource) {
@@ -12,10 +12,26 @@ namespace TripsService {
 			return this.resource;
 		}
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
+        public bool Equals(object o) {
+            char[] sep = new char[] { '.' };
+            if (o is Privillage) {
+               string[] selfres= this.GetResource().Split(sep);
+               string[] otherres = (o as Privillage).GetResource().Split(sep);
+               if (selfres[0].Equals(otherres[0]) && selfres.Length == 1)
+                   return true;
+
+               if (selfres[0].Equals(otherres[0])) {
+                   if (selfres[1].Equals(otherres[1])) {
+                       if (selfres[2].Equals(otherres[2])) {
+                           return true;
+                       }
+                   }
+               }
+            }
+
+            return false;
         }
+
     }
 
 }

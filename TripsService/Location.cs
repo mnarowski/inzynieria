@@ -4,7 +4,7 @@ namespace TripsService {
     /// <summary>
     /// Przechowuje informacje o lokalizacji
     /// </summary>
-	public class Location  : ISerializable{
+	public class Location {
         /// <summary>
         /// Nazwa
         /// </summary>
@@ -82,10 +82,6 @@ namespace TripsService {
 
 
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }

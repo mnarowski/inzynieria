@@ -29,7 +29,16 @@ namespace TripsService {
 			this.privillages = privillages;
 		}
 		public virtual bool HasAccess(object resource_Privillage) {
-			throw new System.Exception("Not implemented");
+            if (resource_Privillage is Privillage) { 
+                foreach(Privillage p in privillages){
+                    if(p.Equals(resource_Privillage))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
 		}
 
 

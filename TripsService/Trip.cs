@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 namespace TripsService {
-	public class Trip : ISerializable{
+	public class Trip {
         private int id;
 		private Location localisation;
 		private String name;
@@ -86,11 +86,6 @@ namespace TripsService {
 		private Location[] locations;
 		private Attraction[] attractions;
 
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }

@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="Trip.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserFactory.cs" />
     <Compile Include="UserRole.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -170,6 +171,12 @@
     <Content Include="AppFiles\Temporary\Empty.txt" />
     <Content Include="AppFiles\User\Empty.txt" />
     <None Include="Resources\tło.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PhotoGalleryLibrary\PhotoGalleryLibrary.csproj">
+      <Project>{DC47C14C-6E2D-4F7A-BA7C-F606A2154ED2}</Project>
+      <Name>PhotoGalleryLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

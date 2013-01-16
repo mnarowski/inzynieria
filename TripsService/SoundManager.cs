@@ -1,4 +1,6 @@
 using System;
+using TripsService;
+
 namespace TripsService {
 	public class SoundManager {
 
