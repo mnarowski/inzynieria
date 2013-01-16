@@ -14,7 +14,7 @@ namespace TripsService
         [STAThread]
         static void Main()
         {
-            
+            DbService.GetAll<User>();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

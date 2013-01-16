@@ -19,7 +19,8 @@
     <property name="vname" column="name" />
     <property name="vSureName" column="surename"/>
     <property name="vDateOfBirth" column="dateofbirth" type="DateTime"/>
-    <!--<property name="vRole" column="UserRole"/>-->
+    <one-to-one name="vRole" class="UserRole"
+            cascade="save-update"></one-to-one>
     <property name="vsex" column="sex"/>
     <property name="vlogin" column="login"/>
     <property name="vpassword" column="password"/>
