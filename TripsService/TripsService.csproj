@@ -168,6 +168,7 @@
     <Content Include="AppFiles\GUI\Backgrounds\Empty.txt" />
     <Content Include="AppFiles\GUI\Images\Empty.txt" />
     <Content Include="AppFiles\Resources\Empty.txt" />
+    <Content Include="AppFiles\Resources\Trip\Empty.txt" />
     <Content Include="AppFiles\Temporary\Empty.txt" />
     <Content Include="AppFiles\User\Empty.txt" />
     <None Include="Resources\tło.jpg" />
