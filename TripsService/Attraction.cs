@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 namespace TripsService {
-	public class Attraction  : ISerializable{
+	public class Attraction{
         /// <summary>
         /// Szerokoœæ geograficzna
         /// </summary>
@@ -78,10 +78,6 @@ namespace TripsService {
 		private AttractionType attractionType;
 
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }

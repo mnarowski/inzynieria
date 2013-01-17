@@ -3,32 +3,45 @@ using PhotoGalleryLibrary;
 
 namespace TripsService {
 	public class FileManager : IManager  {
-		private FileManager() {
-			throw new System.Exception("Not implemented");
+		
+        private FileManager() {
+			
 		}
 		public bool SaveFileForUser(User user, String filename) {
-			throw new System.Exception("Not implemented");
+            FileAdapter<User> forUser = new FileAdapter<User>();
+
+            return true;
 		}
 		public bool SaveFileForTrip(Trip trip, String filename) {
-			throw new System.Exception("Not implemented");
+            FileAdapter<Trip> forTrip = new FileAdapter<Trip>();
+
+            return true;
 		}
 		public String[] GetFilesForUser(User user) {
-			throw new System.Exception("Not implemented");
+            FileAdapter<User> adapter = new FileAdapter<User>();
+
+            return new string[] { };
 		}
 		public String[] GetFilesForTrip(Trip trip) {
-			throw new System.Exception("Not implemented");
+            FileAdapter<Trip> adapter = new FileAdapter<Trip>();
+
+            return new string[] { };
 		}
 		public Photo SavePhoto(Photo photo) {
-			throw new System.Exception("Not implemented");
+            FileAdapter<Photo> adapter = new FileAdapter<Photo>();
+
+            return new Photo(".");
 		}
 		public bool SavePhotoToAlbum(Album album, Photo photo) {
-			throw new System.Exception("Not implemented");
+            FileAdapter<Album> adapter = new FileAdapter<Album>();
+
+            return true;
 		}
-		public IManager GetInstance() {
-			throw new System.Exception("Not implemented");
+		public static IManager GetInstance() {
+            return new FileManager();
 		}
 		public bool IsEnabled() {
-			throw new System.Exception("Not implemented");
+            return true;
 		}
 
 	}
