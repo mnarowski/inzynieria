@@ -44,7 +44,7 @@ namespace PhotoGalleryLibrary
                     this.album.Describe = this.txtDescription.Text;
                     this.album.MainImage = this.pbMainPhoto.Image;
 
-                    parentGallery.RefreshAlbumsView();
+                    parentGallery.LoadPhotos(parentGallery.GetSelectedAlbumIcon().AlbumObject);
 
                     this.Close();
                 }

@@ -37,6 +37,9 @@ namespace PhotoGalleryLibrary
                 newAlbum.MainImage = this.pbMainPhoto.Image;
 
                 Photo newPhoto = new Photo(this.pbMainPhoto.Image);
+                newPhoto.Title = newAlbum.Title;
+                newPhoto.Author = newAlbum.Author;
+                newPhoto.Describe = "Zdjęcie główne albumu";
 
                 newAlbum.AddPhoto(newPhoto);
 

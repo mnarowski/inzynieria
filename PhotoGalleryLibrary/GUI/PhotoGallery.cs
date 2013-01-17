@@ -144,7 +144,7 @@ namespace PhotoGalleryLibrary.GUI
             }
         }
 
-        private void LoadPhotos(Album album)
+        public void LoadPhotos(Album album)
         {
             //remove all PhotoIcon objects
             foreach (Control ctrl in this.panelPhotos.Controls)
@@ -156,6 +156,9 @@ namespace PhotoGalleryLibrary.GUI
             }
 
             this.MainPicture.Image = null;
+            this.txtAuthor.Text = string.Empty;
+            this.txtTitle.Text = string.Empty;
+            this.txtDate.Text = string.Empty;
 
             if (album != null)
             {
@@ -337,6 +340,28 @@ namespace PhotoGalleryLibrary.GUI
                         Album albumToEdit = ((AlbumIcon)controlSelected).AlbumObject;
 
                         frmAlbumEdit al = new frmAlbumEdit(albumToEdit, this);
+                        al.Show();
+                    }
+                }
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip photoMenu = menuItem.Owner as ContextMenuStrip;
+
+                if (photoMenu != null)
+                {
+                    Control controlSelected = photoMenu.SourceControl;
+
+                    if (controlSelected is PhotoIcon)
+                    {
+                        Photo photoToEdit = ((PhotoIcon)controlSelected).PhotoObject;
+
+                        frmPhotoEdit al = new frmPhotoEdit(photoToEdit, this);
                         al.Show();
                     }
                 }
