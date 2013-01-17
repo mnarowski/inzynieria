@@ -7,28 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using PhotoGalleryLibrary.GUI;
+using System.Threading;
 
 namespace PhotoGalleryLibrary
 {
     public partial class frmAlbumEdit : Form
     {
         PhotoGallery parentGallery = null;
-        Album album = null;
+        AlbumIcon album = null;
 
         public frmAlbumEdit()
         {
             InitializeComponent();
         }
 
-        public frmAlbumEdit(Album albumToEdit, PhotoGallery parentPhotoGallery)
+        public frmAlbumEdit(AlbumIcon albumToEdit, PhotoGallery parentPhotoGallery)
         {
             InitializeComponent();
             album = albumToEdit;
 
-            this.txtTitle.Text = albumToEdit.Title;
-            this.txtAuthor.Text = albumToEdit.Author;
-            this.txtDescription.Text = albumToEdit.Describe;
-            this.pbMainPhoto.Image = albumToEdit.MainImage;
+            this.txtTitle.Text = this.Text = album.Title;
+            this.txtAuthor.Text = album.AlbumObject.Author;
+            this.txtDescription.Text = album.AlbumObject.Describe;
+            this.pbMainPhoto.Image = album.MainImage;
 
             parentGallery = parentPhotoGallery;
         }
@@ -39,12 +40,13 @@ namespace PhotoGalleryLibrary
             {
                 if (MessageBox.Show("Czy zapisać zmiany?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    this.album.Title = this.txtTitle.Text;
-                    this.album.Author = this.txtAuthor.Text;
-                    this.album.Describe = this.txtDescription.Text;
-                    this.album.MainImage = this.pbMainPhoto.Image;
+                    this.album.AlbumObject.Title = this.txtTitle.Text;
+                    this.album.AlbumObject.Author = this.txtAuthor.Text;
+                    this.album.AlbumObject.Describe = this.txtDescription.Text;
+                    this.album.AlbumObject.MainImage = this.pbMainPhoto.Image;
 
-                    parentGallery.LoadPhotos(parentGallery.GetSelectedAlbumIcon().AlbumObject);
+                    this.album.Title = this.txtTitle.Text;
+                    this.album.MainImage = this.pbMainPhoto.Image;
 
                     this.Close();
                 }

@@ -157,7 +157,10 @@
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.pbMainPhoto);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmAlbumEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edycja albumu";
             ((System.ComponentModel.ISupportInitialize)(this.pbMainPhoto)).EndInit();
             this.ResumeLayout(false);

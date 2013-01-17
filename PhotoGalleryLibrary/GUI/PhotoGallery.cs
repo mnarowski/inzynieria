@@ -60,7 +60,7 @@ namespace PhotoGalleryLibrary.GUI
             set
             {
                 this.GalleryObjectSource = value;
-                RefreshAlbumsView();
+                //RefreshAlbumsView();
             }
             get
             {
@@ -102,6 +102,8 @@ namespace PhotoGalleryLibrary.GUI
                     }
                 }
             }
+
+            this.panelAlbums.Refresh();
         }
 
         private void AlbumIcon_Click(object sender, EventArgs e)
@@ -127,8 +129,11 @@ namespace PhotoGalleryLibrary.GUI
             {
                 if (ctrl is AlbumIcon)
                 {
-                    ico = (AlbumIcon)ctrl;
-                    return ico;
+                    if (((AlbumIcon)ctrl).Selected == true)
+                    {
+                        ico = (AlbumIcon)ctrl;
+                        return ico;
+                    }
                 }
             }
             return ico;
@@ -142,6 +147,12 @@ namespace PhotoGalleryLibrary.GUI
             {
                 LoadPhotos(selectedAlbumIcon.AlbumObject);
             }
+            else
+            {
+                LoadPhotos(null);
+            }
+
+            this.panelPhotos.Refresh();
         }
 
         public void LoadPhotos(Album album)
@@ -175,10 +186,9 @@ namespace PhotoGalleryLibrary.GUI
                     PhotoIcon photo = new PhotoIcon();
                     photo.Size = new Size(widthPhotoObject, heightPhotoObject);
                     photo.Location = new Point(nextPhotoLocation, topMargin);
-                    photo.Visible = true;
-                    photo.PhotoObject = pht;
                     photo.PhotoClick += new PhotoIcon.PhotoIconClick(photo_Click);
                     photo.ContextMenuStrip = this.cmPhoto;
+                    photo.PhotoObject = pht;
 
                     this.panelPhotos.Controls.Add(photo);
 
@@ -337,9 +347,7 @@ namespace PhotoGalleryLibrary.GUI
 
                     if (controlSelected is AlbumIcon)
                     {
-                        Album albumToEdit = ((AlbumIcon)controlSelected).AlbumObject;
-
-                        frmAlbumEdit al = new frmAlbumEdit(albumToEdit, this);
+                        frmAlbumEdit al = new frmAlbumEdit((AlbumIcon)controlSelected, this);
                         al.Show();
                     }
                 }
@@ -359,13 +367,16 @@ namespace PhotoGalleryLibrary.GUI
 
                     if (controlSelected is PhotoIcon)
                     {
-                        Photo photoToEdit = ((PhotoIcon)controlSelected).PhotoObject;
-
-                        frmPhotoEdit al = new frmPhotoEdit(photoToEdit, this);
+                        frmPhotoEdit al = new frmPhotoEdit((PhotoIcon)controlSelected, this);
                         al.Show();
                     }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.RefreshAlbumsView();
         }
     }
 }

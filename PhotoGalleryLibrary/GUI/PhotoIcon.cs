@@ -42,6 +42,19 @@ namespace PhotoGalleryLibrary.GUI
             }
         }
 
+        public Image ImageObject
+        {
+            get
+            {
+                return this.pictureBox1.Image;
+            }
+
+            set
+            {
+                this.pictureBox1.Image = value;
+            }
+        }
+
         private void PhotoIcon_Click(object sender, EventArgs e)
         {
             PhotoClick(this, e);

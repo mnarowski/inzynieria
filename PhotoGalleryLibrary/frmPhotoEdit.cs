@@ -13,24 +13,24 @@ namespace PhotoGalleryLibrary
     public partial class frmPhotoEdit : Form
     {
         PhotoGallery parentPhotoGallery = null;
-        Photo photo = null;
+        PhotoIcon photo = null;
 
         public frmPhotoEdit()
         {
             InitializeComponent();
         }
 
-        public frmPhotoEdit(Photo photoToEdit, PhotoGallery parentGallery)
+        public frmPhotoEdit(PhotoIcon photoToEdit, PhotoGallery parentGallery)
         {
             InitializeComponent();
 
             this.photo = photoToEdit;
             this.parentPhotoGallery = parentGallery;
 
-            this.txtTitle.Text = photoToEdit.Title;
-            this.txtDescription.Text = photoToEdit.Describe;
-            this.txtAuthor.Text = photoToEdit.Author;
-            this.pbPhoto.Image = photoToEdit.ImageObject;
+            this.txtTitle.Text = photoToEdit.PhotoObject.Title;
+            this.txtDescription.Text = photoToEdit.PhotoObject.Describe;
+            this.txtAuthor.Text = photoToEdit.PhotoObject.Author;
+            this.pbPhoto.Image = photoToEdit.PhotoObject.ImageObject;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -65,13 +65,12 @@ namespace PhotoGalleryLibrary
                 if (MessageBox.Show("Czy chcesz zapisać zmiany?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
 
-                    photo.Title = this.txtTitle.Text;
-                    photo.Author = this.txtAuthor.Text;
-                    photo.Describe = this.txtDescription.Text;
-                    photo.ImageObject = this.pbPhoto.Image;
+                    photo.PhotoObject.Title = this.txtTitle.Text;
+                    photo.PhotoObject.Author = this.txtAuthor.Text;
+                    photo.PhotoObject.Describe = this.txtDescription.Text;
+                    photo.PhotoObject.ImageObject = this.pbPhoto.Image;
 
-                    //parentPhotoGallery.GetSelectedAlbumIcon().AlbumObject.AddPhoto(photo);
-                    parentPhotoGallery.RefreshPhotosView();
+                    photo.ImageObject = this.pbPhoto.Image;
                     this.Close();
                 }
             }

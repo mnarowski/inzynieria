@@ -35,7 +35,9 @@
             this.panelAlbums = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.txtTitle = new System.Windows.Forms.TextBox();
+            this.txtAuthor = new PhotoGalleryLibrary.GUI.TranparenLabel();
             this.linkNewPhoto = new System.Windows.Forms.LinkLabel();
+            this.txtDate = new PhotoGalleryLibrary.GUI.TranparenLabel();
             this.MainPicture = new System.Windows.Forms.PictureBox();
             this.panelPhotos = new System.Windows.Forms.Panel();
             this.cmAlbum = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -44,8 +46,6 @@
             this.cmPhoto = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtAuthor = new PhotoGalleryLibrary.GUI.TranparenLabel();
-            this.txtDate = new PhotoGalleryLibrary.GUI.TranparenLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -151,6 +151,17 @@
             this.txtTitle.TabIndex = 1;
             this.txtTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // txtAuthor
+            // 
+            this.txtAuthor.AutoSize = true;
+            this.txtAuthor.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtAuthor.Location = new System.Drawing.Point(7, 8);
+            this.txtAuthor.Name = "txtAuthor";
+            this.txtAuthor.Size = new System.Drawing.Size(34, 14);
+            this.txtAuthor.TabIndex = 7;
+            this.txtAuthor.Text = "Autor";
+            this.txtAuthor.Visible = false;
+            // 
             // linkNewPhoto
             // 
             this.linkNewPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -162,6 +173,18 @@
             this.linkNewPhoto.TabStop = true;
             this.linkNewPhoto.Text = "Nowe zdjęcie";
             this.linkNewPhoto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkNewPhoto_LinkClicked);
+            // 
+            // txtDate
+            // 
+            this.txtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDate.AutoSize = true;
+            this.txtDate.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtDate.Location = new System.Drawing.Point(412, 8);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(63, 14);
+            this.txtDate.TabIndex = 8;
+            this.txtDate.Text = "2012-11-12";
+            this.txtDate.Visible = false;
             // 
             // MainPicture
             // 
@@ -232,29 +255,6 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem2.Text = "Usuń";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // txtAuthor
-            // 
-            this.txtAuthor.AutoSize = true;
-            this.txtAuthor.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtAuthor.Location = new System.Drawing.Point(7, 8);
-            this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(34, 14);
-            this.txtAuthor.TabIndex = 7;
-            this.txtAuthor.Text = "Autor";
-            this.txtAuthor.Visible = false;
-            // 
-            // txtDate
-            // 
-            this.txtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDate.AutoSize = true;
-            this.txtDate.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtDate.Location = new System.Drawing.Point(412, 8);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(63, 14);
-            this.txtDate.TabIndex = 8;
-            this.txtDate.Text = "2012-11-12";
-            this.txtDate.Visible = false;
             // 
             // PhotoGallery
             // 
