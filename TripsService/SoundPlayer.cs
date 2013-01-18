@@ -31,7 +31,12 @@ namespace TripsService
 
         private void Playlist_SelectedIndexChanged(object sender, EventArgs e)
         {
-            WindowsMediaPlayer.URL = paths[Playlist.SelectedIndex];
+            System.Media.SoundPlayer myPlayer;
+            myPlayer = new System.Media.SoundPlayer();
+            myPlayer.SoundLocation = @"D:\nazwa.wav";
+            Console.WriteLine(myPlayer);
+            myPlayer.Play();
+           // WindowsMediaPlayer.URL = paths[Playlist.SelectedIndex];
         }
     }
 }
