@@ -169,11 +169,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppFiles\Database\Atraction.hbm.xml" />
     <Content Include="AppFiles\Database\Empty.txt" />
     <EmbeddedResource Include="AppFiles\Database\models.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Content Include="AppFiles\Database\Trip.hbm.xml" />
     <Content Include="AppFiles\GUI\Backgrounds\Empty.txt" />
     <Content Include="AppFiles\GUI\Images\Empty.txt" />
     <Content Include="AppFiles\Resources\Empty.txt" />
