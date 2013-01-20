@@ -66,6 +66,12 @@
   <ItemGroup>
     <Compile Include="AppFiles\Database\DbService.cs" />
     <Compile Include="AppFiles\Database\SessionFactory.cs" />
+    <Compile Include="AppFiles\GUI\Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppFiles\GUI\Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Attraction.cs" />
     <Compile Include="AttractionType.cs" />
     <Compile Include="AuthAdapter.cs" />
@@ -112,6 +118,9 @@
     <Compile Include="User.cs" />
     <Compile Include="UserFactory.cs" />
     <Compile Include="UserRole.cs" />
+    <EmbeddedResource Include="AppFiles\GUI\Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
