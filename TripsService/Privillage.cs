@@ -12,7 +12,7 @@ namespace TripsService {
 			return this.resource;
 		}
 
-        public bool Equals(object o) {
+        public override bool Equals(object o) {
             char[] sep = new char[] { '.' };
             if (o is Privillage) {
                string[] selfres= this.GetResource().Split(sep);

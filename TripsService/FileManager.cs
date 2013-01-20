@@ -3,7 +3,9 @@ using PhotoGalleryLibrary;
 
 namespace TripsService {
 	public class FileManager : IManager  {
-		
+
+        private static FileManager instance = new FileManager();
+
         private FileManager() {
 			
 		}
@@ -37,13 +39,21 @@ namespace TripsService {
 
             return true;
 		}
-		public static IManager GetInstance() {
-            return new FileManager();
+		public static IManager GetStaticInstance() {
+            return FileManager.instance;
 		}
+
+
 		public bool IsEnabled() {
             return true;
 		}
 
-	}
+
+
+        public IManager GetInstance()
+        {
+            return FileManager.instance;
+        }
+    }
 
 }
