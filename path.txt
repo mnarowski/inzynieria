@@ -1,0 +1,8 @@
+
+- login
+- profil
+- moje wycieczki
+- wszystkie wycieczki
+- info na wycieczce
+- zapisz siê na wycieczkê
+
