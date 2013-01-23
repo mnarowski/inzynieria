@@ -25,13 +25,14 @@ namespace TripsService
             userAuth = AuthAdapter.GetInstance().getIdentity();
             if (!UserFactory.isRoot(userAuth))
             {
-
+                this.button2.Visible = false;
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }

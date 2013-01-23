@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TripInfoForm));
-            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
+          //  this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.label1 = new System.Windows.Forms.Label();
             this.photoGallery1 = new PhotoGalleryLibrary.GUI.PhotoGallery();
             this.label2 = new System.Windows.Forms.Label();
@@ -135,7 +135,7 @@
 
         #endregion
 
-        private System.DirectoryServices.DirectoryEntry directoryEntry1;
+        //private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private System.Windows.Forms.Label label1;
         private PhotoGalleryLibrary.GUI.PhotoGallery photoGallery1;
         private System.Windows.Forms.Label label2;

@@ -13,7 +13,11 @@ namespace TripsService
     {
         public Form2()
         {
-            InitializeComponent();
+        //    InitializeComponent();
+        }
+
+        public void InitializeComponent()
+        { 
         }
 
         private void Form2_Load(object sender, EventArgs e)
