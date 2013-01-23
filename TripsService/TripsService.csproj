@@ -54,6 +54,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,8 +75,20 @@
       <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
     <Compile Include="Attraction.cs" />
+    <Compile Include="AttractionEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttractionEditorForm.Designer.cs">
+      <DependentUpon>AttractionEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AttractionType.cs" />
     <Compile Include="AuthAdapter.cs" />
+    <Compile Include="Database_TripDataSet.Designer.cs" />
+    <Compile Include="Database_TripDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database_TripDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FileAdapter.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Form1.cs">
@@ -95,6 +109,12 @@
     <Compile Include="FormStatistic.Designer.cs">
       <DependentUpon>FormStatistic.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_AddTrip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AddTrip.Designer.cs">
+      <DependentUpon>Form_AddTrip.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPhotoGallery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +123,12 @@
     </Compile>
     <Compile Include="IManager.cs" />
     <Compile Include="Location.cs" />
+    <Compile Include="LocationEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LocationEditorForm.Designer.cs">
+      <DependentUpon>LocationEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Privillage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,11 +141,26 @@
       <DependentUpon>SoundPlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="Trip.cs" />
+    <Compile Include="TripInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TripInfoForm.Designer.cs">
+      <DependentUpon>TripInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="UserEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserEditorForm.Designer.cs">
+      <DependentUpon>UserEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserFactory.cs" />
     <Compile Include="UserRole.cs" />
     <EmbeddedResource Include="AppFiles\GUI\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttractionEditorForm.resx">
+      <DependentUpon>AttractionEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -132,8 +173,14 @@
       <DependentUpon>FormStatistic.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_AddTrip.resx">
+      <DependentUpon>Form_AddTrip.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPhotoGallery.resx">
       <DependentUpon>frmPhotoGallery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocationEditorForm.resx">
+      <DependentUpon>LocationEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,6 +195,23 @@
     <EmbeddedResource Include="SoundPlayer.resx">
       <DependentUpon>SoundPlayer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TripInfoForm.resx">
+      <DependentUpon>TripInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserEditorForm.resx">
+      <DependentUpon>UserEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Database_TripDataSet.xsc">
+      <DependentUpon>Database_TripDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Database_TripDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Database_TripDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database_TripDataSet.xss">
+      <DependentUpon>Database_TripDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -178,13 +242,17 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppFiles\Database\Atraction.hbm.xml" />
+    <Content Include="AppFiles\Database\Atraction.hbm.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="AppFiles\Database\Empty.txt" />
     <EmbeddedResource Include="AppFiles\Database\models.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <Content Include="AppFiles\Database\Trip.hbm.xml" />
+    <Content Include="AppFiles\Database\Trip.hbm.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="AppFiles\GUI\Backgrounds\Empty.txt" />
     <Content Include="AppFiles\GUI\Images\Empty.txt" />
     <Content Include="AppFiles\Resources\Empty.txt" />
@@ -198,6 +266,9 @@
       <Project>{DC47C14C-6E2D-4F7A-BA7C-F606A2154ED2}</Project>
       <Name>PhotoGalleryLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

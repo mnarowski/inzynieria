@@ -24,6 +24,15 @@ namespace TripsService
             user.vDateOfBirth = birthDate;
             return user;
         }
+
+        public static bool isRoot(User user) {
+            if (user.vname == "root") {
+                return true;
+            }
+
+            return false;
+        }
+
         public static string EncodePassword(string originalPassword)
         {
             //Declarations
