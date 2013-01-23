@@ -13,7 +13,7 @@ namespace TripsService
     {
 
         User userAuth = null;
-
+        TripInfoForm form = null;
 
         public UserEditorForm()
         {
@@ -31,7 +31,10 @@ namespace TripsService
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (this.form == null) {
+                this.form = new TripInfoForm();
 
+            }
         }
 
     }
