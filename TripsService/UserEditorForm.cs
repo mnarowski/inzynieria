@@ -11,12 +11,25 @@ namespace TripsService
 {
     public partial class UserEditorForm : Form
     {
+
+        User userAuth = null;
+
+
         public UserEditorForm()
         {
             InitializeComponent();
         }
 
         private void UserEditorForm_Load(object sender, EventArgs e)
+        {
+            userAuth = AuthAdapter.GetInstance().getIdentity();
+            if (!UserFactory.isRoot(userAuth))
+            {
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

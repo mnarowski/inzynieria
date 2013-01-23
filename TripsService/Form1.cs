@@ -30,8 +30,8 @@ namespace TripsService
                 AuthAdapter adapter = AuthAdapter.GetInstance();
                 adapter.WriteIdentity(user);
 
-                new TripsService.AppFiles.GUI.Profile();
-                this.Dispose();
+                new UserEditorForm();
+                this.Visible = false;
             }
             else {
                 label3.Text = "Nie poprawny login lub hasło";
