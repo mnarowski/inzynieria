@@ -1,52 +1,90 @@
 using System;
 using PhotoGalleryLibrary;
 
-namespace TripsService {
-	public class FileManager : IManager  {
+namespace TripsService
+{
 
+    public class FileManager : IManager
+    {
+        /// <summary>
+        /// Instancja singletone'a
+        /// </summary>
         private static FileManager instance = new FileManager();
+        /// <summary>
+        /// Klasa odpowiadaj¹ca za zarz¹dzanie plikami
+        /// </summary>
+        private FileManager()
+        {
 
-        private FileManager() {
-			
-		}
-		public bool SaveFileForUser(User user, String filename) {
+        }
+        /// <summary>
+        /// Zapisuje plik z danymi u¿ytkownika na dysk
+        /// </summary>
+        public bool SaveFileForUser(User user, String filename)
+        {
+
             FileAdapter<User> forUser = new FileAdapter<User>();
-
             return true;
-		}
-		public bool SaveFileForTrip(Trip trip, String filename) {
+        }
+        /// <summary>
+        /// Zapisuje plik z danymi wycieczki na dysk
+        /// </summary>
+        public bool SaveFileForTrip(Trip trip, String filename)
+        {
+            /// <summary>
+            /// Opis
+            /// </summary>
             FileAdapter<Trip> forTrip = new FileAdapter<Trip>();
-
+            /// <summary>
+            /// Opis
+            /// </summary>
             return true;
-		}
-		public String[] GetFilesForUser(User user) {
-            FileAdapter<User> adapter = new FileAdapter<User>();
+        }
+        /// <summary>
+        /// Zwraca nazwy plików dla danego u¿ytkownika
+        /// </summary>
+        public String[] GetFilesForUser(User user)
+        {
 
             return new string[] { };
-		}
-		public String[] GetFilesForTrip(Trip trip) {
+        }
+        /// <summary>
+        /// Zwraca nazwy plików dla danej wycieczki
+        /// </summary>
+        public String[] GetFilesForTrip(Trip trip)
+        {
             FileAdapter<Trip> adapter = new FileAdapter<Trip>();
-
             return new string[] { };
-		}
-		public Photo SavePhoto(Photo photo) {
+        }
+        /// <summary>
+        /// Zapisuje plik z danymi danego zdjêcia
+        /// </summary>
+        public Photo SavePhoto(Photo photo)
+        {
             FileAdapter<Photo> adapter = new FileAdapter<Photo>();
-
             return new Photo(".");
-		}
-		public bool SavePhotoToAlbum(Album album, Photo photo) {
+        }
+        /// <summary>
+        /// Dodaje zdjêcie do danego albumu i zapisuje na dysku
+        /// </summary>
+        public bool SavePhotoToAlbum(Album album, Photo photo)
+        {
             FileAdapter<Album> adapter = new FileAdapter<Album>();
-
             return true;
-		}
-		public static IManager GetStaticInstance() {
+        }
+        /// <summary>
+        /// Zwraca instancjê singletone'a
+        /// </summary>
+        public static IManager GetStaticInstance()
+        {
             return FileManager.instance;
-		}
+        }
 
 
-		public bool IsEnabled() {
+        public bool IsEnabled()
+        {
             return true;
-		}
+        }
 
 
 
@@ -57,3 +95,5 @@ namespace TripsService {
     }
 
 }
+
+
