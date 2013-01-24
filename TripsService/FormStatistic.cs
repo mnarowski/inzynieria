@@ -8,11 +8,14 @@ using System.Windows.Forms;
 
 namespace TripsService
 {
-    public partial class Form2 : Form
+    public partial class FormStatistics : Form
     {
-        public Form2()
+
+        private bool mine;
+
+        public FormStatistics()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -21,6 +24,20 @@ namespace TripsService
             FormResults Form = new FormResults();
             //Co to za smiec?
             //FormResults.show();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void showOnlyMine(bool mine = false) {
+            this.mine = mine;
         }
     }
 }

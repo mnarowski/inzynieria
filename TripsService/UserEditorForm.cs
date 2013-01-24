@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using TripsService.AppFiles.Database;
 
 namespace TripsService
 {
@@ -26,15 +21,44 @@ namespace TripsService
             if (!UserFactory.isRoot(userAuth))
             {
                 this.button2.Visible = false;
+                this.comboBoxRole.Visible = false;
             }
+            this.plec.Items.Add(new{ Name="mężczyna", Value=SexEnum.Male});
+            this.plec.Items.Add(new { Name = "kobieta", Value = SexEnum.Female });
+            this.textBoxName.Text = userAuth.GetName();
+            this.textBoxSureName.Text = userAuth.GetSureName();
+            this.dateOfBirthTimePicker.Value = userAuth.GetDateOfBirth();
+            this.plec.SelectedIndex = (int) userAuth.GetSex();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (this.form == null) {
                 this.form = new TripInfoForm();
-
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            userAuth.SetName(this.textBoxName.Text);
+            userAuth.SetSureName(this.textBoxSureName.Text);
+            userAuth.SetDateOfBirth(this.dateOfBirthTimePicker.Value);
+            SexEnum selectedSex = (((int)SexEnum.Male) == this.plec.SelectedIndex) ? SexEnum.Male : SexEnum.Female;
+            userAuth.SetSex(selectedSex);
+
+            DbService.Update<User>(userAuth);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.showOnlyMine(true);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //new Form2();
         }
 
     }
