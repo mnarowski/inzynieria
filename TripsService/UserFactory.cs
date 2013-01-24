@@ -9,10 +9,15 @@ namespace TripsService
 {
     sealed class UserFactory
     {
-        public static User createUser(String name,String surname,DateTime birthDate,UserRole role,SexEnum sex,String login,String pass) {
+        /// <summary>
+        /// Tworzy nowego użytkownika i umieszcza rekord w bazie danych
+        /// </summary>
+        public static User createUser(String name, String surname, DateTime birthDate, UserRole role, SexEnum sex, String login, String pass)
+        {
             User user = new User();
             List<User> list = SessionFactory.GetNewSession().CreateQuery("from User u WHERE u.login = :login").SetParameter("login", login).List<User>().ToList<User>();
-            if (list.Count > 0) {
+            if (list.Count > 0)
+            {
                 throw new Exception("User with given login exists");
             }
             user.vlogin = login;
@@ -25,13 +30,23 @@ namespace TripsService
             return user;
         }
 
-        public static bool isRoot(User user) {
-            if (user.vname == "root") {
+        /// <summary>
+        /// Sprawdza czy dany użytkownik ma rozszerzone uprawnienia
+        /// </summary>
+        public static bool isRoot(User user)
+        {
+            if (user.vname == "root")
+            {
                 return true;
             }
 
             return false;
         }
+
+
+        /// <summary>
+        /// Zamienia ciąg znaków na hash md5
+        /// </summary>
 
         public static string EncodePassword(string originalPassword)
         {
