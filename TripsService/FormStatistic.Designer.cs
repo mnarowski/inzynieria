@@ -1,6 +1,6 @@
 ﻿namespace TripsService
 {
-    partial class Form2
+    partial class FormStatistics
     {
         /// <summary>
         /// Required designer variable.
