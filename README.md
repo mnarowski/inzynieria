@@ -5,5 +5,4 @@ Projekt na inzynierie oprogramowania
 
 Sggw Zao 2010.
 
-!!!
-Strona z mantisem zostanie wy³¹czona w sobotê, nie bêdzie mo¿na ju¿ zmieniaæ swoich zadañ, ich edytowaæ, ani zmieniaæ wykonania itp.
+Sobota 26.01.2013 o godzinie 08.00 zostaje zablokowane commitowanie na amen. 
