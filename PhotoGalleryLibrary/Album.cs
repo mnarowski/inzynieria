@@ -167,10 +167,6 @@ namespace PhotoGalleryLibrary
             this.strAuthor = null;
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
-        }
 
         #endregion
     }
