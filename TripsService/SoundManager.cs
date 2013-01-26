@@ -6,66 +6,54 @@ using System.IO;
 
 namespace TripsService {
 	public class SoundManager {
-        /// <summary>
-        /// Na jakie cuda 2 klasa publiczna w 1 pliku!!
-        /// </summary>
-        class MP3_File
-        {
-            FileInfo info = null;
-
-            public string PathToMP3 { get { return this.info.FullName.ToString(); } }
-
-            public MP3_File(FileInfo fileMp3)
-            {
-                this.info = fileMp3;
-            }
-
-            public override string ToString()
-            {
-                return this.info.Name.ToString();
-            }
+        private static WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
+        private string resource = string.Empty;
+        private static SoundManager instance = new SoundManager();
+        
+        protected SoundManager() {
+            player.PlayStateChange +=
+        new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(Player_PlayStateChange);
+            player.MediaError +=
+                new WMPLib._WMPOCXEvents_MediaErrorEventHandler(Player_MediaError);
         }
-        private string sPathToPlaylist = string.Empty;
 
-		public SoundManager(string pathToPlayList) {
-            this.sPathToPlaylist = pathToPlayList;
-		}
-
-        public List<MP3_File> GetPlaylist()
-        {
-            DirectoryInfo dirInfo = new DirectoryInfo(this.sPathToPlaylist);
-            List<MP3_File> files = new List<MP3_File>();
-
-            foreach (FileInfo file in dirInfo.GetFiles())
-            {
-                files.Add(new MP3_File(file));
-            }
-
-            return files;
-        }
-        public bool IsEnabled()
-        {
-            return true;
-        }
 		public void Stop() {
-            //Wiec daj kod tutaj!!!!
-			//Obs³uga przez Windows Media Player
+            this.Player_PlayStateChange((int)WMPLib.WMPPlayState.wmppsStopped);
 		}
         
         ///
 		public bool IsEnabled() {
             return true;
 		}
-		public static IManager GetInstance() {
-            //Co to niby ma byæ?
-			throw new System.Exception("Not implemented");
-		}
+		public static SoundManager GetInstance() {
+            
+            return instance;
+
+        }
 		public bool Pause() {
-            //co to niby ma byæ?
-			throw new System.Exception("Not implemented");
-		}
+            player.controls.pause();
+            this.Player_PlayStateChange((int)WMPLib.WMPPlayState.wmppsPaused);
+            return true;
+        }
 
+        public void Play(string resource) {
+            this.resource = resource;
+            player.URL = resource;
+            player.controls.play();
+        }
 
+        private void Player_PlayStateChange(int NewState)
+        {
+            if ((WMPLib.WMPPlayState)NewState == WMPLib.WMPPlayState.wmppsStopped)
+            {
+                player.close();
+            }
+        }
+
+        private void Player_MediaError(object pMediaObject)
+        {
+            MessageBox.Show("Cannot open plaer");
+        }
     }
 
 }

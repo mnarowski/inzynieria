@@ -109,7 +109,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableSP;
-        private AxWMPLib.AxWindowsMediaPlayer WindowsMediaPlayer;
+        public AxWMPLib.AxWindowsMediaPlayer WindowsMediaPlayer;
         private System.Windows.Forms.ListBox Playlist;
         private System.Windows.Forms.Button OpenFile;
         private System.Windows.Forms.OpenFileDialog MP3Files;
