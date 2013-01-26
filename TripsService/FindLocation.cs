@@ -25,6 +25,10 @@ namespace TripsService
 
         private void FindLocation_Load(object sender, EventArgs e)
         {
+            User userAuth = AuthAdapter.GetInstance().getIdentity();
+            if (!UserFactory.isRoot(userAuth)) {
+                this.button1.Visible = false;
+            }
             this.dataGridView1.DataSource = DbService.GetAll<Location>();
         }
     }

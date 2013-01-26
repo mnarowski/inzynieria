@@ -23,6 +23,11 @@ namespace TripsService
 
         private void FindAttraction_Load(object sender, EventArgs e)
         {
+            User userAuth = AuthAdapter.GetInstance().getIdentity();
+            if (!UserFactory.isRoot(userAuth)) {
+                this.button1.Visible = false;
+            }
+
             this.dataGridView1.DataSource = TripsService.AppFiles.Database.DbService.GetAll<Attraction>();
         }
     }
