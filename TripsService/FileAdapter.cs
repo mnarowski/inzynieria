@@ -62,6 +62,7 @@ namespace TripsService {
         /// Informacje o bazie danych
         /// </summary>
         /// <returns>String z lokacj¹ bazy</returns>
+        ///[Obsolete("Nie potrzebne dzieki nHibernate",true)]
 		public String GetDataBaseLocation() {
 			return this.dataBaseLocation;
 		}
@@ -70,7 +71,8 @@ namespace TripsService {
         /// Ustanawiamy lokalizacjê bazy
         /// </summary>
         /// <param name="dataBaseLocation">Œcie¿ka do pliku</param>
-		public void SetDataBaseLocation(String dataBaseLocation) {
+		///[Obsolete("Nie wykorzystywana dzieki nHibernate",true)]
+        public void SetDataBaseLocation(String dataBaseLocation) {
 			this.dataBaseLocation = dataBaseLocation;
 		}
 

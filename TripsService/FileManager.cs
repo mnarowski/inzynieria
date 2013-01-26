@@ -75,7 +75,7 @@ namespace TripsService
         /// <summary>
         /// Zwraca instancjê singletone'a
         /// </summary>
-        public static IManager GetStaticInstance()
+        public static FileManager GetInstance()
         {
             return FileManager.instance;
         }
@@ -86,12 +86,6 @@ namespace TripsService
             return true;
         }
 
-
-
-        public IManager GetInstance()
-        {
-            return FileManager.instance;
-        }
     }
 
 }
