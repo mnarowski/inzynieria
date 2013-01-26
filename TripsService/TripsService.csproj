@@ -204,17 +204,11 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppFiles\Database\Atraction.hbm.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="AppFiles\Database\Empty.txt" />
     <EmbeddedResource Include="AppFiles\Database\models.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <Content Include="AppFiles\Database\Trip.hbm.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="AppFiles\GUI\Backgrounds\Empty.txt" />
     <Content Include="AppFiles\GUI\Images\Empty.txt" />
     <Content Include="AppFiles\Resources\Empty.txt" />

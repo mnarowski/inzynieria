@@ -4,7 +4,6 @@ namespace TripsService {
 	public class UserRole{
 		private String name;
 		private int idNumber;
-		private Privillage[] privillages;
 
         public virtual int vid { set { idNumber = value; } get { return idNumber; } }
         public virtual String vname { set { name = value; } get { return name; } }
@@ -22,24 +21,8 @@ namespace TripsService {
 		public virtual void SetIdNumber(int idNumber) {
 			this.idNumber = idNumber;
 		}
-		public virtual Privillage[] GetPrivillages() {
-			return this.privillages;
-		}
-		public virtual void SetPrivillages(Privillage[] privillages) {
-			this.privillages = privillages;
-		}
-		public virtual bool HasAccess(object resource_Privillage) {
-            if (resource_Privillage is Privillage) { 
-                foreach(Privillage p in privillages){
-                    if(p.Equals(resource_Privillage))
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-		}
+		
+		
 
 
     }

@@ -3,12 +3,20 @@ using System.Runtime.Serialization;
 namespace TripsService {
 	public class Privillage{
 		private String resource;
+        private int id;
+        private UserRole userRole;
 
+        public virtual int vid { get { return id; } set { id = value; } }
+        public virtual UserRole vuserRole { get { return userRole; } set { userRole = value; } }
+        public virtual string vresource { get { return resource; } set { resource = value; } } 
         public Privillage(String resource) {
             this.resource = resource;
         }
 
-		public String GetResource() {
+        public Privillage(){
+        }
+
+		public virtual String GetResource() {
 			return this.resource;
 		}
 

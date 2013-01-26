@@ -7,7 +7,7 @@ namespace TripsService {
 		private String name;
 		private User organizer;
 		private float length;
-		private string[] transport;
+		private string transport;
 		private Attraction[] atractions;
 		private int usersNumber;
 		private double price;
@@ -22,69 +22,63 @@ namespace TripsService {
         public virtual int vUsersNumber { set { usersNumber = value; } get { return usersNumber; } }
         public virtual double vprice { set { price = value; } get { return price; } }
         public virtual String vdescription { set { description = value; } get { return description; } }
-
-		public Location GetLocalisation() {
+        public virtual string vtransport { set { transport = value; } get { return transport; } }
+		public virtual Location GetLocalisation() {
 			return this.localisation;
 		}
-		public void SetLocalisation(Location localisation) {
+		public virtual void SetLocalisation(Location localisation) {
 			this.localisation = localisation;
 		}
-		public String GetName() {
+		public virtual String GetName() {
 			return this.name;
 		}
-		public void SetName(String name) {
+		public virtual void SetName(String name) {
 			this.name = name;
 		}
-		public User GetOrganizer() {
+		public virtual User GetOrganizer() {
 			return this.organizer;
 		}
-		public void SetOrganizer(User organizer) {
+		public virtual void SetOrganizer(User organizer) {
 			this.organizer = organizer;
 		}
-		public float GetLength() {
+		public virtual float GetLength() {
 			return this.length;
 		}
-		public void SetLength(float length) {
+		public virtual void SetLength(float length) {
 			this.length = length;
 		}
-		public string[] GetTransport() {
+		public virtual string GetTransport() {
 			return this.transport;
 		}
-		public void SetTransport(string[] transport) {
+		public virtual void SetTransport(string transport) {
 			this.transport = transport;
 		}
-		public Attraction[] GetAtractions() {
+		public virtual Attraction[] GetAtractions() {
 			return this.atractions;
 		}
-		public void SetAtractions(Attraction[] atractions) {
+		public virtual void SetAtractions(Attraction[] atractions) {
 			this.atractions = atractions;
 		}
-		public int GetUsersNumber() {
+		public virtual int GetUsersNumber() {
 			return this.usersNumber;
 		}
-		public void SetUsersNumber(int usersNumber) {
+		public virtual void SetUsersNumber(int usersNumber) {
 			this.usersNumber = usersNumber;
 		}
-		public double GetPrice() {
+		public virtual double GetPrice() {
 			return this.price;
 		}
-		public void SetPrice(double price) {
+		public virtual void SetPrice(double price) {
 			this.price = price;
 		}
 		public Trip() {
-			throw new System.Exception("Not implemented");
 		}
-		public String GetDescription() {
+		public virtual String GetDescription() {
 			return this.description;
 		}
-		public void SetDescription(String description) {
+		public virtual void SetDescription(String description) {
 			this.description = description;
 		}
-
-		private User user;
-
-		private Location[] locations;
-		private Attraction[] attractions;
 
     }
 
