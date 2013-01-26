@@ -18,7 +18,12 @@ namespace TripsService
 
         private void button1_Click(object sender, EventArgs e)
         {
+           AttractionEdiorForm form = new AttractionEdiorForm();
+        }
 
+        private void FindAttraction_Load(object sender, EventArgs e)
+        {
+            this.dataGridView1.DataSource = TripsService.AppFiles.Database.DbService.GetAll<Attraction>();
         }
     }
 }

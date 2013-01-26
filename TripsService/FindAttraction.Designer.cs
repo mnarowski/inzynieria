@@ -63,6 +63,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "FindAttraction";
             this.Text = "FindAttraction";
+            this.Load += new System.EventHandler(this.FindAttraction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
