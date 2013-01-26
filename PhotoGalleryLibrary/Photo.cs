@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace PhotoGalleryLibrary
 {
     [Serializable]
-    public class Photo: IDisposable, ISerializable
+    public class Photo: IDisposable
     {
         private Image imgPhoto;
         private string strTitle;

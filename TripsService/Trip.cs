@@ -55,11 +55,11 @@ namespace TripsService {
 		public virtual void SetTransport(string transport) {
 			this.transport = transport;
 		}
-		public virtual Attraction[] GetAtractions() {
-			return this.atractions;
+		public virtual Attraction GetAtractions() {
+			return this.atraction;
 		}
-		public virtual void SetAtractions(Attraction[] atractions) {
-			this.atractions = atractions;
+		public virtual void SetAtractions(Attraction atractions) {
+			this.atraction = atractions;
 		}
 		public virtual int GetUsersNumber() {
 			return this.usersNumber;

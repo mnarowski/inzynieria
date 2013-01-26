@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace PhotoGalleryLibrary
 {
     [Serializable]
-    public class Album: IPhotosManagement, IDisposable, ISerializable
+    public class Album: IPhotosManagement, IDisposable
     {
         private List<Photo> listPhotos;
         private Image imgMainImage;
