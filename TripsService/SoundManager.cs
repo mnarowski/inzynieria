@@ -52,7 +52,7 @@ namespace TripsService {
 
         private void Player_MediaError(object pMediaObject)
         {
-            MessageBox.Show("Cannot open plaer");
+            System.Windows.Forms.MessageBox.Show("Cannot open plaer");
         }
     }
 
