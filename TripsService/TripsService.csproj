@@ -198,6 +198,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Content Include="AppFiles\Database\images.xml" />
     <Content Include="AppFiles\GUI\Backgrounds\Empty.txt" />
     <Content Include="AppFiles\GUI\Images\Empty.txt" />
     <Content Include="AppFiles\Resources\Empty.txt" />

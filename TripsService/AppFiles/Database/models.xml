@@ -81,3 +81,4 @@
     <property name="vtype" colummn="attractiontype" type="AttractionType"/>
   </class>
 </hibernate-mapping>
+
