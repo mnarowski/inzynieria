@@ -22,7 +22,7 @@ namespace TripsService
             }
             user.vlogin = login;
             user.vpassword = EncodePassword(pass);
-            user.vRole = role;
+            user.vRole = role.vid;
             user.vsex = sex;
             user.vname = name;
             user.vSureName = surname;

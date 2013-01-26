@@ -18,7 +18,7 @@
       </generator>
     </id>
     <property name="vresource" column="resource" not-null="true" />
-    <one-to-one name="vuserRole" class="UserRole"/>
+    <property name="vuserRole" column="id_userrole"/>
   </class>
   <!--Klasa usera-->
   <class name="User" lazy="true" table="user" schema="public">
@@ -30,8 +30,7 @@
     <property name="vname" column="name" />
     <property name="vSureName" column="surename"/>
     <property name="vDateOfBirth" column="dateofbirth" type="DateTime"/>
-    <one-to-one name="vRole" class="UserRole"
-            cascade="save-update"></one-to-one>
+    <property name="vRole" column="userrole"/> 
     <property name="vsex" column="sex"/>
     <property name="vlogin" column="login"/>
     <property name="vpassword" column="password"/>
@@ -49,9 +48,9 @@
     <property name="vUsersNumber" column="usersnumber" />
     <property name="vprice" column="price" />
     <property name="vdescription" column="description"/>
-    <one-to-one name="vorganizer" class="User" cascade="save-update"/>
-    <one-to-one name="vattraction" class="Attraction" cascade="save-update"/>
-    <one-to-one name="vlocation" class="Location" cascade="save-update"/>
+    <property name="vorganizer" column="organiser"/>
+    <property name="vattraction" column="attraction"/>
+    <property name="vlocation" column="localisation"/>
   </class>
   <!--Klasa lokacji-->
   <class name="Location" table="location" lazy="true" schema="public">

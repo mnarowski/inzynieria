@@ -8,7 +8,7 @@ namespace TripsService {
 		private String name;
 		private String sureName;
 		private DateTime dateOfBirth;
-		private UserRole role;
+		private int role;
 		private SexEnum sex;
         private String login;
         private String password;
@@ -17,7 +17,7 @@ namespace TripsService {
         public virtual String vname { set { name = value; } get { return name; } }
         public virtual String vSureName { set { sureName = value; } get { return sureName; } }
         public virtual DateTime vDateOfBirth { set { dateOfBirth = value; } get { return dateOfBirth; } }
-        public virtual UserRole vRole { set { role = value; } get { return role; } }
+        public virtual int vRole { set { role = value; } get { return role; } }
         public virtual SexEnum vsex { set { sex = value; } get { return sex; } }
         public virtual String vlogin { set { login = value; } get { return login; } }
         public virtual String vpassword { set { password = value; } get { return password; } }
@@ -41,10 +41,10 @@ namespace TripsService {
 			this.dateOfBirth = dateOfBirt;
 		}
 		public virtual UserRole GetRole() {
-			return this.role;
+            return TripsService.AppFiles.Database.DbService.Find<UserRole>(role);
 		}
-		public virtual void SetRole(UserRole role) {
-			this.role = role;
+		public virtual void SetRole(UserRole _role) {
+			this.role = _role.vid;
 		}
 		public virtual bool IsAdult() {
 			throw new System.Exception("Not implemented");

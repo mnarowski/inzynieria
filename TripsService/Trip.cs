@@ -3,12 +3,12 @@ using System.Runtime.Serialization;
 namespace TripsService {
 	public class Trip {
         private int id;
-		private Location localisation;
+		private int localisation;
 		private String name;
-		private User organizer;
+		private int organizer;
 		private float length;
 		private string transport;
-		private Attraction atraction;
+		private int atraction;
 		private int usersNumber;
 		private double price;
 		private String description;
@@ -17,19 +17,19 @@ namespace TripsService {
         public virtual int vid {get{return id;} set{id = value;}}
         public virtual String vname { set{name = value;}
             get{return name;}}
-        public virtual User vorganizer { set { organizer = value; } get { return organizer; } }
+        public virtual int vorganizer { set { organizer = value; } get { return organizer; } }
         public virtual float vlength { set { length = value; } get { return length; } }
         public virtual int vUsersNumber { set { usersNumber = value; } get { return usersNumber; } }
         public virtual double vprice { set { price = value; } get { return price; } }
         public virtual String vdescription { set { description = value; } get { return description; } }
         public virtual string vtransport { set { transport = value; } get { return transport; } }
-        public virtual Attraction vattraction { set { atraction = value; } get {return atraction; } }
-        public virtual Location vlocation { set { localisation = value; } get { return localisation; } }
+        public virtual int vattraction { set { atraction = value; } get {return atraction; } }
+        public virtual int vlocation { set { localisation = value; } get { return localisation; } }
         public virtual Location GetLocalisation() {
-			return this.localisation;
+            return TripsService.AppFiles.Database.DbService.Find<Location>(localisation);
 		}
 		public virtual void SetLocalisation(Location localisation) {
-			this.localisation = localisation;
+			this.localisation = localisation.vid;
 		}
 		public virtual String GetName() {
 			return this.name;
@@ -38,10 +38,10 @@ namespace TripsService {
 			this.name = name;
 		}
 		public virtual User GetOrganizer() {
-			return this.organizer;
+            return TripsService.AppFiles.Database.DbService.Find<User>(organizer);
 		}
 		public virtual void SetOrganizer(User organizer) {
-			this.organizer = organizer;
+			this.organizer = organizer.vid;
 		}
 		public virtual float GetLength() {
 			return this.length;
@@ -56,10 +56,10 @@ namespace TripsService {
 			this.transport = transport;
 		}
 		public virtual Attraction GetAtractions() {
-			return this.atraction;
+            return TripsService.AppFiles.Database.DbService.Find<Attraction>(this.atraction);
 		}
 		public virtual void SetAtractions(Attraction atractions) {
-			this.atraction = atractions;
+			this.atraction = atractions.vid;
 		}
 		public virtual int GetUsersNumber() {
 			return this.usersNumber;

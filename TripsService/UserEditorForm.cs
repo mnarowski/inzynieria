@@ -7,7 +7,6 @@ namespace TripsService
 {
     public partial class UserEditorForm : Form
     {
-
         User userAuth = null;
         TripInfoForm form = null;
 
@@ -38,7 +37,7 @@ namespace TripsService
             this.textBoxSureName.Text = userAuth.GetSureName();
             this.dateOfBirthTimePicker.Value = userAuth.GetDateOfBirth();
             this.plec.SelectedIndex = (int) userAuth.GetSex();
-            
+            this.comboBoxRole.SelectedIndex = userAuth.vRole;
         }
 
         private void button2_Click(object sender, EventArgs e)

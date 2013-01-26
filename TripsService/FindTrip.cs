@@ -14,6 +14,7 @@ namespace TripsService
     {
         private bool nextChecked = false;
         private bool userGroup = false;
+        private string QueryString = "";
 
         public FindTrip()
         {
@@ -28,11 +29,7 @@ namespace TripsService
         {
             NHibernate.ISession session = SessionFactory.GetNewSession();
             
-            string QueryString = "from Trip t ";
-            if (!isEmpty(textBox5.Text)) {
-                userGroup = true;
-                QueryString += " LEFT JOIN User u ON t.vorganiser = u.id_user";
-            }
+            QueryString = "from Trip t ";
             
             QueryString += " WHERE 1=1 ";
 
@@ -51,10 +48,7 @@ namespace TripsService
             if (!isEmpty(textBox4.Text)) {
                 QueryString += " AND t.vtransport LIKE :transport";
             }
-            if (!isEmpty(textBox5.Text)) {
-                QueryString += " AND u.vname LIKE :user";
-            }
-
+            
             if (!isEmpty(textBox6.Text)) {
                 QueryString += " AND t.vprice = :price";
             }
@@ -63,35 +57,7 @@ namespace TripsService
                 QueryString += " AND t.vdescription LIKE :description";
             }
 
-            if (this.checkBox1.Checked || this.checkBox2.Checked || this.checkBox3.Checked || this.checkBox4.Checked || this.checkBox5.Checked || this.checkBox6.Checked)
-            {
-                QueryString += " Group BY ";
-            }
 
-            if (checkBox1.Checked) {
-                QueryString += GroupedBy(" t.vname ASC ");
-            }
-
-            if (checkBox2.Checked) {
-                QueryString += GroupedBy(" t.vlength ASC ");
-            }
-
-            if (checkBox3.Checked) {
-                QueryString += GroupedBy(" t.vUsersNumber ASC ");
-            }
-
-            if (checkBox4.Checked) {
-                QueryString += GroupedBy(" t.vtransport ");
-            }
-
-            if (checkBox5.Checked && userGroup) {
-                QueryString += GroupedBy(" u.vname ");
-            }
-
-            if (checkBox6.Checked) {
-                QueryString += GroupedBy(" t.vprice");
-            }
-            System.Windows.Forms.MessageBox.Show(QueryString);
             NHibernate.IQuery query = session.CreateQuery(QueryString);
 
             if (!isEmpty(this.textBox1.Text))
@@ -113,11 +79,7 @@ namespace TripsService
             {
                 query = query.SetParameter("transport", '%' + this.textBox4.Text + '%');
             }
-            if (!isEmpty(textBox5.Text))
-            {
-                query = query.SetParameter("user", '%' + this.textBox5.Text + '%');
-            }
-
+            
             if (!isEmpty(textBox6.Text))
             {
                 query = query.SetParameter("price", this.textBox6.Text );
@@ -130,7 +92,7 @@ namespace TripsService
 
             ICollection<Trip> ultras = query.List<Trip>();
 
-            //this.dataGridView1.DataSource = ultras;
+            this.dataGridView1.DataSource = ultras;
             
         }
 
@@ -144,6 +106,8 @@ namespace TripsService
 
         public string GroupedBy(string checparam){
             if (!nextChecked) {
+                QueryString = " count(*) as liczba " + QueryString;
+                System.Windows.Forms.MessageBox.Show(QueryString);
                 nextChecked = true;
                 return checparam;
             }
