@@ -5,10 +5,9 @@ namespace TripsService {
     /// </summary>
 	public enum AttractionType : int {
 		Building = 0,
-		Vechicle,
-		Viewport,
-		Nature,
-
-	}
+		Vechicle = 1,
+		Viewport =2,
+		Nature = 3
+    }
 
 }

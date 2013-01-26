@@ -51,6 +51,19 @@
     <one-to-one name="vorganizer" class="User" cascade="save-update"/>
     <one-to-one name="vattraction" class="Attraction" cascade="save-update"/>
     <one-to-one name="vlocation" class="Location" cascade="save-update"/>
-    
+  </class>
+  <class name="Location" table="trip" lazy="true" schema="public">
+    <id name="vid" column="id_trip">
+      <generator class="sequence">
+        <param name="sequence">"location_id_location_seq"</param>
+      </generator>
+    </id>
+    <property name="vcity" column="city" not-null="true"/>
+    <property name="vcountry" column="country" not-null="true"/>
+    <property name="vstreet" column="street" not-null="true"/>
+    <property name="vlongitude" column="longitude"/>
+    <property name="vname" column="name"/>
+    <property name="vamls" column="amls"/>
+    <property name="vlatitude" column="latitude"/>
   </class>
 </hibernate-mapping>
