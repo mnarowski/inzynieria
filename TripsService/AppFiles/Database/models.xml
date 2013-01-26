@@ -36,6 +36,7 @@
     <property name="vlogin" column="login"/>
     <property name="vpassword" column="password"/>
   </class>
+  <!--Klasa wycieczki-->
   <class name="Trip" table="trip" lazy="true" schema="public">
     <id name="vid" column="id_trip">
       <generator class="sequence">
@@ -52,8 +53,9 @@
     <one-to-one name="vattraction" class="Attraction" cascade="save-update"/>
     <one-to-one name="vlocation" class="Location" cascade="save-update"/>
   </class>
+  <!--Klasa lokacji-->
   <class name="Location" table="trip" lazy="true" schema="public">
-    <id name="vid" column="id_trip">
+    <id name="vid" column="id_location">
       <generator class="sequence">
         <param name="sequence">"location_id_location_seq"</param>
       </generator>
@@ -65,5 +67,17 @@
     <property name="vname" column="name"/>
     <property name="vamls" column="amls"/>
     <property name="vlatitude" column="latitude"/>
+  </class>
+  <!--Klasa atrakcji-->
+  <class name="Attraction" table="attraction" schema="public" lazy="true">
+    <id name="vid" column="id_attraction">
+      <generator class="sequence">
+        <param name="sequence">"attraction_id_attraction_seq"</param>
+      </generator>
+    </id>
+    <proprty name="vname" column="name"/>
+    <property name="vlongitude" column="longitude"/>
+    <property name="vlatitude" column="latitude" />
+    <property name="vtype" colummn="attractiontype" type="AttractionType"/>
   </class>
 </hibernate-mapping>

@@ -139,10 +139,6 @@
             // comboBoxRole
             // 
             this.comboBoxRole.FormattingEnabled = true;
-            this.comboBoxRole.Items.AddRange(new object[] {
-            "Administrator",
-            "Uzytkownik",
-            "Root"});
             this.comboBoxRole.Location = new System.Drawing.Point(153, 132);
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(138, 21);

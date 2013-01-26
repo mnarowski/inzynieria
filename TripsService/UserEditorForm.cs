@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using TripsService.AppFiles.Database;
+using System.Collections.Generic;
 
 namespace TripsService
 {
@@ -17,11 +18,19 @@ namespace TripsService
 
         private void UserEditorForm_Load(object sender, EventArgs e)
         {
+            ICollection<UserRole> userRoles = DbService.GetAll<UserRole>();
+            
+            this.comboBoxRole.Items.Clear();
+
+            foreach (UserRole ur in userRoles) {
+                this.comboBoxRole.Items.Insert(ur.vid, ur.vname);
+            }
             userAuth = AuthAdapter.GetInstance().getIdentity();
             if (!UserFactory.isRoot(userAuth))
             {
                 this.button2.Visible = false;
                 this.comboBoxRole.Visible = false;
+
             }
             this.plec.Items.Insert((int)SexEnum.Male, "mężczyzna");
             this.plec.Items.Insert((int)SexEnum.Female, "kobieta");
