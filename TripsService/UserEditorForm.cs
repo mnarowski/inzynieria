@@ -21,7 +21,7 @@ namespace TripsService
             ICollection<UserRole> userRoles = DbService.GetAll<UserRole>();
             
             this.comboBoxRole.Items.Clear();
-
+            this.comboBoxRole.Items.Insert(0, "");
             foreach (UserRole ur in userRoles) {
                 this.comboBoxRole.Items.Insert(ur.vid, ur.vname);
             }
@@ -69,7 +69,8 @@ namespace TripsService
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //new Form2();
+            FindTrip form = new FindTrip();//new Form2();
+            form.Visible = true;
         }
 
     }

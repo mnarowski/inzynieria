@@ -91,7 +91,7 @@ namespace TripsService
             if (checkBox6.Checked) {
                 QueryString += GroupedBy(" t.vprice");
             }
-
+            System.Windows.Forms.MessageBox.Show(QueryString);
             NHibernate.IQuery query = session.CreateQuery(QueryString);
 
             if (!isEmpty(this.textBox1.Text))
@@ -129,12 +129,13 @@ namespace TripsService
             }
 
             ICollection<Trip> ultras = query.List<Trip>();
-            this.dataGridView1.DataSource = ultras;
+
+            //this.dataGridView1.DataSource = ultras;
             
         }
 
         private bool isEmpty(string value) {
-            if (value.Trim() != string.Empty) {
+            if (value.Trim() == string.Empty) {
                 return true;
             }
 

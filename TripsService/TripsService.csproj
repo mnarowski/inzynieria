@@ -163,6 +163,7 @@
     <EmbeddedResource Include="UserEditorForm.resx">
       <DependentUpon>UserEditorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\FindTrip.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
