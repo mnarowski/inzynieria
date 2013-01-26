@@ -23,8 +23,8 @@ namespace TripsService
                 this.button2.Visible = false;
                 this.comboBoxRole.Visible = false;
             }
-            this.plec.Items.Add(new{ Name="mężczyna", Value=SexEnum.Male});
-            this.plec.Items.Add(new { Name = "kobieta", Value = SexEnum.Female });
+            this.plec.Items.Insert((int)SexEnum.Male, "mężczyzna");
+            this.plec.Items.Insert((int)SexEnum.Female, "kobieta");
             this.textBoxName.Text = userAuth.GetName();
             this.textBoxSureName.Text = userAuth.GetSureName();
             this.dateOfBirthTimePicker.Value = userAuth.GetDateOfBirth();
@@ -36,6 +36,7 @@ namespace TripsService
         {
             if (this.form == null) {
                 this.form = new TripInfoForm();
+                this.form.Visible = true;
             }
         }
 

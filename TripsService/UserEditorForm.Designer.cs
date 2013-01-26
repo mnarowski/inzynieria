@@ -128,9 +128,6 @@
             // plec
             // 
             this.plec.FormattingEnabled = true;
-            this.plec.Items.AddRange(new object[] {
-            "Kobieta",
-            "Mezczyzna"});
             this.plec.Location = new System.Drawing.Point(153, 105);
             this.plec.MaxLength = 2;
             this.plec.Name = "plec";
