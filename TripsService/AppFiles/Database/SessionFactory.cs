@@ -28,7 +28,7 @@ namespace TripsService.AppFiles.Database
             //NHibernate.Driver.NpgsqlDriver
             //config.SetProperty(NHibernate.Cfg.Environment.ConnectionProvider, "NHibernate.Connection.DriverConnectionProvider");
             config.SetProperty(NHibernate.Cfg.Environment.ConnectionDriver, "NHibernate.Driver.NpgsqlDriver");
-            config.SetProperty(NHibernate.Cfg.Environment.ConnectionString, "Server=localhost;Database=inzynieria;User ID=inzynieria;Password=inzynieria;");
+            config.SetProperty(NHibernate.Cfg.Environment.ConnectionString, "Server=localhost;Database=inzynieria2;User ID=inzynieria;Password=asiula;");
             config.AddXmlFile(".\\AppFiles\\Database\\models.xml");
             sFactory = config.BuildSessionFactory();
 
