@@ -115,6 +115,13 @@ namespace TripsService
             return "," + checparam;
         }
 
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int index = e.RowIndex;
+            Trip trip= (Trip)((IList<Trip>)this.dataGridView1.DataSource).Take<Trip>(index);
+            new TripEdit(trip);
+        }
+
         
     }
 }

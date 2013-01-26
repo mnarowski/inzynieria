@@ -97,7 +97,7 @@ namespace TripsService.AppFiles.Database
                     using (NHibernate.ITransaction transaction = session.BeginTransaction())
                     {
 
-                        session.Update(obj);
+                        session.SaveOrUpdate(obj);
 
                         transaction.Commit();
 

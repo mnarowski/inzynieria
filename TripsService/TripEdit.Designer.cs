@@ -204,6 +204,7 @@
             this.Controls.Add(this.label1);
             this.Name = "TripEdit";
             this.Text = "TripEdit";
+            this.Load += new System.EventHandler(this.TripEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
