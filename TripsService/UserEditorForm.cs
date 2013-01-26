@@ -52,8 +52,9 @@ namespace TripsService
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2();
-            form.showOnlyMine(true);
+            TripEdit form = new TripEdit();
+            
+            //form.showOnlyMine(true);
         }
 
         private void button4_Click(object sender, EventArgs e)
