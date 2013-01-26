@@ -8,7 +8,7 @@ namespace TripsService {
 		private User organizer;
 		private float length;
 		private string transport;
-		private Attraction[] atractions;
+		private Attraction atraction;
 		private int usersNumber;
 		private double price;
 		private String description;
@@ -23,7 +23,9 @@ namespace TripsService {
         public virtual double vprice { set { price = value; } get { return price; } }
         public virtual String vdescription { set { description = value; } get { return description; } }
         public virtual string vtransport { set { transport = value; } get { return transport; } }
-		public virtual Location GetLocalisation() {
+        public virtual Attraction vattraction { set { atraction = value; } get {return atraction; } }
+        public virtual Location vlocation { set { localisation = value; } get { return localisation; } }
+        public virtual Location GetLocalisation() {
 			return this.localisation;
 		}
 		public virtual void SetLocalisation(Location localisation) {

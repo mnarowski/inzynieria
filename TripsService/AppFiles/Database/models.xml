@@ -49,5 +49,8 @@
     <property name="vprice" column="price" />
     <property name="vdescription" column="description"/>
     <one-to-one name="vorganizer" class="User" cascade="save-update"/>
+    <one-to-one name="vattraction" class="Attraction" cascade="save-update"/>
+    <one-to-one name="vlocation" class="Location" cascade="save-update"/>
+    
   </class>
 </hibernate-mapping>
