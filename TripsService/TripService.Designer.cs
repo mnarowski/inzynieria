@@ -100,6 +100,7 @@
             this.Controls.Add(this.label1);
             this.Name = "TripService";
             this.Text = "TripService - Login";
+            this.Load += new System.EventHandler(this.TripService_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

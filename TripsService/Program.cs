@@ -19,8 +19,6 @@ namespace TripsService
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TripService());
-            SoundManager player = (SoundManager) SoundManager.GetInstance();
-            player.Play("C:\\costam");
         }
     }
 }

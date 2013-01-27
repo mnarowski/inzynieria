@@ -24,6 +24,14 @@ namespace TripsService
         {
             // TODO: Complete member initialization
             this.trip = trip;
+            FileAdapter<Trip> t = new FileAdapter<Trip>();
+            Type x = typeof(Trip);
+            t.ForTrip(trip);
+            destDir = t.GetDataBaseLocation();
+            if (trip.vid == null) {
+                button3.Visible = false;
+            }
+ 
             InitializeComponent();
         }
 
@@ -82,34 +90,54 @@ namespace TripsService
                 comboBox1.SelectedIndex = trip.vattraction;
                 comboBox2.SelectedIndex = trip.vlocation;
             }
-
+            refreshPlayList();
         }
 
 
+        public void refreshPlayList() {
+            listView1.Items.Clear();
+            if (!Directory.Exists(destDir)) {
+                Directory.CreateDirectory(destDir);
+            }
+            string[] files = Directory.GetFiles(destDir);
+            foreach (string s in files) {
+                listView1.Items.Add(s);
+            }
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            FileAdapter<Trip> t = new FileAdapter<Trip>();
-            Type x = typeof(Trip);
-            t.ForTrip(trip);
-            destDir = t.GetDataBaseLocation();
-            this.openFileDialog1.Filter = "*.wmv|*.wmv";
+            this.openFileDialog1.Filter = "*.wav|*.wav";
             this.openFileDialog1.ShowDialog();
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             string fileName = openFileDialog1.FileName.ToString();
-            
+            refreshPlayList();
             fileUploadProcess(fileName, destDir);
         }
 
         private void fileUploadProcess(string source, string destdir) {
-            File.Copy(source, destdir + "time-" + DateTime.Now + ".wmv");
+            Random r = new Random();
+            string nfile = destdir + "time-" + r.Next() + ".wav";
+            File.Copy(source, nfile);
+            refreshPlayList();
+        }
+
+        public string escape(string p) {
+            return p.Replace("\\", "\\\\");
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.axWindowsMediaPlayer1.URL = listView1.Items[listView1.FocusedItem.Index].Text;
             
+        }
+
+        private void axWindowsMediaPlayer1_PositionChange(object sender, AxWMPLib._WMPOCXEvents_PositionChangeEvent e)
+        {
+
         }
 
     }

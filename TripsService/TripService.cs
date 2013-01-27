@@ -33,11 +33,16 @@ namespace TripsService
 
                 new UserEditorForm().Visible = true;
                 this.Visible = false;
-                label3.Text = login + " " + pass;
+                label3.Text = "";
             }
             else {
-                label3.Text = "Nie poprawny login lub hasło" + login + " "+ pass;
+                label3.Text = "Nie poprawny login lub hasło"; 
             }
+        }
+
+        private void TripService_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
