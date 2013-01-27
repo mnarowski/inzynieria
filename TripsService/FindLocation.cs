@@ -19,7 +19,7 @@ namespace TripsService
 
         private void button1_Click(object sender, EventArgs e)
         {
-           Form2 f = new Form2();
+           Form2 f = new Form2( new Location());
            f.Visible = true;
         }
 
@@ -30,6 +30,15 @@ namespace TripsService
                 this.button1.Visible = false;
             }
             this.dataGridView1.DataSource = DbService.GetAll<Location>();
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int index = e.RowIndex;
+            Location l = ((IList<Location>)dataGridView1.DataSource).ElementAt<Location>(index);
+
+            Form f = new Form2(l);
+            f.Visible = true;
         }
     }
 }

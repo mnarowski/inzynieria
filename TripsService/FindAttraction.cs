@@ -30,5 +30,13 @@ namespace TripsService
 
             this.dataGridView1.DataSource = TripsService.AppFiles.Database.DbService.GetAll<Attraction>();
         }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int index = e.RowIndex;
+            Attraction attr = (Attraction)((IList<Attraction>)dataGridView1.DataSource).ToList<Attraction>().ElementAt<Attraction>(index);
+            Form f=new AttractionEdiorForm(attr);
+            f.Visible = true;
+        }
     }
 }

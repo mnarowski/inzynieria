@@ -22,6 +22,7 @@ namespace TripsService
         {
             // TODO: Complete member initialization
             this.trip = trip;
+            InitializeComponent();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -73,6 +74,10 @@ namespace TripsService
             textBox3.Text = trip.GetPrice().ToString();
             textBox4.Text = trip.GetTransport();
             richTextBox1.Text = trip.GetDescription();
+            if (trip != null) {
+                comboBox1.SelectedIndex = trip.vattraction;
+                comboBox2.SelectedIndex = trip.vlocation;
+            }
 
         }
     }

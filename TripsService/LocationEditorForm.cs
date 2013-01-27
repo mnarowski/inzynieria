@@ -11,10 +11,20 @@ namespace TripsService
 {
     public partial class Form2 : Form
     {
+        private Location location;
+
         public Form2()
         {
-        //    InitializeComponent();
+           InitializeComponent();
         }
+
+        public Form2(Location location)
+        {
+            // TODO: Complete member initialization
+            this.location = location;
+            InitializeComponent();
+        }
+
 
 
         private void Form2_Load(object sender, EventArgs e)

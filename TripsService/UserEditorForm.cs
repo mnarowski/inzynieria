@@ -8,7 +8,7 @@ namespace TripsService
     public partial class UserEditorForm : Form
     {
         User userAuth = null;
-        TripInfoForm form = null;
+        TripEdit form = null;
 
         public UserEditorForm()
         {
@@ -43,7 +43,7 @@ namespace TripsService
         private void button2_Click(object sender, EventArgs e)
         {
             if (this.form == null) {
-                this.form = new TripInfoForm();
+                this.form = new TripEdit(new Trip());
                 this.form.Visible = true;
             }
         }
