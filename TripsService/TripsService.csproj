@@ -79,6 +79,18 @@
     <Compile Include="AuthAdapter.cs" />
     <Compile Include="FileAdapter.cs" />
     <Compile Include="FileManager.cs" />
+    <Compile Include="FindAttraction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindAttraction.Designer.cs">
+      <DependentUpon>FindAttraction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FindLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindLocation.Designer.cs">
+      <DependentUpon>FindLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="FindTrip.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +102,12 @@
     </Compile>
     <Compile Include="TripEdit.Designer.cs">
       <DependentUpon>TripEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TripGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TripGroup.Designer.cs">
+      <DependentUpon>TripGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="TripService.cs">
       <SubType>Form</SubType>
@@ -117,12 +135,6 @@
     <Compile Include="SexEnum.cs" />
     <Compile Include="SoundManager.cs" />
     <Compile Include="Trip.cs" />
-    <Compile Include="TripInfoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TripInfoForm.Designer.cs">
-      <DependentUpon>TripInfoForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserEditorForm.cs">
       <SubType>Form</SubType>
@@ -135,8 +147,20 @@
     <EmbeddedResource Include="AttractionEditorForm.resx">
       <DependentUpon>AttractionEditorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FindAttraction.resx">
+      <DependentUpon>FindAttraction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindLocation.resx">
+      <DependentUpon>FindLocation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FindTrip.resx">
       <DependentUpon>FindTrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TripEdit.resx">
+      <DependentUpon>TripEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TripGroup.resx">
+      <DependentUpon>TripGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TripService.resx">
       <DependentUpon>TripService.cs</DependentUpon>
@@ -157,9 +181,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TripInfoForm.resx">
-      <DependentUpon>TripInfoForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserEditorForm.resx">
       <DependentUpon>UserEditorForm.cs</DependentUpon>
     </EmbeddedResource>

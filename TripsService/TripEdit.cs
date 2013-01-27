@@ -60,12 +60,14 @@ namespace TripsService
         {
             comboBox1.Items.Clear();
             ICollection<Attraction> items = TripsService.AppFiles.Database.DbService.GetAll<Attraction>();
+            comboBox1.Items.Insert(0, string.Empty);
             foreach (Attraction a in items) {
                 comboBox1.Items.Insert(a.vid, a.GetName());
             }
 
             comboBox2.Items.Clear();
             ICollection<Location> itemz = TripsService.AppFiles.Database.DbService.GetAll<Location>();
+            comboBox2.Items.Insert(0, string.Empty);
             foreach (Location l in itemz) {
                 comboBox2.Items.Insert(l.vid, l.GetName());
             }

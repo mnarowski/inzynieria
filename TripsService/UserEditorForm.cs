@@ -72,5 +72,11 @@ namespace TripsService
             form.Visible = true;
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            TripGroup tg = new TripGroup();
+            tg.Visible = true;
+        }
+
     }
 }
