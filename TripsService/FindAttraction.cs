@@ -38,5 +38,14 @@ namespace TripsService
             Form f=new AttractionEdiorForm(attr);
             f.Visible = true;
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            Attraction attr = (Attraction)((IList<Attraction>)dataGridView1.DataSource).ToList<Attraction>().ElementAt<Attraction>(index);
+            Form f = new AttractionEdiorForm(attr);
+            f.Visible = true;
+        }
+
     }
 }

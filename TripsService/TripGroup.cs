@@ -77,7 +77,7 @@ namespace TripsService
                 dataGridView1.DataSource = ds.Tables[0];
                 conn.Close();
             }
-            catch (Exception e) {
+            catch (Exception) {
                 System.Windows.Forms.MessageBox.Show("Problem z pobraniem danych");
             }
         }

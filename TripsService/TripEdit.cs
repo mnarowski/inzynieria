@@ -82,5 +82,10 @@ namespace TripsService
             }
 
         }
+
+        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        {
+
+        }
     }
 }

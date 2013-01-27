@@ -39,6 +39,8 @@ namespace TripsService
 
             Form f = new Form2(l);
             f.Visible = true;
+        
         }
+
     }
 }

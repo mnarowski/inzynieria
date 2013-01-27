@@ -119,9 +119,42 @@ namespace TripsService
         {
             int index = e.RowIndex;
             Trip trip= (Trip)((IList<Trip>)this.dataGridView1.DataSource).ElementAt<Trip>(index);
-            new TripEdit(trip);
+            Form f = new TripEdit(trip);
+            f.Visible = true;
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           // int index = e.RowIndex;
+           // Trip trip = (Trip)((IList<Trip>)this.dataGridView1.DataSource).ElementAt<Trip>(index);
+            //new TripEdit(trip);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        
+        }
+
+        private void editTrip(object sender, DataGridViewCellEventArgs e) {
+            //int index = e.RowIndex;
+            //Trip trip = (Trip)((IList<Trip>)this.dataGridView1.DataSource).ElementAt<Trip>(index);
+            //new TripEdit(trip);
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            //int index = 0;
+            //Trip trip = (Trip)((IList<Trip>)this.dataGridView1.DataSource).ElementAt<Trip>(index);
+            //new TripEdit(trip);
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            //int index = e.RowIndex;
+            //Trip trip = (Trip)((IList<Trip>)this.dataGridView1.DataSource).ElementAt<Trip>(index);
+            //new TripEdit(trip);
+        }
         
     }
 }
