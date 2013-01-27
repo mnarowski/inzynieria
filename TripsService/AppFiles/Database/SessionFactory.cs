@@ -7,7 +7,7 @@ namespace TripsService.AppFiles.Database
 {
     public class SessionFactory
     {
-
+        public static readonly string connectionString = "Server=localhost;Database=inzynieria2;User ID=postgres;Password=asiula;";
 
 
         private static NHibernate.ISessionFactory sFactory;
@@ -28,7 +28,7 @@ namespace TripsService.AppFiles.Database
             //NHibernate.Driver.NpgsqlDriver
             //config.SetProperty(NHibernate.Cfg.Environment.ConnectionProvider, "NHibernate.Connection.DriverConnectionProvider");
             config.SetProperty(NHibernate.Cfg.Environment.ConnectionDriver, "NHibernate.Driver.NpgsqlDriver");
-            config.SetProperty(NHibernate.Cfg.Environment.ConnectionString, "Server=localhost;Database=inzynieria2;User ID=postgres;Password=asiula;");
+            config.SetProperty(NHibernate.Cfg.Environment.ConnectionString, SessionFactory.connectionString);
             config.AddXmlFile(".\\AppFiles\\Database\\models.xml");
             sFactory = config.BuildSessionFactory();
 

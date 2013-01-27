@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using NHibernate.Linq;
 using NHibernate.Criterion;
+using Npgsql;
 
 namespace TripsService
 {
@@ -22,86 +23,68 @@ namespace TripsService
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //IQueryable<Trip> tripQuery = TripsService.AppFiles.Database.DbService.GetAll<Trip>().AsQueryable<Trip>();
-            //var result = from n in tripQuery select n;
-
+            string QueryString = "SELECT count(t.*) as liczba {0} FROM Trip t ";
             string what = string.Empty;
-            
+
+            if (checkBox1.Checked || checkBox2.Checked || checkBox3.Checked || checkBox4.Checked
+                || checkBox5.Checked || checkBox6.Checked) {
+                    QueryString += " GROUP BY ";
+            }
+
             if(checkBox1.Checked){
-                what += "t.vname";
+                what += ",t.name";
+                QueryString += addGroupBy(" t.name as nazwa");
             }
 
             if(checkBox2.Checked){
-                what += ",t.vlength";
+                what += ",t.length";
+                QueryString += addGroupBy(" t.length as odleglosc_trasy");
                 //dq = dq.AddOrder(Order.Asc("vlength"));
             }
 
             if(checkBox3.Checked){
-                what += ",t.vlocation";
+                what += ",(Select name FROM location l WHERE l.id_location = t.localisation) as lokalizacja";
+                QueryString += addGroupBy(" t.localisation ");
                 //dq = dq.AddOrder(Order.Asc("vlocation"));
             }
 
             if(checkBox4.Checked){
-                what += ",t.vUsersNUmber";
+                what += ",t.usersnumber as uczestnicy";
+                QueryString += addGroupBy(" t.usersnumber ");
                 //dq = dq.AddOrder(Order.Asc("vUsersNumber"));
             }
 
             if(checkBox5.Checked){
-                what += ",t.vprice";
+                what += ",t.price as cena";
+                QueryString += addGroupBy(" t.price ");
                 //dq= dq.AddOrder(Order.Asc("vprice"));
             }
 
             if(checkBox6.Checked){
-                what += ",t.vattraction";
+                what += ",(SELECT name FROM attraction a WHERE a.id_attraction = t.attraction) as atrakcja";
+                QueryString += addGroupBy(" t.attraction ");
                 //dq = dq.AddOrder(Order.Asc("vattraction"));
             }
-            //string whatSelect = "count(*)";
-            //string QuerySelect = "SELECT {0} FROM trip";
-            //if (checkBox1.Checked || checkBox2.Checked || checkBox3.Checked || checkBox4.Checked || checkBox5.Checked || checkBox6.Checked) {
-            //    QuerySelect += " Group BY ";
-            //}
 
-            //if (checkBox1.Checked) {
-            //    whatSelect += ",name";
-            //    QuerySelect += addGroupBy("name");
-            //}
-
-            //if (checkBox2.Checked) {
-            //    whatSelect += ",length";
-            //    QuerySelect += addGroupBy("length");
-            //}
-
-            //if (checkBox3.Checked) {
-            //    whatSelect += "(Select name FROM location l WHERE l.id_location = trip.localisation) as location";
-            //    QuerySelect += addGroupBy("localisation");
-            //}
-
-            //if (checkBox4.Checked) {
-            //    whatSelect += ",usersnumber";
-            //    QuerySelect += addGroupBy("usersnumber");
-            //}
-            //
-            //if (checkBox5.Checked) {
-            //    whatSelect += ",price";
-            //    QuerySelect += addGroupBy("price");
-            //}
-
-            //if (checkBox6.Checked) {
-             //   whatSelect += ",(SELECT name FROM attraction a WHERE a.id_attraction = trip.attraction) as attraction";
-              //  QuerySelect += addGroupBy("attraction");
-            //}
-            
-            //NHibernate.Criterion.DetachedCriteria dq = NHibernate.Criterion.DetachedCriteria.For<Trip>("t");
-            //dq = dq.SetProjection(Projections.GroupProperty("t.vid"));
-            //NHibernate.ISession session = TripsService.AppFiles.Database.SessionFactory.GetNewSession();
-            //NHibernate.IQuery query = TripsService.AppFiles.Database.SessionFactory.GetNewSession().CreateSQLQuery(String.Format(QuerySelect,whatSelect));
-           
-           // dataGridView1.DataSource = dq.GetExecutableCriteria(session).List();
-
+            try
+            {
+                NpgsqlConnection conn = new NpgsqlConnection(TripsService.AppFiles.Database.SessionFactory.connectionString);
+                conn.Open();
+                DataSet ds = new DataSet();
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(String.Format(QueryString, what), conn);
+                ds.Reset();
+                da.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+                conn.Close();
+            }
+            catch (Exception e) {
+                System.Windows.Forms.MessageBox.Show("Problem z pobraniem danych");
+            }
         }
 
         public string addGroupBy(string param) {
             if (!firstToGroup) {
+                firstToGroup = true;
                 return param;
             }
 
