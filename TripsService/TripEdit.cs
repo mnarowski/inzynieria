@@ -6,13 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace TripsService
 {
     public partial class TripEdit : Form
     {
         private Trip trip;
-
+        private string destDir = string.Empty;
+        
         public TripEdit()
         {
             InitializeComponent();
@@ -83,9 +85,32 @@ namespace TripsService
 
         }
 
-        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
-        {
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FileAdapter<Trip> t = new FileAdapter<Trip>();
+            Type x = typeof(Trip);
+            t.ForTrip(trip);
+            destDir = t.GetDataBaseLocation();
+            this.openFileDialog1.Filter = "*.wmv|*.wmv";
+            this.openFileDialog1.ShowDialog();
         }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            string fileName = openFileDialog1.FileName.ToString();
+            
+            fileUploadProcess(fileName, destDir);
+        }
+
+        private void fileUploadProcess(string source, string destdir) {
+            File.Copy(source, destdir + "time-" + DateTime.Now + ".wmv");
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }

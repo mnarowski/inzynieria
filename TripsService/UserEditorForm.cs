@@ -61,8 +61,8 @@ namespace TripsService
 
         private void button3_Click(object sender, EventArgs e)
         {
-            TripEdit form = new TripEdit();
-            
+            TripEdit form = new TripEdit(new Trip());
+            form.Visible = true;
             //form.showOnlyMine(true);
         }
 
@@ -77,6 +77,20 @@ namespace TripsService
             TripGroup tg = new TripGroup();
             tg.Visible = true;
         }
+
+        private void searchAttraction_Click(object sender, EventArgs e)
+        {
+            Form f = new FindAttraction();
+            f.Visible = true;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form f = new FindLocation();
+
+            f.Visible = true;
+        }
+
 
     }
 }

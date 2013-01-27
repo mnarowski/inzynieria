@@ -41,7 +41,7 @@
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.searchAttraction = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -166,14 +166,15 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // searchAttraction
             // 
-            this.button3.Location = new System.Drawing.Point(153, 257);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(138, 23);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Wyszukaj atrakcji";
-            this.button3.UseVisualStyleBackColor = true;
+            this.searchAttraction.Location = new System.Drawing.Point(153, 257);
+            this.searchAttraction.Name = "searchAttraction";
+            this.searchAttraction.Size = new System.Drawing.Size(138, 23);
+            this.searchAttraction.TabIndex = 21;
+            this.searchAttraction.Text = "Wyszukaj atrakcji";
+            this.searchAttraction.UseVisualStyleBackColor = true;
+            this.searchAttraction.Click += new System.EventHandler(this.searchAttraction_Click);
             // 
             // button5
             // 
@@ -183,6 +184,7 @@
             this.button5.TabIndex = 22;
             this.button5.Text = "Wyszukaj lokacji";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -201,7 +203,7 @@
             this.ClientSize = new System.Drawing.Size(326, 323);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.searchAttraction);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBoxRole);
@@ -240,7 +242,7 @@
         private System.Windows.Forms.ComboBox comboBoxRole;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button searchAttraction;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
     }

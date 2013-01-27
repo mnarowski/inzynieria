@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 namespace TripsService {
     /// <summary>
     /// Klasa do przeszukiwania bazy danych w plikach
     /// </summary>
     /// <typeparam name="T">Typ wyszukiwany</typeparam>
-	public class FileAdapter<T>  {
+	public class FileAdapter<T> where T : class  {
         /// <summary>
         /// Wyszukane wyniki
         /// </summary>
@@ -22,6 +23,14 @@ namespace TripsService {
         /// Typ po³¹czenia przez providera
         /// </summary>
 		public String connectionType;
+
+        public void ForTrip(Trip t) {
+            dataBaseLocation = System.IO.Directory.GetCurrentDirectory() + "\\AppFiles\\Resources\\Trip\\"+t.vid+"\\";
+        }
+
+        public void ForUser(User u) {
+            dataBaseLocation = System.IO.Directory.GetCurrentDirectory() + "\\AppFiles\\User\\" + u.vid;
+        }
         /// <summary>
         /// Zmiana parametrów na stringi
         /// </summary>
