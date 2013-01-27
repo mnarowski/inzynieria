@@ -91,12 +91,12 @@ namespace TripsService
               //  QuerySelect += addGroupBy("attraction");
             //}
             
-            NHibernate.Criterion.DetachedCriteria dq = NHibernate.Criterion.DetachedCriteria.For<Trip>("t");
-            dq = dq.SetProjection(Projections.GroupProperty("t.vid"));
-            NHibernate.ISession session = TripsService.AppFiles.Database.SessionFactory.GetNewSession();
+            //NHibernate.Criterion.DetachedCriteria dq = NHibernate.Criterion.DetachedCriteria.For<Trip>("t");
+            //dq = dq.SetProjection(Projections.GroupProperty("t.vid"));
+            //NHibernate.ISession session = TripsService.AppFiles.Database.SessionFactory.GetNewSession();
             //NHibernate.IQuery query = TripsService.AppFiles.Database.SessionFactory.GetNewSession().CreateSQLQuery(String.Format(QuerySelect,whatSelect));
            
-            dataGridView1.DataSource = dq.GetExecutableCriteria(session).List();
+           // dataGridView1.DataSource = dq.GetExecutableCriteria(session).List();
 
         }
 
