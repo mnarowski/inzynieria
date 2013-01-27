@@ -30,6 +30,7 @@ namespace TripsService.AppFiles.Database
             config.SetProperty(NHibernate.Cfg.Environment.ConnectionDriver, "NHibernate.Driver.NpgsqlDriver");
             config.SetProperty(NHibernate.Cfg.Environment.ConnectionString, SessionFactory.connectionString);
             config.AddXmlFile(".\\AppFiles\\Database\\models.xml");
+            
             sFactory = config.BuildSessionFactory();
 
         }

@@ -10,6 +10,7 @@ namespace PhotoGalleryLibrary
     [Serializable]
     public class Album: IPhotosManagement, IDisposable
     {
+        private int m_iID;
         private List<Photo> m_loPhotos;
         private Image m_oMainImage;
         private string m_sTitle;
@@ -69,6 +70,7 @@ namespace PhotoGalleryLibrary
 
         #region Properties
 
+        public int vid { get { return this.m_iID; } set { this.m_iID = value; } }
         public List<Photo> vphotos { get { return this.m_loPhotos; } } //readonly
         public string vtitle { get { return this.m_sTitle; } set { this.m_sTitle = value; } }
         public string vdescribe { get { return this.m_sDescribe; } set { this.m_sDescribe = value; } }
