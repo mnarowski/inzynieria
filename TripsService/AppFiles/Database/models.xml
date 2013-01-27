@@ -79,5 +79,32 @@
     <property name="vlatitude" column="latitude" />
     <property name="vtype" column="attractiontype" type="AttractionType"/>
   </class>
+  <!--DO DOKOŃCZENIA-->
+  <!--Klasa Photo - PhotoGallery.dll-->
+  <class name="Photo" table="unknown" schema="public" lazy="true">
+    <id name="vid" column="unknown">
+      <generator class="sequence">
+        <param name="sequence">"photo_id_photo_seq"</param>
+      </generator>
+    </id>
+    <property name="vimagepath" column="unknown"/>
+    <property name="vtitle" column="unknown"/>
+    <property name="vdescription" column="unknown" />
+    <property name="vauthor" column="unknown" />
+    <property name="vdateadded" column="unknown" type="DateTime"/>
+  </class>
+  <!--Klasa Album - PhotoGallery.dll-->
+  <class name="Album" table="unknown" schema="public" lazy="true">
+    <id name="vid" column="unknown">
+      <generator class="sequence">
+        <param name="sequence">"album_id_album_seq"</param>
+      </generator>
+    </id>
+    <property name="vtitle" column="unknown"/>
+    <property name="vdescribe" column="unknown"/>
+    <property name="vauthor" column="unknown" />
+    <property name="vmainimagepath" column="unknown" />
+    <property name="vdateadded" column="unknown" type="DateTime"/>
+  </class>
 </hibernate-mapping>
 

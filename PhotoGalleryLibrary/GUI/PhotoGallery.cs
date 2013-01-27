@@ -173,7 +173,7 @@ namespace PhotoGalleryLibrary.GUI
 
             if (album != null)
             {
-                List<Photo> photosToLoad = album.Photos;
+                List<Photo> photosToLoad = album.vphotos;
 
                 this.panelPhotos.AutoScrollPosition = new Point(0, 0);
 
@@ -202,12 +202,12 @@ namespace PhotoGalleryLibrary.GUI
             PhotoIcon photoIco = ((PhotoIcon)sender);
             this.txtAuthor.Visible = false;
             this.txtDate.Visible = false;
-            this.MainPicture.Image = photoIco.PhotoObject.ImageObject;
-            this.txtAuthor.Text = photoIco.PhotoObject.Author;
-            this.txtTitle.Text = photoIco.PhotoObject.Title;
+            this.MainPicture.Image = photoIco.PhotoObject.vimageobject;
+            this.txtAuthor.Text = photoIco.PhotoObject.vauthor;
+            this.txtTitle.Text = photoIco.PhotoObject.vtitle;
             this.txtAuthor.Visible = true;
             this.txtDate.Visible = true;
-            this.txtDate.Text = photoIco.PhotoObject.DateAdded.ToShortDateString();
+            this.txtDate.Text = photoIco.PhotoObject.vdateadded.ToShortDateString();
         }
 
         public void AddAlbumObject(Album album)
@@ -297,7 +297,7 @@ namespace PhotoGalleryLibrary.GUI
                     {
                         Album albumToDelete = ((AlbumIcon)controlSelected).AlbumObject;
 
-                        if (MessageBox.Show(string.Concat("Czy na pewno chcesz usunąć album \"", albumToDelete.Title, "\"?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show(string.Concat("Czy na pewno chcesz usunąć album \"", albumToDelete.vtitle, "\"?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             this.GalleryObject.DeleteAlbum(albumToDelete);
                             RefreshAlbumsView();
@@ -323,7 +323,7 @@ namespace PhotoGalleryLibrary.GUI
                     {
                         Photo photoToDelete = ((PhotoIcon)controlSelected).PhotoObject;
 
-                        if (MessageBox.Show(string.Concat("Czy na pewno chcesz usunąć zdjęcie \"", photoToDelete.Title, "\"?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show(string.Concat("Czy na pewno chcesz usunąć zdjęcie \"", photoToDelete.vtitle, "\"?"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             AlbumIcon selectedAlbumIco = GetSelectedAlbumIcon();
                             selectedAlbumIco.AlbumObject.DeletePhoto(photoToDelete);

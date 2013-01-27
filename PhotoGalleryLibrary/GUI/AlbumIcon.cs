@@ -54,8 +54,8 @@ namespace PhotoGalleryLibrary.GUI
 
                 if (value != null)
                 {
-                    this.txtTitle.Text = album.Title;
-                    this.pictureMain.Image = album.MainImage;
+                    this.txtTitle.Text = album.vtitle;
+                    this.pictureMain.Image = album.vmainimage;
                 }
             }
         }

@@ -55,9 +55,9 @@ namespace PhotoGalleryLibrary
             if (this.txtTitle.Text != string.Empty)
             {
                 Photo newPhoto = new Photo(this.pbPhoto.Image);
-                newPhoto.Title = this.txtTitle.Text;
-                newPhoto.Author = this.txtAuthor.Text;
-                newPhoto.Describe = this.txtDescription.Text;
+                newPhoto.vtitle = this.txtTitle.Text;
+                newPhoto.vauthor = this.txtAuthor.Text;
+                newPhoto.vdescription = this.txtDescription.Text;
 
                 parentGallery.GetSelectedAlbumIcon().AlbumObject.AddPhoto(newPhoto);
                 parentGallery.RefreshPhotosView();

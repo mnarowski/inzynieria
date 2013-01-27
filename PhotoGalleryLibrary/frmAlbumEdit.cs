@@ -27,8 +27,8 @@ namespace PhotoGalleryLibrary
             album = albumToEdit;
 
             this.txtTitle.Text = this.Text = album.Title;
-            this.txtAuthor.Text = album.AlbumObject.Author;
-            this.txtDescription.Text = album.AlbumObject.Describe;
+            this.txtAuthor.Text = album.AlbumObject.vauthor;
+            this.txtDescription.Text = album.AlbumObject.vdescribe;
             this.pbMainPhoto.Image = album.MainImage;
 
             parentGallery = parentPhotoGallery;
@@ -40,10 +40,10 @@ namespace PhotoGalleryLibrary
             {
                 if (MessageBox.Show("Czy zapisać zmiany?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    this.album.AlbumObject.Title = this.txtTitle.Text;
-                    this.album.AlbumObject.Author = this.txtAuthor.Text;
-                    this.album.AlbumObject.Describe = this.txtDescription.Text;
-                    this.album.AlbumObject.MainImage = this.pbMainPhoto.Image;
+                    this.album.AlbumObject.vtitle = this.txtTitle.Text;
+                    this.album.AlbumObject.vauthor = this.txtAuthor.Text;
+                    this.album.AlbumObject.vdescribe = this.txtDescription.Text;
+                    this.album.AlbumObject.vmainimage = this.pbMainPhoto.Image;
 
                     this.album.Title = this.txtTitle.Text;
                     this.album.MainImage = this.pbMainPhoto.Image;

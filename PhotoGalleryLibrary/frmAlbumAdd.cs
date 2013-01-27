@@ -34,12 +34,12 @@ namespace PhotoGalleryLibrary
             if (this.txtTitle.Text != string.Empty)
             {
                 Album newAlbum = new Album(this.txtTitle.Text, this.txtDescription.Text, this.txtAuthor.Text);
-                newAlbum.MainImage = this.pbMainPhoto.Image;
+                newAlbum.vmainimage = this.pbMainPhoto.Image;
 
                 Photo newPhoto = new Photo(this.pbMainPhoto.Image);
-                newPhoto.Title = newAlbum.Title;
-                newPhoto.Author = newAlbum.Author;
-                newPhoto.Describe = "Zdjęcie główne albumu";
+                newPhoto.vtitle = newAlbum.vtitle;
+                newPhoto.vauthor = newAlbum.vauthor;
+                newPhoto.vdescription = "Zdjęcie główne albumu";
 
                 newAlbum.AddPhoto(newPhoto);
 

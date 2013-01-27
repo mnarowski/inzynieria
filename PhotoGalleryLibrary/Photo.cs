@@ -10,11 +10,13 @@ namespace PhotoGalleryLibrary
     [Serializable]
     public class Photo: IDisposable
     {
-        private Image imgPhoto;
-        private string strTitle;
-        private string strDescribe;
-        private DateTime dtDateAdded;
-        private string strAuthor;
+        private int m_iID;
+        private Image m_oPhoto;
+        private string m_sTitle;
+        private string m_sDescribe;
+        private DateTime m_oDateAdded;
+        private string m_sAuthor;
+        private string m_sImagePath;
 
         #region Constructors
 
@@ -23,10 +25,10 @@ namespace PhotoGalleryLibrary
         /// </summary>
         private Photo()
         {
-            this.strTitle = string.Empty;
-            this.strDescribe = string.Empty;
-            this.strAuthor = string.Empty;
-            this.dtDateAdded = DateTime.Now;
+            this.m_sTitle = string.Empty;
+            this.m_sDescribe = string.Empty;
+            this.m_sAuthor = string.Empty;
+            this.m_oDateAdded = DateTime.Now;
         }
 
         /// <summary>
@@ -36,7 +38,7 @@ namespace PhotoGalleryLibrary
         public Photo(string PathToPhoto)
             : this()
         {
-            this.imgPhoto = Image.FromFile(PathToPhoto);
+            this.m_oPhoto = Image.FromFile(PathToPhoto);
         }
 
         /// <summary>
@@ -46,18 +48,20 @@ namespace PhotoGalleryLibrary
         public Photo(Image Photo)
             : this()
         {
-            this.imgPhoto = Photo;
+            this.m_oPhoto = Photo;
         }
 
         #endregion
 
         #region Properties
 
-        public Image ImageObject { get { return this.imgPhoto; } set { this.imgPhoto = value; } }
-        public string Title { get { return this.strTitle; } set { this.strTitle = value; } }
-        public string Describe { get { return this.strDescribe; } set { this.strDescribe = value; } }
-        public DateTime DateAdded { get { return this.dtDateAdded; } set { this.dtDateAdded = value; } }
-        public string Author { get { return this.strAuthor; } set { this.strAuthor = value; } }
+        public int vid { get { return this.m_iID; } set { this.m_iID = value; } }
+        public Image vimageobject { get { return this.m_oPhoto; } set { this.m_oPhoto = value; } }
+        public string vimagepath { get { return this.m_sImagePath; } set { this.m_sImagePath = value; this.m_oPhoto = System.Drawing.Image.FromFile(value); } }
+        public string vtitle { get { return this.m_sTitle; } set { this.m_sTitle = value; } }
+        public string vdescription { get { return this.m_sDescribe; } set { this.m_sDescribe = value; } }
+        public DateTime vdateadded { get { return this.m_oDateAdded; } set { this.m_oDateAdded = value; } }
+        public string vauthor { get { return this.m_sAuthor; } set { this.m_sAuthor = value; } }
 
         #endregion
 
@@ -70,15 +74,15 @@ namespace PhotoGalleryLibrary
         /// <param name="height">New image's height</param>
         public void ResizeTo(int width, int height)
         {
-            int orginalWidth = this.ImageObject.Width;
-            int orginalHeight = this.ImageObject.Height;
+            int orginalWidth = this.vimageobject.Width;
+            int orginalHeight = this.vimageobject.Height;
 
             Bitmap bmp = new Bitmap(width, height);
 
             Graphics graphic = Graphics.FromImage((Image)bmp);
             graphic.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
-            graphic.DrawImage(this.imgPhoto, 0, 0, width, height);     
+            graphic.DrawImage(this.m_oPhoto, 0, 0, width, height);     
         }
 
         /// <summary>
@@ -90,15 +94,15 @@ namespace PhotoGalleryLibrary
         /// <returns></returns>
         static public Photo ResizeTo(Photo photo, int width, int height)
         {
-            int orginalWidth = photo.ImageObject.Width;
-            int orginalHeight = photo.ImageObject.Height;
+            int orginalWidth = photo.vimageobject.Width;
+            int orginalHeight = photo.vimageobject.Height;
 
             Bitmap bmp = new Bitmap(width, height);
 
             Graphics graphic = Graphics.FromImage((Image)bmp);
             graphic.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
-            graphic.DrawImage(photo.imgPhoto, 0, 0, width, height);
+            graphic.DrawImage(photo.m_oPhoto, 0, 0, width, height);
 
             return photo;
         }
@@ -109,8 +113,8 @@ namespace PhotoGalleryLibrary
         /// <param name="percent">Percent by which zoom in the photo</param>
         public void ZoomInAbout(int percent)
         {
-            int orginalWidth = this.ImageObject.Width;
-            int orginalHeight = this.ImageObject.Height;
+            int orginalWidth = this.vimageobject.Width;
+            int orginalHeight = this.vimageobject.Height;
 
             int resizedWidth = orginalWidth + (int)(orginalWidth * percent / 100);
             int resizedHeight = orginalHeight + (int)(orginalHeight * percent / 100);
@@ -120,7 +124,7 @@ namespace PhotoGalleryLibrary
             Graphics graphic = Graphics.FromImage((Image)bmp);
             graphic.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
-            graphic.DrawImage(this.imgPhoto, 0, 0, resizedWidth, resizedHeight);
+            graphic.DrawImage(this.m_oPhoto, 0, 0, resizedWidth, resizedHeight);
         }
 
         /// <summary>
@@ -129,8 +133,8 @@ namespace PhotoGalleryLibrary
         /// <param name="percent">Percent by which zoom out the photo</param>
         public void ZoomOutAbout(int percent)
         {
-            int orginalWidth = this.ImageObject.Width;
-            int orginalHeight = this.ImageObject.Height;
+            int orginalWidth = this.vimageobject.Width;
+            int orginalHeight = this.vimageobject.Height;
 
             int resizedWidth = orginalWidth - (int)(orginalWidth * percent / 100);
             int resizedHeight = orginalHeight - (int)(orginalHeight * percent / 100);
@@ -140,7 +144,7 @@ namespace PhotoGalleryLibrary
             Graphics graphic = Graphics.FromImage((Image)bmp);
             graphic.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
-            graphic.DrawImage(this.imgPhoto, 0, 0, resizedWidth, resizedHeight);
+            graphic.DrawImage(this.m_oPhoto, 0, 0, resizedWidth, resizedHeight);
         }
 
         /// <summary>
@@ -151,8 +155,8 @@ namespace PhotoGalleryLibrary
         /// <returns></returns>
         static public Photo ZoomInAbout(Photo photo, int percent)
         {
-            int orginalWidth = photo.ImageObject.Width;
-            int orginalHeight = photo.ImageObject.Height;
+            int orginalWidth = photo.vimageobject.Width;
+            int orginalHeight = photo.vimageobject.Height;
 
             int resizedWidth = orginalWidth + (int)(orginalWidth * percent / 100);
             int resizedHeight = orginalHeight + (int)(orginalHeight * percent / 100);
@@ -162,7 +166,7 @@ namespace PhotoGalleryLibrary
             Graphics graphic = Graphics.FromImage((Image)bmp);
             graphic.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
-            graphic.DrawImage(photo.imgPhoto, 0, 0, resizedWidth, resizedHeight);
+            graphic.DrawImage(photo.m_oPhoto, 0, 0, resizedWidth, resizedHeight);
 
             return photo;
         }
@@ -175,8 +179,8 @@ namespace PhotoGalleryLibrary
         /// <returns></returns>
         static public Photo ZoomInOut(Photo photo, int percent)
         {
-            int orginalWidth = photo.ImageObject.Width;
-            int orginalHeight = photo.ImageObject.Height;
+            int orginalWidth = photo.vimageobject.Width;
+            int orginalHeight = photo.vimageobject.Height;
 
             int resizedWidth = orginalWidth - (int)(orginalWidth * percent / 100);
             int resizedHeight = orginalHeight - (int)(orginalHeight * percent / 100);
@@ -186,7 +190,7 @@ namespace PhotoGalleryLibrary
             Graphics graphic = Graphics.FromImage((Image)bmp);
             graphic.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
-            graphic.DrawImage(photo.imgPhoto, 0, 0, resizedWidth, resizedHeight);
+            graphic.DrawImage(photo.m_oPhoto, 0, 0, resizedWidth, resizedHeight);
 
             return photo;
         }
@@ -201,15 +205,15 @@ namespace PhotoGalleryLibrary
         /// <returns>Photo's title</returns>
         public override string ToString()
         {
-            return this.Title;
+            return this.vtitle;
         }
 
         public void Dispose()
         {
-            imgPhoto = null;
-            strTitle = null;
-            strDescribe = null;
-            strAuthor = null;
+            m_oPhoto = null;
+            m_sTitle = null;
+            m_sDescribe = null;
+            m_sAuthor = null;
         }
 
 

@@ -27,10 +27,10 @@ namespace PhotoGalleryLibrary
             this.photo = photoToEdit;
             this.parentPhotoGallery = parentGallery;
 
-            this.txtTitle.Text = photoToEdit.PhotoObject.Title;
-            this.txtDescription.Text = photoToEdit.PhotoObject.Describe;
-            this.txtAuthor.Text = photoToEdit.PhotoObject.Author;
-            this.pbPhoto.Image = photoToEdit.PhotoObject.ImageObject;
+            this.txtTitle.Text = photoToEdit.PhotoObject.vtitle;
+            this.txtDescription.Text = photoToEdit.PhotoObject.vdescription;
+            this.txtAuthor.Text = photoToEdit.PhotoObject.vauthor;
+            this.pbPhoto.Image = photoToEdit.PhotoObject.vimageobject;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -65,10 +65,10 @@ namespace PhotoGalleryLibrary
                 if (MessageBox.Show("Czy chcesz zapisać zmiany?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
 
-                    photo.PhotoObject.Title = this.txtTitle.Text;
-                    photo.PhotoObject.Author = this.txtAuthor.Text;
-                    photo.PhotoObject.Describe = this.txtDescription.Text;
-                    photo.PhotoObject.ImageObject = this.pbPhoto.Image;
+                    photo.PhotoObject.vtitle = this.txtTitle.Text;
+                    photo.PhotoObject.vauthor = this.txtAuthor.Text;
+                    photo.PhotoObject.vdescription = this.txtDescription.Text;
+                    photo.PhotoObject.vimageobject = this.pbPhoto.Image;
 
                     photo.ImageObject = this.pbPhoto.Image;
                     this.Close();

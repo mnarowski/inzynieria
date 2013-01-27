@@ -10,12 +10,13 @@ namespace PhotoGalleryLibrary
     [Serializable]
     public class Album: IPhotosManagement, IDisposable
     {
-        private List<Photo> listPhotos;
-        private Image imgMainImage;
-        private string strTitle;
-        private string strDescribe;
-        private DateTime dtDateAdded;
-        private string strAuthor;
+        private List<Photo> m_loPhotos;
+        private Image m_oMainImage;
+        private string m_sTitle;
+        private string m_sDescribe;
+        private DateTime m_oDateAdded;
+        private string m_sAuthor;
+        private string m_sMainImagePath;
 
         #region Constructors
 
@@ -24,11 +25,11 @@ namespace PhotoGalleryLibrary
         /// </summary>
         private Album()
         {
-            this.listPhotos = new List<Photo>();
-            this.strTitle = string.Empty;
-            this.strDescribe = string.Empty;
-            this.dtDateAdded = DateTime.Now;
-            this.strAuthor = string.Empty;
+            this.m_loPhotos = new List<Photo>();
+            this.m_sTitle = string.Empty;
+            this.m_sDescribe = string.Empty;
+            this.m_oDateAdded = DateTime.Now;
+            this.m_sAuthor = string.Empty;
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace PhotoGalleryLibrary
         public Album(string title)
             : this()
         {
-            this.strTitle = title;
+            this.m_sTitle = title;
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace PhotoGalleryLibrary
         public Album(string title, string describe)
             : this(title)
         {
-            this.strDescribe = describe;
+            this.m_sDescribe = describe;
         }
 
         /// <summary>
@@ -61,19 +62,20 @@ namespace PhotoGalleryLibrary
         public Album(string title, string describe, string author)
             : this(title, describe)
         {
-            this.strAuthor = author;
+            this.m_sAuthor = author;
         }
 
         #endregion
 
         #region Properties
 
-        public List<Photo> Photos { get { return this.listPhotos; } } //readonly
-        public string Title { get { return this.strTitle; } set { this.strTitle = value; } }
-        public string Describe { get { return this.strDescribe; } set { this.strDescribe = value; } }
-        public DateTime DateAdded { get { return this.dtDateAdded; } }  //readonly
-        public string Author { get { return this.strAuthor; } set { this.strAuthor = value; } }
-        public Image MainImage { get { return this.imgMainImage; } set { this.imgMainImage = value; } }
+        public List<Photo> vphotos { get { return this.m_loPhotos; } } //readonly
+        public string vtitle { get { return this.m_sTitle; } set { this.m_sTitle = value; } }
+        public string vdescribe { get { return this.m_sDescribe; } set { this.m_sDescribe = value; } }
+        public DateTime vdateadded { get { return this.m_oDateAdded; } }  //readonly
+        public string vauthor { get { return this.m_sAuthor; } set { this.m_sAuthor = value; } }
+        public Image vmainimage { get { return this.m_oMainImage; } set { this.m_oMainImage = value; } }
+        public string vmainimagepath { get { return this.m_sMainImagePath; } set { this.m_sMainImagePath = value; this.m_oMainImage = System.Drawing.Image.FromFile(value); } }
 
         #endregion
 
@@ -85,12 +87,12 @@ namespace PhotoGalleryLibrary
         /// <param name="item">Photo object to add</param>
         public void AddPhoto(Photo item)
         {
-            if (this.Photos == null)
+            if (this.vphotos == null)
             {
-                this.listPhotos = new List<Photo>();
+                this.m_loPhotos = new List<Photo>();
             }
 
-            this.Photos.Add(item);
+            this.vphotos.Add(item);
         }
 
         /// <summary>
@@ -99,9 +101,9 @@ namespace PhotoGalleryLibrary
         /// <param name="item">Photo object to delete</param>
         public void DeletePhoto(Photo item)
         {
-            if (this.Photos != null)
+            if (this.vphotos != null)
             {
-                this.Photos.Remove(item);
+                this.vphotos.Remove(item);
             }
         }
 
@@ -111,12 +113,12 @@ namespace PhotoGalleryLibrary
         /// <param name="items">Photo objects to add</param>
         public void AddPhotos(params Photo[] items)
         {
-            if (Photos == null)
+            if (vphotos == null)
             {
-                this.listPhotos = new List<Photo>();
+                this.m_loPhotos = new List<Photo>();
             }
 
-            this.Photos.AddRange(items);
+            this.vphotos.AddRange(items);
         }
 
         /// <summary>
@@ -125,11 +127,11 @@ namespace PhotoGalleryLibrary
         /// <param name="items">Photo objects to delete</param>
         public void DeletePhotos(params Photo[] items)
         {
-            if (this.Photos != null)
+            if (this.vphotos != null)
             {
                 foreach (Photo item in items)
                 {
-                    this.Photos.Remove(item);
+                    this.vphotos.Remove(item);
                 }
             }
         }
@@ -139,9 +141,9 @@ namespace PhotoGalleryLibrary
         /// </summary>
         public void DeleteAllPhotos()
         {
-            if (this.Photos != null)
+            if (this.vphotos != null)
             {
-                this.Photos.Clear();
+                this.vphotos.Clear();
             }
         }
 
@@ -155,16 +157,16 @@ namespace PhotoGalleryLibrary
         /// <returns>Album's title</returns>
         public override string ToString()
         {
-            return this.Title;
+            return this.vtitle;
         }
 
         public void Dispose()
         {
-            this.listPhotos.Clear();
-            this.listPhotos = null;
-            this.strTitle = null;
-            this.strDescribe = null;
-            this.strAuthor = null;
+            this.m_loPhotos.Clear();
+            this.m_loPhotos = null;
+            this.m_sTitle = null;
+            this.m_sDescribe = null;
+            this.m_sAuthor = null;
         }
 
 
