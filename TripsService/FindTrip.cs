@@ -155,6 +155,12 @@ namespace TripsService
             //Trip trip = (Trip)((IList<Trip>)this.dataGridView1.DataSource).ElementAt<Trip>(index);
             //new TripEdit(trip);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form f = new TripEdit(new Trip());
+            f.Visible = true;
+        }
         
     }
 }
