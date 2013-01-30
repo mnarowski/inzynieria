@@ -79,7 +79,6 @@
     <property name="vlatitude" column="latitude" />
     <property name="vtype" column="attractiontype" type="AttractionType"/>
   </class>
-  <!--DO DOKOŃCZENIA-->
   <!--Klasa Photo - PhotoGallery.dll-->
   <class name="PhotoGalleryLibrary.Photo, PhotoGalleryLibrary" table="photo" schema="public" lazy="true">
     <id name="vid" column="id_photo">
@@ -90,8 +89,9 @@
     <property name="vimagepath" column="filelocation"/>
     <property name="vtitle" column="name"/>
     <property name="vdescription" column="description" />
-    <!--<property name="vauthorId" column="unknown" />-->
-    <property name="vdateadded" column="datecreated" type="DateTime"/>
+    <property name="vauthor" column="author" />
+    <property name="vdateadded" column="datecreated"/>
+    <property name="valbumid" column="id_album"/>
   </class>
   <!--Klasa Album - PhotoGallery.dll-->
   <class name="PhotoGalleryLibrary.Album, PhotoGalleryLibrary" table="album" schema="public" lazy="true">
@@ -101,10 +101,9 @@
       </generator>
     </id>
     <property name="vtitle" column="name"/>
-    <!--<property name="vdescribe" column="unknown"/>
-    <property name="vauthor" column="unknown" />
-    <property name="vmainimagepath" column="unknown" />
-    <property name="vdateadded" column="unknown" type="DateTime"/>-->
+    <property name="vdescribe" column="description"/>
+    <property name="vauthor" column="author" />
+    <property name="vmainimagepath" column="main_photo_path" />
   </class>
 </hibernate-mapping>
 

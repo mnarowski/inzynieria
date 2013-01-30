@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using PhotoGalleryLibrary.GUI;
 using System.Threading;
+using PhotoGalleryLibrary.DB;
 
 namespace PhotoGalleryLibrary
 {
@@ -47,6 +48,8 @@ namespace PhotoGalleryLibrary
 
                     this.album.Title = this.txtTitle.Text;
                     this.album.MainImage = this.pbMainPhoto.Image;
+
+                    DbService.Update<Album>(this.album.AlbumObject);
 
                     this.Close();
                 }

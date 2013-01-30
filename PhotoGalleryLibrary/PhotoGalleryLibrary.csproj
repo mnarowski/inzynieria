@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\..\Downloads\NHibernate-3.3.2.GA-bin\Required_Bins\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\..\Downloads\NHibernate-3.3.2.GA-bin\Required_Bins\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -47,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Album.cs" />
+    <Compile Include="DB\DbService.cs" />
+    <Compile Include="DB\SessionFactory.cs" />
     <Compile Include="frmPhotoAdd.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -44,6 +44,7 @@
             this.searchAttraction = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.btnPhotoGallery = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -196,11 +197,23 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // btnPhotoGallery
+            // 
+            this.btnPhotoGallery.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnPhotoGallery.Location = new System.Drawing.Point(34, 258);
+            this.btnPhotoGallery.Name = "btnPhotoGallery";
+            this.btnPhotoGallery.Size = new System.Drawing.Size(114, 53);
+            this.btnPhotoGallery.TabIndex = 24;
+            this.btnPhotoGallery.Text = "GALERIA";
+            this.btnPhotoGallery.UseVisualStyleBackColor = true;
+            this.btnPhotoGallery.Click += new System.EventHandler(this.btnPhotoGallery_Click);
+            // 
             // UserEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 323);
+            this.Controls.Add(this.btnPhotoGallery);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.searchAttraction);
@@ -245,5 +258,6 @@
         private System.Windows.Forms.Button searchAttraction;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnPhotoGallery;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using PhotoGalleryLibrary.GUI;
+using PhotoGalleryLibrary.DB;
 
 namespace PhotoGalleryLibrary
 {
@@ -14,6 +15,7 @@ namespace PhotoGalleryLibrary
     {
         PhotoGallery parentPhotoGallery = null;
         PhotoIcon photo = null;
+        string pathToPhoto = string.Empty;
 
         public frmPhotoEdit()
         {
@@ -49,6 +51,7 @@ namespace PhotoGalleryLibrary
                     if (openImage.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
                         this.pbPhoto.Image = Image.FromFile(openImage.FileName);
+                        this.pathToPhoto = openImage.FileName;
                     }
                 }
                 catch
@@ -70,7 +73,15 @@ namespace PhotoGalleryLibrary
                     photo.PhotoObject.vdescription = this.txtDescription.Text;
                     photo.PhotoObject.vimageobject = this.pbPhoto.Image;
 
+                    if (this.pathToPhoto != string.Empty)
+                    {
+                        photo.PhotoObject.vimagepath = this.pathToPhoto;
+                    }
+
                     photo.ImageObject = this.pbPhoto.Image;
+
+                    DbService.Update<Photo>(this.photo.PhotoObject);
+
                     this.Close();
                 }
             }

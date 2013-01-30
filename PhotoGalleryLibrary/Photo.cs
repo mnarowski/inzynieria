@@ -8,27 +8,28 @@ using System.Runtime.Serialization;
 namespace PhotoGalleryLibrary
 {
     [Serializable]
-    public class Photo: IDisposable
+    public class Photo : IDisposable
     {
         private int m_iID;
         private Image m_oPhoto;
         private string m_sTitle;
         private string m_sDescribe;
-        private DateTime m_oDateAdded;
+        private string m_oDateAdded;
         private string m_sAuthor;
         private string m_sImagePath;
+        private int m_iAlbumId;
 
         #region Constructors
 
         /// <summary>
         /// Private constructor to use by other constructors (not to use by library user)
         /// </summary>
-        private Photo()
+        public Photo()
         {
             this.m_sTitle = string.Empty;
             this.m_sDescribe = string.Empty;
             this.m_sAuthor = string.Empty;
-            this.m_oDateAdded = DateTime.Now;
+            this.m_oDateAdded = DateTime.Now.ToShortDateString();
         }
 
         /// <summary>
@@ -55,13 +56,14 @@ namespace PhotoGalleryLibrary
 
         #region Properties
 
-        public int vid { get { return this.m_iID; } set { this.m_iID = value; } }
-        public Image vimageobject { get { return this.m_oPhoto; } set { this.m_oPhoto = value; } }
-        public string vimagepath { get { return this.m_sImagePath; } set { this.m_sImagePath = value; this.m_oPhoto = System.Drawing.Image.FromFile(value); } }
-        public string vtitle { get { return this.m_sTitle; } set { this.m_sTitle = value; } }
-        public string vdescription { get { return this.m_sDescribe; } set { this.m_sDescribe = value; } }
-        public DateTime vdateadded { get { return this.m_oDateAdded; } set { this.m_oDateAdded = value; } }
-        public string vauthor { get { return this.m_sAuthor; } set { this.m_sAuthor = value; } }
+        public virtual int vid { get { return this.m_iID; } set { this.m_iID = value; } }
+        public virtual Image vimageobject { get { return this.m_oPhoto; } set { this.m_oPhoto = value; } }
+        public virtual string vimagepath { get { return this.m_sImagePath; } set { this.m_sImagePath = value; this.m_oPhoto = System.Drawing.Image.FromFile(value); } }
+        public virtual string vtitle { get { return this.m_sTitle; } set { this.m_sTitle = value; } }
+        public virtual string vdescription { get { return this.m_sDescribe; } set { this.m_sDescribe = value; } }
+        public virtual string vdateadded { get { return this.m_oDateAdded; } set { this.m_oDateAdded = value; } }
+        public virtual string vauthor { get { return this.m_sAuthor; } set { this.m_sAuthor = value; } }
+        public virtual int valbumid { get { return this.m_iAlbumId; } set { this.m_iAlbumId = value; } }
 
         #endregion
 
@@ -72,7 +74,7 @@ namespace PhotoGalleryLibrary
         /// </summary>
         /// <param name="width">New image's width</param>
         /// <param name="height">New image's height</param>
-        public void ResizeTo(int width, int height)
+        public virtual void ResizeTo(int width, int height)
         {
             int orginalWidth = this.vimageobject.Width;
             int orginalHeight = this.vimageobject.Height;
@@ -82,7 +84,7 @@ namespace PhotoGalleryLibrary
             Graphics graphic = Graphics.FromImage((Image)bmp);
             graphic.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
-            graphic.DrawImage(this.m_oPhoto, 0, 0, width, height);     
+            graphic.DrawImage(this.m_oPhoto, 0, 0, width, height);
         }
 
         /// <summary>
@@ -111,7 +113,7 @@ namespace PhotoGalleryLibrary
         /// Method to zoom in ImageObject
         /// </summary>
         /// <param name="percent">Percent by which zoom in the photo</param>
-        public void ZoomInAbout(int percent)
+        public virtual void ZoomInAbout(int percent)
         {
             int orginalWidth = this.vimageobject.Width;
             int orginalHeight = this.vimageobject.Height;
@@ -131,7 +133,7 @@ namespace PhotoGalleryLibrary
         /// Method to zoom out ImageObject
         /// </summary>
         /// <param name="percent">Percent by which zoom out the photo</param>
-        public void ZoomOutAbout(int percent)
+        public virtual void ZoomOutAbout(int percent)
         {
             int orginalWidth = this.vimageobject.Width;
             int orginalHeight = this.vimageobject.Height;

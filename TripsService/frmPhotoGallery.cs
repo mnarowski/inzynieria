@@ -14,6 +14,7 @@ namespace TripsService
         public frmPhotoGallery()
         {
             InitializeComponent();
+            this.photoGallery1.RefreshAlbumsView();
         }
     }
 }

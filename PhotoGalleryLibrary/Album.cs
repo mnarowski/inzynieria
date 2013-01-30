@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Runtime.Serialization;
+using PhotoGalleryLibrary.DB;
 
 namespace PhotoGalleryLibrary
 {
     [Serializable]
-    public class Album: IPhotosManagement, IDisposable
+    public class Album : IPhotosManagement, IDisposable
     {
         private int m_iID;
         private List<Photo> m_loPhotos;
@@ -24,13 +25,8 @@ namespace PhotoGalleryLibrary
         /// <summary>
         /// No-arguments constructor
         /// </summary>
-        private Album()
+        public Album()
         {
-            this.m_loPhotos = new List<Photo>();
-            this.m_sTitle = string.Empty;
-            this.m_sDescribe = string.Empty;
-            this.m_oDateAdded = DateTime.Now;
-            this.m_sAuthor = string.Empty;
         }
 
         /// <summary>
@@ -70,14 +66,26 @@ namespace PhotoGalleryLibrary
 
         #region Properties
 
-        public int vid { get { return this.m_iID; } set { this.m_iID = value; } }
-        public List<Photo> vphotos { get { return this.m_loPhotos; } } //readonly
-        public string vtitle { get { return this.m_sTitle; } set { this.m_sTitle = value; } }
-        public string vdescribe { get { return this.m_sDescribe; } set { this.m_sDescribe = value; } }
-        public DateTime vdateadded { get { return this.m_oDateAdded; } }  //readonly
-        public string vauthor { get { return this.m_sAuthor; } set { this.m_sAuthor = value; } }
-        public Image vmainimage { get { return this.m_oMainImage; } set { this.m_oMainImage = value; } }
-        public string vmainimagepath { get { return this.m_sMainImagePath; } set { this.m_sMainImagePath = value; this.m_oMainImage = System.Drawing.Image.FromFile(value); } }
+        public virtual int vid { get { return this.m_iID; } set { this.m_iID = value; } }
+        public virtual List<Photo> vphotos //readonly
+        {
+            get
+            {
+                NHibernate.ISession session = SessionFactory.GetNewSession();
+                string sql = "from Photo p WHERE p.valbumid = :albumid";
+
+                NHibernate.IQuery query = session.CreateQuery(sql);
+                query = query.SetParameter("albumid", this.vid);
+
+                return query.List<Photo>().ToList<Photo>();
+            }
+        }
+        public virtual string vtitle { get { return this.m_sTitle; } set { this.m_sTitle = value; } }
+        public virtual string vdescribe { get { return this.m_sDescribe; } set { this.m_sDescribe = value; } }
+        public virtual DateTime vdateadded { get { return this.m_oDateAdded; } }  //readonly
+        public virtual string vauthor { get { return this.m_sAuthor; } set { this.m_sAuthor = value; } }
+        public virtual Image vmainimage { get { return this.m_oMainImage; } set { this.m_oMainImage = value; } }
+        public virtual string vmainimagepath { get { return this.m_sMainImagePath; } set { this.m_sMainImagePath = value; this.m_oMainImage = System.Drawing.Image.FromFile(value); } }
 
         #endregion
 
@@ -87,7 +95,7 @@ namespace PhotoGalleryLibrary
         /// Method to add the photo to the album
         /// </summary>
         /// <param name="item">Photo object to add</param>
-        public void AddPhoto(Photo item)
+        public virtual void AddPhoto(Photo item)
         {
             if (this.vphotos == null)
             {
@@ -95,17 +103,20 @@ namespace PhotoGalleryLibrary
             }
 
             this.vphotos.Add(item);
+
+            DbService.Add<Photo>(item);
         }
 
         /// <summary>
         /// Method to delete the photo
         /// </summary>
         /// <param name="item">Photo object to delete</param>
-        public void DeletePhoto(Photo item)
+        public virtual void DeletePhoto(Photo item)
         {
             if (this.vphotos != null)
             {
                 this.vphotos.Remove(item);
+                DbService.Delete<Photo>(item);
             }
         }
 
@@ -113,7 +124,7 @@ namespace PhotoGalleryLibrary
         /// Method to add photos 
         /// </summary>
         /// <param name="items">Photo objects to add</param>
-        public void AddPhotos(params Photo[] items)
+        public virtual void AddPhotos(params Photo[] items)
         {
             if (vphotos == null)
             {
@@ -127,13 +138,14 @@ namespace PhotoGalleryLibrary
         /// Method to delete photos 
         /// </summary>
         /// <param name="items">Photo objects to delete</param>
-        public void DeletePhotos(params Photo[] items)
+        public virtual void DeletePhotos(params Photo[] items)
         {
             if (this.vphotos != null)
             {
                 foreach (Photo item in items)
                 {
                     this.vphotos.Remove(item);
+
                 }
             }
         }
@@ -141,7 +153,7 @@ namespace PhotoGalleryLibrary
         /// <summary>
         /// Method to delete all photos
         /// </summary>
-        public void DeleteAllPhotos()
+        public virtual void DeleteAllPhotos()
         {
             if (this.vphotos != null)
             {

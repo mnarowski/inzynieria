@@ -41,7 +41,7 @@
       <HintPath>..\..\..\..\Downloads\NHibernate-3.3.2.GA-bin\Tests\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Security">
-      <HintPath>..\..\..\..\..\..\npsql\Mono.Security.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\npsql\npsql\Mono.Security.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\..\..\..\Downloads\NHibernate-3.3.2.GA-bin\Required_Bins\NHibernate.dll</HintPath>
@@ -166,6 +166,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPhotoGallery.resx">
       <DependentUpon>frmPhotoGallery.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="LocationEditorForm.resx">
       <DependentUpon>LocationEditorForm.cs</DependentUpon>

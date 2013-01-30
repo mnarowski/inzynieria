@@ -13,6 +13,7 @@ namespace PhotoGalleryLibrary
     public partial class frmPhotoAdd : Form
     {
         PhotoGallery parentGallery = null;
+        string pathToPhoto = string.Empty;
 
         public frmPhotoAdd()
         {
@@ -41,6 +42,7 @@ namespace PhotoGalleryLibrary
                     if (openImage.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
                         this.pbPhoto.Image = Image.FromFile(openImage.FileName);
+                        this.pathToPhoto = openImage.FileName;
                     }
                 }
                 catch
@@ -58,6 +60,8 @@ namespace PhotoGalleryLibrary
                 newPhoto.vtitle = this.txtTitle.Text;
                 newPhoto.vauthor = this.txtAuthor.Text;
                 newPhoto.vdescription = this.txtDescription.Text;
+                newPhoto.vimagepath = this.pathToPhoto;
+                newPhoto.valbumid = parentGallery.GetSelectedAlbumIcon().AlbumObject.vid;
 
                 parentGallery.GetSelectedAlbumIcon().AlbumObject.AddPhoto(newPhoto);
                 parentGallery.RefreshPhotosView();

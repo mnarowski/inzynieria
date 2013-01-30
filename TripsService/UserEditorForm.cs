@@ -91,6 +91,12 @@ namespace TripsService
             f.Visible = true;
         }
 
+        private void btnPhotoGallery_Click(object sender, EventArgs e)
+        {
+            frmPhotoGallery oFrmPhotoGallery = new frmPhotoGallery();
+            oFrmPhotoGallery.Show();
+        }
+
 
     }
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using PhotoGalleryLibrary.DB;
 using PhotoGalleryLibrary.GUI;
 
 namespace PhotoGalleryLibrary
@@ -13,13 +14,15 @@ namespace PhotoGalleryLibrary
     public partial class frmAlbumAdd : Form
     {
         private PhotoGallery parentGallery = null;
+        private string pathToImage = string.Empty;
 
         public frmAlbumAdd()
         {
             InitializeComponent();
         }
 
-        public frmAlbumAdd(PhotoGallery photoGallery):this()
+        public frmAlbumAdd(PhotoGallery photoGallery)
+            : this()
         {
             this.parentGallery = photoGallery;
         }
@@ -35,13 +38,7 @@ namespace PhotoGalleryLibrary
             {
                 Album newAlbum = new Album(this.txtTitle.Text, this.txtDescription.Text, this.txtAuthor.Text);
                 newAlbum.vmainimage = this.pbMainPhoto.Image;
-
-                Photo newPhoto = new Photo(this.pbMainPhoto.Image);
-                newPhoto.vtitle = newAlbum.vtitle;
-                newPhoto.vauthor = newAlbum.vauthor;
-                newPhoto.vdescription = "Zdjęcie główne albumu";
-
-                newAlbum.AddPhoto(newPhoto);
+                newAlbum.vmainimagepath = this.pathToImage;
 
                 parentGallery.GalleryObject.AddAlbum(newAlbum);
                 parentGallery.RefreshAlbumsView();
@@ -65,6 +62,7 @@ namespace PhotoGalleryLibrary
                     if (openImage.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
                         this.pbMainPhoto.Image = Image.FromFile(openImage.FileName);
+                        this.pathToImage = openImage.FileName;
                     }
                 }
                 catch

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
+using PhotoGalleryLibrary.DB;
 
 namespace PhotoGalleryLibrary
 {
     [Serializable]
-    public class AlbumsManager: IAlbumsManagement, IDisposable
+    public class AlbumsManager : IAlbumsManagement, IDisposable
     {
-        private List<Album> listAlbums = null;  
+        private List<Album> listAlbums = null;
 
         #region Properties
 
@@ -31,7 +32,8 @@ namespace PhotoGalleryLibrary
         /// Construcor
         /// </summary>
         /// <param name="albums">Albums object to add to the albums collection</param>
-        public AlbumsManager(params Album [] albums): this()
+        public AlbumsManager(params Album[] albums)
+            : this()
         {
             foreach (Album item in albums)
             {
@@ -41,7 +43,7 @@ namespace PhotoGalleryLibrary
 
         #endregion
 
-        #region Functions 
+        #region Functions
 
         /// <summary>
         /// Method to add album
@@ -55,6 +57,7 @@ namespace PhotoGalleryLibrary
             }
 
             this.Albums.Add(album);
+            DbService.Add<Album>(album);
         }
 
         /// <summary>
@@ -63,7 +66,7 @@ namespace PhotoGalleryLibrary
         /// <param name="albums">Albums object to add to the album's collection</param>
         public void AddAlbums(params Album[] albums)
         {
-            if (this.Albums == null)    
+            if (this.Albums == null)
             {
                 this.Albums = new List<Album>();
             }
@@ -71,6 +74,7 @@ namespace PhotoGalleryLibrary
             foreach (Album item in albums)
             {
                 this.Albums.Add(item);
+                DbService.Add<Album>(item);
             }
         }
 
@@ -83,6 +87,7 @@ namespace PhotoGalleryLibrary
             if (this.Albums != null)
             {
                 this.Albums.Remove(album);
+                DbService.Delete<Album>(album);
             }
         }
 
@@ -90,13 +95,14 @@ namespace PhotoGalleryLibrary
         /// Method to delete albums 
         /// </summary>
         /// <param name="albums">Album objects to delete from album's collection</param>
-        public void DeleteAlbums(params Album [] albums)
+        public void DeleteAlbums(params Album[] albums)
         {
             if (this.Albums != null)
             {
                 foreach (Album alb in albums)
                 {
                     this.Albums.Remove(alb);
+                    DbService.Delete<Album>(alb);
                 }
             }
         }

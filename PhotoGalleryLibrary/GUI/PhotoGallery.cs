@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using PhotoGalleryLibrary.Exceptions;
+using PhotoGalleryLibrary.DB;
 
 namespace PhotoGalleryLibrary.GUI
 {
@@ -82,6 +83,8 @@ namespace PhotoGalleryLibrary.GUI
 
             if (this.GalleryObjectSource != null)
             {
+                this.GalleryObjectSource.Albums = DbService.GetAll<Album>().ToList<Album>();
+
                 if (this.GalleryObjectSource.Albums != null)
                 {
                     int nextLocation = topMargin;
@@ -207,7 +210,7 @@ namespace PhotoGalleryLibrary.GUI
             this.txtTitle.Text = photoIco.PhotoObject.vtitle;
             this.txtAuthor.Visible = true;
             this.txtDate.Visible = true;
-            this.txtDate.Text = photoIco.PhotoObject.vdateadded.ToShortDateString();
+            this.txtDate.Text = photoIco.PhotoObject.vdateadded;
         }
 
         public void AddAlbumObject(Album album)
@@ -225,7 +228,7 @@ namespace PhotoGalleryLibrary.GUI
         public void DeleteSelectedAlbum()
         {
             AlbumIcon selectedAlbum = SelectedAlbum;
-            
+
             if (selectedAlbum != null)
             {
                 this.GalleryObjectSource.DeleteAlbum(selectedAlbum.AlbumObject);
@@ -282,7 +285,7 @@ namespace PhotoGalleryLibrary.GUI
             newAlbum.Show();
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) 
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
             if (menuItem != null)
