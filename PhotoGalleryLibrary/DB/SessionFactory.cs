@@ -7,7 +7,7 @@ namespace PhotoGalleryLibrary.DB
 {
     public class SessionFactory
     {
-        public static readonly string connectionString = "Server=localhost;Database=inzynieria2;User ID=postgres;Password=asiula;";
+        public static readonly string connectionString = "Server=localhost;Database=inzynieria;User ID=inzynieria;Password=inzynieria;";
 
 
         private static NHibernate.ISessionFactory sFactory;
