@@ -32,10 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Iesi.Collections">
-      <HintPath>..\..\..\..\Downloads\NHibernate-3.3.2.GA-bin\Required_Bins\Iesi.Collections.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\NHibernate-3.3.2.GA-bin\Required_Bins\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\..\Downloads\NHibernate-3.3.2.GA-bin\Required_Bins\NHibernate.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\NHibernate-3.3.2.GA-bin\Required_Bins\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -156,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Actions-view-pim-notes-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

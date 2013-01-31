@@ -15,10 +15,10 @@ namespace TripsService
         private Trip trip;
         private string destDir = string.Empty;
         
-        public TripEdit()
-        {
-            InitializeComponent();
-        }
+        //public TripEdit()
+        //{
+        //    InitializeComponent();
+        //}
 
         public TripEdit(Trip trip)
         {
@@ -28,19 +28,23 @@ namespace TripsService
             Type x = typeof(Trip);
             t.ForTrip(trip);
             destDir = t.GetDataBaseLocation();
-            if (trip.vid == null) {
+            InitializeComponent();
+        
+            if (trip.vid == 0) {
+                trip.vorganizer = AuthAdapter.GetInstance().getIdentity().vid;
+                button1.Visible = false;
                 button3.Visible = false;
             }
  
-            InitializeComponent();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Trip t;
-            if (trip.vid == null)
+            if (trip.vid == 0)
             {
                  t = new Trip();
+                 t.vorganizer = AuthAdapter.GetInstance().getIdentity().vid;
             }
             else {
                  t = trip;

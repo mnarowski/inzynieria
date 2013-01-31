@@ -7,7 +7,7 @@ namespace TripsService.AppFiles.Database
 {
     public class SessionFactory
     {
-        public static readonly string connectionString = "Server=localhost;Database=inzynieria;User ID=inzynieria;Password=inzynieria;";
+        public static readonly string connectionString = "Server=localhost;Database=inzynieria2;User ID=postgres;Password=asiula;";
 
 
         private static NHibernate.ISessionFactory sFactory;
