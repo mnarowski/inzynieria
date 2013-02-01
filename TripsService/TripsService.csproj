@@ -37,9 +37,6 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\..\..\..\Downloads\NHibernate-3.3.2.GA-bin\Required_Bins\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\..\..\..\Downloads\NHibernate-3.3.2.GA-bin\Tests\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Security">
       <HintPath>..\..\..\..\Downloads\npsql\npsql\Mono.Security.dll</HintPath>
     </Reference>

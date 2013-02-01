@@ -41,7 +41,7 @@ namespace TripsService
         private void button1_Click(object sender, EventArgs e)
         {
             Attraction a;
-            if (attr.vid == null)
+            if (attr.vid == 0)
             {
                 a = new Attraction();
             }

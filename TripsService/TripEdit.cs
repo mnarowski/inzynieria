@@ -111,7 +111,7 @@ namespace TripsService
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.openFileDialog1.Filter = "*.wav|*.wav";
+            this.openFileDialog1.Filter = "*.wmv|*.wmv";
             this.openFileDialog1.ShowDialog();
         }
 
