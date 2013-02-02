@@ -32,13 +32,13 @@ namespace TripsService
             }
 
             if(checkBox1.Checked){
-                what += ",t.name";
-                QueryString += addGroupBy(" t.name as nazwa");
+                what += ",t.name as nazwa";
+                QueryString += addGroupBy(" t.name ");
             }
 
             if(checkBox2.Checked){
-                what += ",t.length";
-                QueryString += addGroupBy(" t.length as odleglosc_trasy");
+                what += ",t.length as odleglosc";
+                QueryString += addGroupBy(" t.length ");
                 //dq = dq.AddOrder(Order.Asc("vlength"));
             }
 
@@ -61,7 +61,7 @@ namespace TripsService
             }
 
             if(checkBox6.Checked){
-                what += ",(SELECT name FROM attraction a WHERE a.id_attraction = t.attraction) as atrakcja";
+                what += ",(SELECT name FROM attraction a WHERE a.id_attraction = t.attraction LIMIT 1) AS atrakcja ";
                 QueryString += addGroupBy(" t.attraction ");
                 //dq = dq.AddOrder(Order.Asc("vattraction"));
             }
@@ -77,18 +77,27 @@ namespace TripsService
                 dataGridView1.DataSource = ds.Tables[0];
                 conn.Close();
             }
-            catch (Exception) {
-                System.Windows.Forms.MessageBox.Show("Problem z pobraniem danych");
+            catch (Exception exp)
+            {
+                System.Windows.Forms.MessageBox.Show(/*String.Format(QueryString, what) + */"Problem z pobraniem danych"/* + exp.Message*/);
+            }
+            finally {
+                this.firstToGroup = false;
             }
         }
 
         public string addGroupBy(string param) {
-            if (!firstToGroup) {
-                firstToGroup = true;
+            if (this.firstToGroup == false) {
+                this.firstToGroup = true;
                 return param;
             }
 
             return "," + param;
+        }
+
+        private void TripGroup_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

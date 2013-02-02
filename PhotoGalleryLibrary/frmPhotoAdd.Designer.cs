@@ -164,6 +164,7 @@
             this.Name = "frmPhotoAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nowe zdjęcie";
+            this.Load += new System.EventHandler(this.frmPhotoAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

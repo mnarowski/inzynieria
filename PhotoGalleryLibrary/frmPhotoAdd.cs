@@ -60,9 +60,15 @@ namespace PhotoGalleryLibrary
                 newPhoto.vtitle = this.txtTitle.Text;
                 newPhoto.vauthor = this.txtAuthor.Text;
                 newPhoto.vdescription = this.txtDescription.Text;
-                newPhoto.vimagepath = this.pathToPhoto;
-                newPhoto.valbumid = parentGallery.GetSelectedAlbumIcon().AlbumObject.vid;
-
+                try
+                {
+                    newPhoto.vimagepath = this.pathToPhoto;
+                    newPhoto.valbumid = parentGallery.GetSelectedAlbumIcon().AlbumObject.vid;
+                }
+                catch (Exception) {
+                    System.Windows.Forms.MessageBox.Show("Nie wybrano albumu lub obrazka do zdjęcia!");
+                    return;
+                }
                 parentGallery.GetSelectedAlbumIcon().AlbumObject.AddPhoto(newPhoto);
                 parentGallery.RefreshPhotosView();
                 this.Close();
@@ -71,6 +77,11 @@ namespace PhotoGalleryLibrary
             {
                 MessageBox.Show("Podaj tytuł zdjęcia!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void frmPhotoAdd_Load(object sender, EventArgs e)
+        {
+            //do nothing
         }
     }
 }
